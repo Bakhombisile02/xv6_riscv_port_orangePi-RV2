@@ -1,0 +1,25568 @@
+1. Overview
+1.1 Introduction
+Ky ® X1 is a high-performance and ultra-low-power SoC that integrates 8 RISC-V
+CPU
+
+cores with Ky® AI computing power. It comes with the following most relevant
+
+advantages:
+•
+
+Integration of Ky® X60™ RISC-V core processor which adheres to the RISC-V
+
+64GCVB architecture and RVA22 standard
+•
+
+Capable of 2.0 TOPS AI computing power by leveraging customized RISC-V
+
+instructions to enable CPU AI fusion computing
+•
+
+Support of the popular AI inference frameworks such as TensorFlow Lite,
+
+TensorFlow, and ONNX Runtime
+•
+
+Achievement of ultra-low power consumption by incorporating multiple granular
+
+power islands and adjusting power states (this makes X1 highly competitive in terms
+of energy usage)
+•
+
+Availability of full-feature interfaces to enrich more innovative applications and
+
+products
+•
+
+Compatibility with mainstream OS to meet the needs of various application
+
+scenarios
+•
+
+Compliance with the industrial-grade reliability standards
+
+1.2 General Features
+•
+
+Application Processor (AP)
+￮
+
+Ky® X60™ RISC-V Dual-Cluster 8-Core Processor
+
+￮
+
+Adherence to the RISC-V 64GCVB architecture and RVA22 standard
+
+￮
+
+Cluster 0
+▪
+
+Quad-Core with 2.0 TOPS AI computing power
+
+▪
+
+32K L1-Cache per core
+
+▪
+
+512K L2-Cache
+
+￮
+
+￮
+•
+
+▪
+
+512KB TCM
+
+▪
+
+256bit vector
+
+Cluster 1
+▪
+
+Quad-Core
+
+▪
+
+32K L1-Cache per core
+
+▪
+
+512K L2-Cache
+
+▪
+
+256bit vector
+
+DVFS with adaptive operating voltage from 0.6V to 1.05V
+
+DDR Memory
+￮
+
+Dual-Chip selection, 32-bit LPDDR4/LPDDR4x SDRAM with 2666 Mbps
+
+transfer rate, supporting up to 16 GB of RAM
+￮
+
+Dual-Chip selection, 32-bit LPDDR3 SDRAM with 1866 Mbps transfer rate,
+
+supporting up to 4 GB of RAM
+•
+
+•
+
+RCPU (Real-Time CPU)
+￮
+
+R-I2C (×1)
+
+￮
+
+R-I2S (×2)
+
+￮
+
+R-UART (×2)
+
+￮
+
+R-CAN_FD (×1)
+
+￮
+
+R-IR_RX (×1)
+
+￮
+
+R-PWM (×10)
+
+￮
+
+R-SPI (×1)
+
+Peripheral Controller
+￮
+
+￮
+
+GPIO (×128)
+▪
+
+128 pins
+
+▪
+
+Pull-up/pull-down programmable
+
+▪
+
+104x 1.8V IO8
+
+▪
+
+24x 1.8V/3.3V IO
+
+UART (×10)
+▪
+
+AP/BT/print
+
+￮
+
+I2C (×10)
+▪
+
+For camera, G-Sensor, E-COMPASS, Proximit-Sensor, Light-Sensor,
+
+Gyro, Fingerprint, NFC, PMIC, Touch, etc.
+▪
+
+8x AP_I2C (AP I2C0/1/7 dedicated for camera) + 1x HDMI I2C + 1x
+
+PWR I2C
+￮
+
+￮
+
+￮
+
+￮
+
+￮
+
+SPI (×4)
+▪
+
+Support of both master and slave mode
+
+▪
+
+For IMU, codec etc.
+
+▪
+
+Platform with 4 SPI (1x QSPI, 1x SPI LCD, 2x SPI)
+
+USB (×3)
+▪
+
+USB 2.0 OTG
+
+▪
+
+USB 2.0 Host
+
+▪
+
+USB 3.0 (combo PCIE PortA)
+
+PCIE (×3)
+▪
+
+PCIE PortA Gen2x1
+
+▪
+
+PCIE PortB Gen2x2
+
+▪
+
+PCIE PortC Gen2x2
+
+GMAC (×2)
+▪
+
+10/100/1000 Mbps
+
+▪
+
+RGMII
+
+SDIO (×1 for WIFI)
+▪
+
+￮
+
+SD (×1 for TF card)
+▪
+
+￮
+
+Compatible with 4-bit SD 3.0 UHS-I protocol, up to SDR104 (208MHz)
+
+eMMC (×1)
+▪
+
+￮
+
+Compatible with 4-bit SDIO 3.0 UHS-I protocol, up to SDR104 (208MHz)
+
+Compatible with 8bit eMMC5.1, up to HS400 (200MHz)
+
+MIPI CSI (CSI-2 v1.1) 4-Lane (×2)
+▪
+
+4-Lane + 4-Lane mode
+
+▪
+
+4-Lane + 2-Lane mode
+
+▪
+
+￮
+
+MIPI DSI (DSI v1.1) (×1)
+▪
+
+•
+
+•
+
+•
+
+•
+
+4-Lane DSI
+
+￮
+
+PWM (×20)
+
+￮
+
+CAN-FD (×1)
+
+￮
+
+IR-RX (×1)
+
+Security System
+￮
+
+RISC-V PMP Security
+
+￮
+
+Secure Boot
+
+￮
+
+Secure eFuse 4K bits
+
+￮
+
+Cryptographic engine (TRNG, AES, RSA, ECC, SHA2, HMAC)
+
+Debug System
+￮
+
+Two JTAGs for both CPU and MCU subsystem
+
+￮
+
+UARTs
+
+￮
+
+CPU/IO register snapshot after watchdog reboot
+
+Boot System
+￮
+
+Initial AP boot from SPI-Nand/SPI-NorFlash/eMMC/SD
+
+￮
+
+128KB boot-ROM
+
+Aided System
+￮
+
+•
+
+4-Lane + 2-Lane + 2-Lane mode (triple sensor)
+
+Watchdog design for each CPU/MCU subsystem
+
+Operating Temperature
+￮
+
+-40°C ~ +85°C (Industrial Standard)
+
+1.3 Multimedia Features
+•
+
+•
+
+GPU
+￮
+
+IMG BXE-2-32@819MHz, 32KB SLC
+
+￮
+
+Support of OpenCL3.0/OpenGL ES 3.2/Vulkan1.3
+
+VPU (Video Processing Unit)
+
+￮
+
+H.265/H.264/VP8/VP9/MPEG4/MPEG2 decoder 4K@60fps
+
+￮
+
+H.265/H.264/VP8/VP9 encoder 4K@30fps
+
+￮
+
+Support of simultaneous encoding and decoding at 1080P@60fps
+
+￮
+
+Support of simultaneous H264/H265 encoding at 1080P@30fps and
+
+H264/H265 decoding at 4K@30fps
+•
+
+Display
+￮
+
+1 MIPI DSI-4 lane or SPI interface
+
+￮
+
+Support up to HD+ (1920x1080@60fps)
+
+￮
+
+Support of up to 4-full-size-layer composer and maximum 8-layer composer
+
+by up-down layer reuse in RDMA channel
+￮
+
+Support of cmdlist mechanism which can configure register parameters by
+
+hardware
+￮
+
+Support of concurrent write-back with both raw and AFBC format
+
+￮
+
+Support of dither/crop/rotation in write-back path
+
+￮
+
+Support of an advanced MMU (virtual address) mechanism with nearly no
+
+page missing in 90/270 degree rotation
+
+•
+
+￮
+
+Support of color key and solid color
+
+￮
+
+Support of both advanced error diffusion and pattern based dither for panel
+
+￮
+
+Support of both raw and AFBC format image source
+
+￮
+
+Support of color saturation/contrast enhancement
+
+￮
+
+Support of both video mode and cmd mode for panel
+
+￮
+
+Support of DDR frequency dynamic changing with embedded DFC buffer
+
+￮
+
+HDMI 1.4
+
+Camera
+￮
+
+Dual-ISP
+▪
+
+16M (max) 30fps Dual ISP
+
+▪
+
+One 4-Lane CSI + one 4-Lane CSI, or 4-Lane + 2-Lane + 2-Lane
+
+▪
+
+RAW sensor, output YUV data to DRAM
+
+▪
+
+Hardware JPEG encoder, supporting up to 23M
+
+•
+
+▪
+
+Support of YUV/EXIF/JFIF format
+
+▪
+
+AF/AE/AWB
+
+▪
+
+Face detection
+
+▪
+
+Digital zoom, panorama view
+
+▪
+
+PDAF
+
+▪
+
+PiP (Picture-in-Picture)
+
+▪
+
+Continuous video AF
+
+▪
+
+HW 3D denoise
+
+Audio
+￮
+
+2 × Full-Duplex I2S Interfaces
+
+￮
+
+1 × HDMI Audio Interface
+
+1.4 Block Diagram
+The architecture of X1 is depicted
+below.
+
+2. Specifications
+2.1 CPU Subsystem
+2.1.1 Features
+
+•
+
+Availability of two asymmetric CPU clusters, where
+•
+
+Cluster 0 integrates Quad RISC-V Ky® X60™ Cores with 2.0 TOPS
+
+AI-Power extension
+•
+•
+
+Cluster 1 includes Quad RISC-V Ky® X60™ Cores without AI capability
+
+High-performance: low-power Ky® X60™ CPU core adheres to RISC-V 64GCVB
+
+architecture and RVA22 standard
+•
+
+Support of a processor core local interrupt controller (CLINT) and a platform level
+
+interrupt controller (PLIC)
+•
+
+Compliance with RISC-V debug V0.13.2 standard
+
+•
+
+Capture of a snapshot of the CPU critical information when a watchdog reset
+
+occurs in order to help debugging
+•
+
+Power islands and two-level power strategies design for each CPU core and
+
+clusters in order to achieve ultra-low power consumption
+
+2.1.2 Ky® X60™ RISC-V Core
+
+2.1.2.1 Introduction
+
+X60™ is an innovative high-efficiency processor core that adheres to RISC-V
+64GCVB and RVA22 standards.
+In order to meet the current and future computational demand, X60™ incorporates
+numerous DSA technologies and micro-architecture optimizations, and provides
+robust computing power for Al applications, machine learning, SLAM, etc.
+
+2.1.2.2 Features
+
+￮
+
+Compliance with RISC-V 64GCVB and RVA22 standards
+
+￮
+
+Each core has 32KB L1-I cache and 32KB L1-D cache
+
+￮
+
+Each cluster contains 512KB L2 cache
+
+▪
+
+Cluster 0 integrates 512KB TCM (Tight-Coupled Memory) for AI extension
+
+▪
+
+L1 cache supports MESI consistency protocol, instead L2 cache supports MOESI
+
+consistency protocol
+▪
+
+Vector extension: RVV1.0 with VLEN 256/128-bit and x2 execution width
+
+▪
+
+AI customized instructions explored and implemented in Cluster 0
+
+▪
+
+Support of CLINT and PLIC with a total of 256 interrupts
+
+￮
+
+Support of RISC-V performance PMU
+
+▪
+
+Support of SV39 virtual memory
+
+▪
+
+Support of 32 PMP entries adhering to RISC-V security framework
+
+▪
+
+Support of RISC-V debug framework
+
+▪
+
+Support of the following extensions:
+￮
+
+RV64I
+
+•
+
+M
+
+￮
+
+A
+
+￮
+
+F
+
+•
+
+D
+
+￮
+
+C
+
+￮
+
+V
+
+￮
+
+Sscofpmf
+
+￮
+
+Sstc
+
+￮
+
+Svinval
+
+￮
+
+Svnapot
+
+￮
+
+Svpbmt
+
+•
+
+Zicbom
+
+￮
+
+Zicbop
+
+▪
+
+Zicboz
+
+▪
+
+Zicntr
+
+▪
+
+Zicond
+
+▪
+
+Zicsr
+
+￮
+
+Zifencei
+
+▪
+
+Zihintpause
+
+￮
+
+Zihpm
+
+▪
+
+Zfh
+
+▪
+
+Zfhmin
+
+￮
+
+Zkt
+
+▪
+
+Zba
+
+▪
+
+Zbb
+
+▪
+
+Zbc
+
+￮
+
+Zbs
+
+▪
+
+Zbkc
+
+▪
+
+Zvfh
+
+▪
+
+Zvfhmin
+
+￮
+
+Zvkt
+
+2.1.2.3 Block Diagram
+
+2.1.3 Interrupt Controller
+
+2.1.3.1 Introduction
+
+X1 contains
+▪
+
+One Processor Core Local Interrupt Controller (CLINT)
+
+▪
+
+One Platform Level Interrupt Controller (PLIC)
+
+to manage interrupts for two processor clusters.
+The exception handling, which includes exceptions and external interrupts, is an
+important function of the processor. When specific events occur, the processor
+redirects to handle them. Such events can include hardware faults, instruction
+execution errors, user program service requests, and more.
+CLINT is a memory address mapped module for handling software interrupts and
+timer interrupts.
+Instead, PLIC samples external interrupt sources, then prioritizes and distributes them
+accordingly. In the PLIC model, both the machine mode and supervisor mode of each
+core are valid interrupt targets. PLIC supports up to 256 external interrupt sources.
+Each interrupt supports both level and edge formats.
+
+2.1.4 Debug & Trace
+
+2.1.4.1 Introduction
+
+The debugging interface serves as the channel for software to interact with the
+processor. Through this interface, users can access CPU registers and memory
+contents, as well as other on-chip device information. Additionally, tasks such as
+downloading programs can be performed via the debugging interface.
+
+2.1.4.2 Block Diagram
+
+The micro-architecture of the debugging interface is depicted below.
+
+As can be seen, the debugging system consists of
+▪
+
+A debugging software
+
+￮
+
+A debugging agent service
+
+▪
+
+A debugger
+
+▪
+
+A debugging interface
+
+These components are interconnected as follows:
+￮
+
+The debugging software communicates with the debugging agent service over a
+
+network
+▪
+
+The debugging agent service connects to the debugger via USB
+
+￮
+
+The debugger interacts with the CPU through the JTAG interface
+
+The JTAG memory access method could be either progbuf or sysbus mode, where
+▪
+
+The progbuf mode is a standard JTAG method that accesses memory through
+
+the CPU
+
+￮
+
+The sysbus mode bypasses the CPU to access on-chip resources via the System
+
+Bus Access (SBA) port
+
+2.2 Memory & Storage
+2.2.1 On-Chip Memory
+
+2.2.1.1 Introduction
+
+X1 includes the following on-chip memory:
+▪
+
+128KB boot-ROM
+
+￮
+
+256KB SRAM shared between Main CPU and RCPU
+
+2.2.2 DDR
+
+2.2.2.1 Introduction
+
+The DDR controller features a cutting-edge design that optimizes DRAM access by
+rearranging requests into an efficient order, rather than processing them in their
+original sequence. It uses re-ordering buffers (ROBs) to reorganize accesses to the
+SRAM device for improving performance, while maintaining the original transaction
+order for requests with the same ID on the AXI interface.
+Additionally, the DDR controller includes a unified write pool to temporarily store write
+transactions. Such write pool minimizes write latency and reduces the performance
+penalty due to switching between read and write operation at the DRAM interface.
+With a built-in heuristic write buffer control and user-programmable write buffer control,
+the DDR controller dynamically balances read and write operation performance in
+real-time.
+The DDR controller is also designed to support AMBA AXI4 bus protocols. It is fully
+scalable and supports up to 4 AXI ports.
+
+2.2.2.2 Features
+
+▪
+
+Priority-based arbitration with a starvation prevention scheme
+
+▪
+
+Merge of write operations to the same address by using a write buffer to reduce
+
+DDR write operation traffic
+▪
+
+Direct forward of read operations of the write buffer to the ROB without accessing
+
+DDR
+￮
+
+Two levels dynamic scheduling with bandwidth guarantee
+
+▪
+
+Support of power-saving features, including active/pre-charge power-off and
+
+self-refresh, with control options available automatically (via idle timer), manually
+(through registers) or externally (via dedicated ports)
+￮
+
+Support of dynamic frequency change
+
+￮
+
+Support of JEDEC compliant LPDDR3 and LPDDR4 devices
+
+￮
+
+Support of DRAM size from 64MB to 16GB
+
+•
+
+One DRAM channel with a x32 DDR PHY, programmable by software to support
+
+x32, x16 or x8 data width
+￮
+
+Support of x16, x32 DRAM devices (1 DQS per 8 DQ)
+
+￮
+
+Support up to 2 Chip Select (CS) or Rank per channel
+
+￮
+
+Support up to 8 banks per CS for LPDDRx
+
+￮
+
+Each CS can be mapped to a different starting address
+
+•
+
+Each CS can be programmed for 8MB to 16GB
+
+￮
+
+DRAM banks can be kept open after access (no auto-pre-charge)
+
+￮
+
+Support of burst length of 8 and 16 for the applicable DDR type
+
+￮
+
+Programmable address order
+
+•
+
+Flexible bank placement between CS and data width
+
+￮
+
+Implementation of memory controller performance counters
+
+￮
+
+Global monitors for RISC-V exclusive load/store access
+
+•
+
+Secure access management for DDR transactions
+
+￮
+
+Frequency change register update: implementation of a register table for
+
+hardware-triggered sequence update after frequency changes
+
+2.2.2.3 Block Diagram
+
+The architecture of the DDR controller interface is depicted below.
+
+2.2.3 Quad-SPI
+
+2.2.3.1 Introduction
+
+Quad-SPI acts as an interface to external serial flash devices with up to four
+bidirectional data lines.
+
+2.2.3.2 Features
+
+•
+
+Flexible sequence engine to support various flash vendor devices
+
+￮
+
+Single, dual and quad mode operation
+
+•
+
+DMA supports reading RX buffer data via AMBA AHB bus (64-bit width interface)
+
+or IP register space (32-bit access), and filling TX buffer via IP register space (32-bit
+access)
+￮
+
+Configurable DMA inner loop size
+
+￮
+
+Fifteen interrupt conditions
+
+•
+
+Memory-mapped read access for connected flash devices
+
+￮
+
+Programmable sequence engine for future command/protocol changes, and able
+
+to support all existing vendor commands and operations
+￮
+
+Support of all types of addressing
+
+￮
+
+Support of standard SPI, Fast, Dual, Dual I/O, Quad, Quad I/O mode
+
+￮
+
+Operation up to 104MHz clock frequency
+
+2.2.4 eMMC Interface
+
+2.2.4.1 Introduction
+
+The eMMC interface is a hardware block that acts as a host of the eMMC bus to
+transfer data between eMMC card and the internal bus master.
+
+2.2.4.2 Features
+
+•
+
+Compatibility with 8 bits eMMC 5.1 protocol specification
+
+￮
+
+Use of the same SD-HCI register set for eMMC transfers, with additional
+
+vendor-specific registers
+￮
+
+Support of 1-bit/8-bit MMC and CE-ATA cards
+
+￮
+
+Support of the following data transfer types defined in the SD-HCI specification:
+￮
+
+PIO
+
+￮
+
+SDMA
+
+￮
+
+ADMA
+
+￮
+
+ADMA2
+
+￮
+
+Support of the SPI mode for eMMC card
+
+￮
+
+Support of the following speed modes defined in eMMC 5.1:
+￮
+
+Legacy (up to 26MB/s, 1.8V signal)
+
+•
+
+￮
+
+High-speed SDR (up to 52MB/s, 1.8V signal)
+
+￮
+
+High-speed DDR (up to 52MB/s, 1.8V signal)
+
+￮
+
+HS200 (up to 200MB/s, 1.8V signal)
+
+￮
+
+HS400 (up to 400MB/s, 1.8V signal)
+
+Hardware generation/checking of CRC for all command and data transactions on
+
+the card bus
+￮
+
+1024-byte FIFO (2 x 512-byte data blocks) for data transmission and reception
+
+2.2.5 SD/MMC Interface
+
+2.2.5.1 Introduction
+
+The SD/MMC interface is a hardware block that acts as a host of the SD/MMC bus to
+transfer data between SD/MMC card and the internal bus master.
+
+2.2.5.2 Features
+
+▪
+
+Compatibility with 4-bit SD 3.0 UHS-I protocol specification
+
+▪
+
+Follow up of the SD-HCI register set with additional vendor-specific registers
+
+▪
+
+Support of 1-bit/4-bit SD memory
+
+▪
+
+Support of the following data transfer types defined in the SD-HCI specification:
+
+▪
+
+▪
+
+PIO
+
+▪
+
+SDMA
+
+▪
+
+ADMA
+
+▪
+
+ADMA2
+
+Support of the following speed modes defined in the SD 3.0 specification:
+▪
+
+Default Speed (up to 12.5MB/s, 3.3V signal)
+
+▪
+
+High Speed (up to 25MB/s, 3.3V signal)
+
+•
+
+▪
+
+SDR12 (up to 25 MHz, 1.8V signal)
+
+•
+
+SDR25 (up to 50 MHz, 1.8V signal)
+
+￮
+
+SDR50 (up to 100 MHz, 1.8V signal)
+
+￮
+
+SDR104 (up to 208 MHz, 1.8V signal)
+
+￮
+
+DDR50 (up to 50 MHz, 1.8V signal)
+
+Hardware generation/checking of CRC for all command and data transactions on
+
+the card bus
+•
+
+Support of the read-wait control feature for SD/MMC cards
+
+•
+
+Support of the suspend-resume feature for SD/MMC cards
+
+•
+
+SD/MMC card insertion/removal detection feature via GPIO
+
+•
+
+1024 Bytes FIFO (2 x 512 Bytes data block) for data transmission and reception
+
+2.3 Image Subsystem
+2.3.1 MIPI Camera IN Interface
+
+2.3.1.1 Introduction
+
+The MIPI Camera IN interface features two MIPI-CSI2 v1.1 controllers both equipped
+with 4 lanes each of which supports a maximum transfer rate of 1.5Gbps.
+
+2.3.1.2 Features
+
+•
+
+Support of the following modes to allocate lanes to sensors:
+￮
+
+4-Lane + 4-Lane mode (double sensor)
+
+￮
+
+4-Lane + 2-Lane mode (double sensor)
+
+￮
+
+4-Lane + 2-Lane + 2-Lane mode (triple sensor)
+
+Note. In "4-Lane + 2-Lane + 2-Lane mode (triple sensor)", only 2 Bayer RAW
+
+and 1 YUV input format are supported.
+•
+
+•
+
+Support of the following input formats:
+￮
+
+Legacy YUV420 8-bit
+
+￮
+
+YUV420 8-bit
+
+￮
+
+RAW8
+
+￮
+
+RAW10
+
+￮
+
+RAW12
+
+￮
+
+RAW14
+
+￮
+
+Embedded data type
+
+Support of the following types of data interleaving:
+￮
+
+Data type interleaving
+
+￮
+
+Virtual channel interleaving
+
+2.3.2 ISP
+
+2.3.2.1 Introduction
+
+X1 includes a high-performance Image Signal Processor (ISP) which supports
+simultaneous processing of up to two raw video streams, with a total processing
+capacity of 21M@30fps.
+
+2.3.2.2 Features
+
+•
+
+Support of both video and picture mode
+
+•
+
+Process of RAW sensor data and output YUV data to DRAM
+
+•
+
+Hardware JPEG encoder/decoder (support up to 23M)
+
+•
+
+Support of YUV, EXIF, JFIF format
+
+•
+
+Auto-focus (AF), Auto-exposure (AE) and Auto-white balance (AWB)
+
+•
+
+Face detection
+
+•
+
+Digital zoom and panorama view
+
+•
+
+Phase Detection Auto-focus (PDAF)
+
+•
+
+Picture-in-Picture (PiP)
+
+•
+
+Continuous video AF
+
+•
+
+Hardware 3D denoise
+
+•
+
+Multi-layer 2D YUV denoise
+
+•
+
+Post-processing for lens shading correction
+
+•
+
+Edge enhancement
+
+Notes. To be highlighted the following limitations:
+•
+
+The system supports dual-camera video stream processing (RAW). In the
+
+“4-Lane + 2-Lane + 2-Lane mode (triple sensor)” as per Section 2.3.1, one sensor
+must be a YUV input format source, and the write path should not use the MMU.
+•
+
+When processing dual-camera video stream (RAW), the total input width of
+
+each channel should not exceed 4750 pixels. The combination of the
+instantaneous speed of the output pixel from both sensors must be less than "ISP's
+clock / 6"
+•
+
+For video recording, the maximum width of the output video is 1920 pixels,
+
+regardless of the input resolution.
+•
+
+For photo capture, the output image size can match the input resolution.
+
+2.3.3 GPU
+
+2.3.3.1 Introduction
+
+GPU is built around multi-threaded Unified Shading Clusters (USCs) that features an
+ALU architecture with high SIMD efficiency, and supports tile-based deferred
+rendering with concurrent processing of multiple tiles.
+The GPU engine handles a number of different workloads, including:
+
+•
+
+3D graphics workload: vertex and pixel data processing for rendering 3D scenes
+
+•
+
+Compute workload (GP-GPU): general purpose data processing
+
+Note. 3D graphics and compute (with barriers) workloads cannot be overlapped at
+the same time
+The GPU core has an AXI 128bits bus for accessing SOC's DDR memory with a core
+frequency of up to 819MHz.
+
+2.3.3.2 General Features
+
+•
+
+•
+
+Base architecture which is fully compliant with the following APIs:
+￮
+
+OpenGL ES 1.1/3.2
+
+￮
+
+EGL1.5
+
+￮
+
+OpenCL 3.0
+
+￮
+
+Vulkan 1.3
+
+Tile-based deferred rendering architecture (TBDR) for 3D graphics workloads,
+
+with concurrent processing of multiple tiles where data are processed in two phases
+as follows:
+￮
+
+Geometry Processing Phase: involvement of vertex operations such as
+
+transformation and vertex lighting as well as dividing a 3D scene into tiles
+￮
+
+Fragment Processing Phase: involvement of pixel operations such as
+
+rasterization, texturing and shading of pixels
+•
+
+Programmable high quality image anti-aliasing
+
+•
+
+Fine grain triangle culling
+
+•
+
+Support of Digital Right Management (DRM) security
+
+•
+
+Support of GPU virtualization as follows:
+
+•
+
+￮
+
+Up to 8 virtual GPUs
+
+￮
+
+IMG hyperlane technology with 8 hyperlanes available
+
+￮
+
+Separate IRQs per OSI
+
+Multi-threaded Unified Shading Cluster (USC) engine incorporating pixel shader,
+
+vertex shader and GP-GPU (compute shader) functionality
+•
+
+USC incorporates an ALU architecture with high SIMD efficiency
+
+•
+
+Fully virtualized memory addressing (up to 64 GB address space), supporting
+
+unified memory architecture
+•
+
+Fine-grained task switching, workload balancing and power management
+
+•
+
+Advanced DMA driven operation for minimum host CPU interaction
+
+•
+
+Cache type as follows:
+￮
+
+32KB System Level Cache (SLC)
+
+￮
+
+Specialized Texture Cache Unit (TCU)
+
+•
+
+Compressed Texture Decoding
+
+•
+
+Lossless and/or visually lossless low area image compression, using imagination
+
+frame buffer compression and decompression (TFBC) algorithm
+•
+
+Dedicated processor for B-Series core firmware execution
+
+•
+
+Single-threaded firmware processor with a 2KB instruction cache and a 2KB data
+
+cache
+•
+
+Separated power island for the firmware processor
+
+•
+
+On-chip performance, power and statistics registers
+
+2.3.3.3 3D Graphics Features
+
+•
+
+•
+
+Rasterization
+￮
+
+Deferred pixel shading
+
+￮
+
+On-chip tile floating point depth buffer
+
+￮
+
+8-bit stencil with on-chip tile stencil buffer
+
+￮
+
+Maximum 2 tiles in flight (per ISP)
+
+￮
+
+16 parallel depth/stencil tests per clock
+
+￮
+
+1 fixed-function rasterisation pipeline(s)
+
+Texture Lookups
+￮
+
+Support of loading from source instruction
+
+￮
+•
+
+Texture write enabled through the Texture Processing Unit (TPU)
+
+Filtering
+￮
+
+Point, bilinear and trilinear filtering
+
+￮
+
+Anisotropic filtering
+
+￮
+
+Corner filtering support for cube environment mapped textures and filtering
+
+across faces
+•
+
+Texture Formats
+￮
+
+ASTC LDR compressed texture format support
+
+￮
+
+TFBC lossless and/or lossy compression format support for non-compressed
+
+textures and YUV textures
+
+•
+
+•
+
+￮
+
+ETC
+
+￮
+
+YUV planar support
+
+Resolution Support
+￮
+
+Max frame buffer size: 8K×8K
+
+￮
+
+Max texture max size: 8K×8K
+
+Anti-Aliasing
+￮
+
+•
+
+•
+
+•
+
+Max 4× multisampling
+
+Primitive Assembly
+￮
+
+Early hidden object removal
+
+￮
+
+Tile acceleration
+
+Render to Buffers
+￮
+
+Twiddled format support
+
+￮
+
+Multiple On-Chip Render Targets (MRT)
+
+￮
+
+Lossless and/or lossy frame buffer compression/decompression
+
+￮
+
+Programmable geometry shader support
+
+￮
+
+Direct geometry stream out (transform feedback)
+
+Compute
+￮
+
+1, 2 and 3 dimensional compute primitives
+
+￮
+
+Block DMA to/from USC Common Store (for local data)
+
+￮
+
+Per task input data DMA (to USC Unified Store)
+
+￮
+
+Conditional execution
+
+￮
+
+Execution fences
+
+￮
+
+Compute workload can be overlapped with any other workload
+
+￮
+
+Round to nearest even
+
+2.3.3.4 Unified Shading Cluster (USC) Features
+
+•
+
+2 ALU pipelines
+
+•
+
+8 parallel instances per clock
+
+•
+
+Local data, texture and instruction caches
+
+•
+
+Variable length instruction set encoding
+
+•
+
+Full support for OpenCL™ atomic operations
+
+•
+
+Scalar and vector SIMD execution model
+
+•
+
+USC F16 Sum-of-Products Multiply-Add (SOPMAD) Arithmetic Logic Unit (ALU)
+
+2.3.4 V2D
+
+2.3.4.1 Features
+
+•
+
+Support of upscaling (up to 8x) and downscaling (down to 1/8x)
+
+•
+
+Support of 0°, 90°, 180°, 270° rotation as well as mirror and flip option
+
+•
+
+Support of simple layer and background blending
+
+•
+
+Support of image cropping
+
+•
+
+Support of fetch solid color
+
+•
+
+Support of color space conversion between RGB, BT601 and BT709 (both
+
+narrow and full range)
+•
+
+4656x3596 or 4672x3504 as max NV12 resolution
+
+•
+
+Support of dithering for smoother color transitions
+
+•
+
+Support of MMU
+
+•
+
+Support of APB3 and AXI3 bus interfaces
+
+•
+
+Support of the following input formats:
+
+•
+
+￮
+
+RGB888 (with optional RB swap)
+
+￮
+
+RGBX888 (with optional RB swap)
+
+￮
+
+RGBA8888 (with optional RB swap)
+
+￮
+
+ARGB8888 (with optional RB swap)
+
+￮
+
+RGB565 (with optional RB swap)
+
+￮
+
+RGBA5658 (with optional RB swap)
+
+￮
+
+ARGB8565 (with optional RB swap)
+
+￮
+
+A8 (8-bit alpha image)
+
+￮
+
+Y8 (8-bit gray image)
+
+￮
+
+YUV420 semi-planar (UV can swap)
+
+￮
+
+AFBC 16x16 RGBA8888 (layerout0 split and non-split)
+
+￮
+
+AFBC 16x16 NV12 (layerout1 split and non-split)
+
+Support of the following output formats:
+￮
+
+RGB888 (with optional RB swap)
+
+￮
+
+RGBX888 (with optional RB swap)
+
+￮
+
+RGBA8888 (with optional RB swap)
+
+￮
+
+ARGB8888 (with optional RB swap)
+
+￮
+
+RGB565 (with optional RB swap)
+
+￮
+
+RGBA5658 (with optional RB swap)
+
+￮
+
+ARGB8565 (with optional RB swap)
+
+￮
+
+A8 (8-bit alpha image)
+
+￮
+
+Y8 (8-bit gray image)
+
+￮
+
+YUV420 semi planar (UV can swap)
+
+￮
+
+AFBC 16x16 RGBA8888 (layerout0 split and non-split)
+
+￮
+
+AFBC 16x16 NV12 (layerout1 split and non-split)
+
+2.3.4.2 Block Diagram
+
+The micro-architecture of the V2D subsystem is depicted below.
+
+Instead, the typical V2D work scenario is depicted below.
+
+2.3.4.3 Functions
+2.3.4.3.1 Fetch Data
+
+The process of fetching a 16×16 block of data from a source frame (src frame) and
+related mapping to the destination superblock (dst superblock) is depicted below,
+where
+•
+
+AFBC: fetch rect left, top, width, height 4 align
+
+•
+
+Non-AFBC: fetch rect left, top, width, height 1 align
+
+The code for fetching data for displaying is listed below, and the details of the specific
+variables and registers involved are tabled immediately after.
+Plain Text
+Input param: Rect_left, Rect_top, Rect_width, Rect_height
+Rect_width = Rect_left%4 + Rect_width;
+Rect_height = Rect_top%4 + Rect_height;
+Rect_left = Rect_left/4 × 4;
+Rect_top = Rect_top/4 × 4;
+if LayerX_format == YUV420
+{
+Rect_width = ALIGN(Rect_left %2 + Rect_width, 2);
+Rect_height
+
+= ALIGN(Rect_top%2 + Rect_height, 2);
+
+Rect_left = Rect_left/2 × 2;
+Rect_top = Rect_top/2 × 2;
+}
+Take the data in the Rect
+Loop every pixel in Rect
+{
+if LayerX_format == YUV420
+{
+upsample YUV420 to YUV444;
+c0 = channel 0; // Y
+c1 = channel 1; // U
+c2 = channel 2; // V
+
+c3 = 0xff;
+}
+if LayerX_format == RGB888
+{
+c0 = channel 0; // R
+c1 = channel 1; // G
+c2 = channel 2; // B
+c3 = 0xff; // A
+}
+if LayerX_format == RGBX8888
+{
+c0 = channel 0; // R
+c1 = channel 1; // G
+c2 = channel 2; // B
+c3 = 0xff; // A
+}
+if LayerX_format == RGBA8888
+{
+c0 = channel 0; // R
+c1 = channel 1; // G
+c2 = channel 2; // B
+c3 = channel 3; // A
+}
+if LayerX_format == ARGB8888
+{
+c0 = channel 1; // R
+c1 = channel 2; // G
+c2 = channel 3; // B
+c3 = channel 0; // A
+}
+if LayerX_format == RGB565
+{
+c0 = byte_low &0x1f; // R5
+c1 = ((byte_high << 3) | (byte_low >> 5)) & 0x3f; // G6
+c2 = (byte_high >> 3) &0x1f; // B5
+c0 = (c0 << 3) | (c0 >> 2); // R8
+c1 = (c1 << 2) | (c1 >> 4); // G8
+
+c2 = (c2 << 3) | (c2 >> 2); // B8
+c3 = 0xff; // A8
+}
+if LayerX_format == YUV420 && LayerX_swap == 1
+Swap(c1, c2);
+else if LayerX_swap == 1
+Swap(c0, c2);
+Index = Rect_y%16 × 16 + Rect_x;
+data[0][index] = c0;
+data[1][index] = c1;
+data[2][index] = c2;
+data[3][index] = c3;
+}
+
+Variable
+
+Bit
+
+Comment
+
+Rect_left
+
+16bit unsigned
+
+Range [0, 65535]
+
+5bit unsigned
+
+Range [1, 16]
+
+16bit unsigned
+
+Range [0, 65535]
+
+Rect_top
+Rect_width
+Rect_height
+Rect_x
+Rect_y
+
+Pixel global position
+
+c0, c1, c2, c3
+
+8bit unsigned
+
+Range [0, 255]
+
+byte_low
+
+8bit unsigned
+
+Range [0, 255]
+
+byte_high
+
+byte_low: lower byte in
+RGB565
+byte_high: higher byte in
+RGB565
+
+data[4][256]
+
+8bit unsigned × 4 × 256
+
+Range [0, 255]
+
+index
+
+8bit unsigned
+
+Range [0, 255]
+
+2.3.4.3.2 Solid Color
+
+The code for applying the solid color within a specific rectangle is listed below, and the
+details of the specific variables and registers involved are tabled immediately after.
+Notes.
+•
+
+If the register LayerX_solid is enabled, the fetched data is set to solid R, G,
+
+B, A
+•
+
+The coordinates of the fetch rect and solid rect are updated after rotation
+
+SQL
+Input param: Rect_left, Rect_top, Rect_width, Rect_height.
+if LayerX_solid_enable = 1
+{
+c0 = LayerX_solid_R;
+c1 = LayerX_solid_G;
+c2 = LayerX_solid_B;
+c3 = LayerX_solid_A;
+Loop all pixels in Rect
+{
+Index = Rect_y%16 × 16 + Rect_x;
+data[0][index] = c0;
+data[1][index] = c1;
+data[2][index] = c2;
+data[3][index] = c3;
+}
+Skip fetch data from ddr
+}
+
+Variable
+
+Bit
+
+Comment
+
+Rect_left, Rect_top
+
+16bit unsigned
+
+Range [0, 65535]
+
+Rect_width, Rect_height
+
+5bit unsigned
+
+Range [1, 16]
+
+Rect_x, Rect_y
+
+16bit unsigned
+
+Range [0, 65535]
+Pixel global position
+
+c0, c1, c2, c3
+
+8bit unsigned
+
+Range [0, 255]
+
+data[4][256]
+
+8bit unsigned × 4 × 256
+
+Range [0, 255]
+
+index
+
+8bit unsigned
+
+Range [0, 255]
+
+Register
+
+Comment
+
+LayerX_solid_enable
+
+X is 0 or 1, refer to module register
+
+LayerX_solid_R
+
+X is 0 or 1, refer to module register
+
+LayerX_solid_G
+
+X is 0 or 1, refer to module register
+
+LayerX_solid_B
+
+X is 0 or 1, refer to module register
+
+LayerX_solid_A
+
+X is 0 or 1, refer to module register
+
+2.3.4.3.3 Rotation
+
+Support of 0°, 90°, 180°, 270° rotation (performed clockwise) as well as mirror and flip
+option, as depicted below (example).
+
+The code for rotating, mirroring and flipping graphical content is listed below, and the
+details of the specific variables and registers involved are tabled immediately after).
+SQL
+Input param: Rect_left, Rect_top, Rect_width, Rect_height,
+data_in[4][256].
+Output: Block_rect_left, Block_rect_top, Block_rect_width,
+Block_rect_height, data_out[4][256].
+Block_rect_left = Rect_left;
+Block_rect_top = Rect_top;
+Block_rect_width = Rect_width;
+Block_rect_height = Rect_height;
+if LayerX_degree == ROT_0{
+Org_rect_left = Rect_left;
+Org_rect_top = Rect_top;
+Org_rect_width = Rect_width;
+Org_rect_height = Rect_height;
+}
+if LayerX_degree == ROT_90{
+Org_rect_left = Rect_top;
+Org_rect_top = ALIGN(LayerX_height,16) - Rect_left - Rect_width;
+Org_rect_width = Rect_height;
+Org_rect_height = Rect_width;
+}
+if LayerX_degree == ROT_180{
+Org_rect_left = ALIGN(LayerX_width,16) - Rect_left - Rect_width;
+Org_rect_top = ALIGN(LayerX_height,16) - Rect_top - Rect_height;
+Org_rect_width = Rect_width;
+
+Org_rect_height = Rect_height;
+}
+if LayerX_degree == ROT_270{
+Org_rect_left = ALIGN(LayerX_width,16)-Rect_top-Rect_height;
+Org_rect_top = Rect_left;
+Org_rect_width = Rect_height;
+Org_rect_height = Rect_width;
+}
+if LayerX_degree == ROT_MIRROR{
+Org_rect_left = ALIGN(LayerX_width,16) - Rect_left - Rect_width;
+Org_rect_top = Rect_top;
+Org_rect_width = Rect_width;
+Org_rect_height = Rect_height;
+}
+if LayerX_degree == ROT_FLIP{
+Org_rect_left = Rect_left;
+Org_rect_top = ALIGN(LayerX_height,16) - Rect_top - Rect_height;
+Org_rect_width = Rect_width;
+Org_rect_height = Rect_height;
+}
+//fetch data in Org_rect
+Fetch_data(Org_rect, &data_in[4][256]);
+Loop all pixels in data_in{
+dst_index=jx16 + i;
+if LayerX_degree == ROT_0
+src_index=jx16 + i;
+if LayerX_degree == ROT_90
+src_index=(15-i)x16 + j;
+if LayerX_degree == ROT_180
+src_index=(15-j)x16 + (15-i);
+if LayerX_degree == ROT_270
+src_index= ix16+(15-j);
+if LayerX_degree == ROT_MIRROR
+src_index = jx16 + (15-i);
+if LayerX_degree == ROT_FLIP
+src_index = (15-j)x16 + i;
+data_out[0][dst_index]= data_in[0][src_index];
+
+data_out[1][dst_index]= data_in[1][src_index];
+data_out[2][dst_index]= data_in[2][src_index];
+data_out[3][dst_index]= data_in[3][src_index];
+}
+
+Variable
+
+Bit
+
+Comment
+
+Rect_left, Rect_top
+
+16bit unsigned
+
+Range [0, 65535]
+
+Rect_width, Rect_height
+
+5bit unsigned
+
+Range [1, 16]
+
+Block_rect_left,
+
+16bit unsigned
+
+Range [0, 65535]
+
+5bit unsigned
+
+Range [1, 16]
+
+8bit unsigned × 4 × 256
+
+Range [0, 255]
+
+Block_rect_top
+Block_rect_width,
+Block_rect_height
+data_in[4][256],
+data_out[4][256]
+
+Register
+
+Bit
+
+Comment
+
+LayerX_degree
+
+3bit
+
+X is 0 or 1, refer to module register
+
+unsigned
+LayerX_width,
+
+16bit
+
+LayerX_height
+
+unsigned
+
+X is 0 or 1, refer to module register
+
+2.3.4.3.4 CSC
+
+Support of Color Space Conversion (CSC) as per formats below:
+•
+
+BT601 and BT709: conversion between narrow and full range
+
+•
+
+RGB to YUV
+
+•
+
+YUV to RGB
+
+The conversion process transforms input channels into output channels by using a
+transformation matrix with clamping in order to ensure valid output values, i.e. within
+the range [0, 255].
+For that purpose, the formulas below are implemented, and the details of the specific
+variables and registers involved are tabled immediately after.
+[Firstly for computing the intermediate channel values]
+
+[Then for clamping in order to ensure valid output values]
+
+Variable
+
+Bit
+
+Comment
+
+C0in, C1in, C2in, C3in
+
+8bit unsigned
+
+Input channel
+
+C0inter, C1inter, C2inter
+
+10bit signed
+
+Intermediate channel
+value
+
+C0out, C1out, C2out,
+
+8bit unsigned
+
+Output channel
+
+C3out
+
+Register
+
+Index
+
+Bit
+
+Comment
+
+LayerX_CSC_en
+
+-
+
+1bit
+
+0: disable
+
+able
+
+Layer_matrix[#][#
+
+0-11
+
+unsigned
+
+1: enable
+
+13bit signed
+
+Range [-4096, 4095]
+
+]
+In the code, the conversion process is applied with the following condition:
+Plain Text
+if LayerX_CSC_enable == 0
+skip CSC function
+
+2.3.4.3.5 Scaling
+
+The scaling operation follows a systematic superblock-based approach, where
+•
+
+The first four superblocks are outputted horizontally then vertically
+
+•
+
+After the vertical output is completed, the process restarts from the first row of
+
+superblocks
+
+2.3.4.3.6 Storing
+
+A 16×16 image block can be stored in DDR memory, however only the portion that
+falls within the output crop region is stored which is converted to the specified output
+color format, such as YUV, RGB, etc.
+The code for storing an image block is listed below, and the details of the specific
+variables and registers involved are tabled immediately after.
+SQL
+Input param: Rect_left, Rect_top, Rect_width, Rect_height,
+data_in[4][256]
+if output_format == YUV420
+{
+s0=0;
+s1=1;
+s2=2;
+
+if(output_swap){
+Swap(s1, s2);
+}
+Loop all pixels by 2x2{
+if(pixel in output_crop_rect){
+Y00=data_in[s0][pixel_index00];
+Y01=data_in[s0][pixel_index01];
+Y10=data_in[s0][pixel_index10];
+Y11=data_in[s0][pixel_index11];
+U00=data_in[s1][pixel_index00];
+U01=data_in[s1][pixel_index01];
+U10=data_in[s1][pixel_index10];
+U11=data_in[s1][pixel_index11];
+V00=data_in[s2][pixel_index00];
+V01=data_in[s2][pixel_index01];
+V10=data_in[s2][pixel_index10];
+V11=data_in[s2][pixel_index11];
+Downsample and store to output frame
+U=(U00+U01+U10+U11+2)>>2;
+V=(V00+V01+V10+V11+2)>>2;
+}
+}
+}
+if output_format == RGB888
+{
+s0=0;
+s1=1;
+s2=2;
+if(output_swap){
+Swap(s0, s2);
+}
+Loop all pixels{
+if(pixel in output_crop_rect){
+R=data_in[s0][pixel_index];
+G=data_in[s1][pixel_index];
+B=data_in[s2][pixel_index];
+store to output frame.
+
+}
+}
+}
+if output_format == RGBX888 || output_format == RGBA888
+{
+s0=0;
+s1=1;
+s2=2;
+s3=3;
+if(output_swap){
+Swap(s0, s2);
+}
+Loop all pixels{
+if(pixel in output_crop_rect){
+R=data_in[s0][pixel_index];
+G=data_in[s1][pixel_index];
+B=data_in[s2][pixel_index];
+A=data_in[s3][pixel_index];
+store to output frame.
+}
+}
+}
+if output_format == ARGB8888
+{
+s0=3;
+s1=0;
+s2=1;
+s3=2;
+if(output_swap){
+Swap(s1, s3);
+}
+Loop all pixels{
+if(pixel in output_crop_rect){
+R=data_in[s0][pixel_index];
+G=data_in[s1][pixel_index];
+B=data_in[s2][pixel_index];
+A=data_in[s3][pixel_index];
+
+store to output frame.
+}
+}
+}
+
+Variable
+
+Bit
+
+Comment
+
+Rect_left
+
+16bit unsigned
+
+Range [0, 65535]
+
+5bit unsigned
+
+Range [1, 16]
+
+pixel_index
+
+8bit unsigned
+
+Range [0, 65535]
+
+s0, s1, s2, s3
+
+8bit unsigned
+
+Range [0, 255]
+
+Y00, Y01, Y10, Y11, U00,
+
+8bit unsigned
+
+Range [0, 255]
+
+data_in[4][256]
+
+8bit unsigned × 4 × 256
+
+Range [0, 255]
+
+Register
+
+Bit
+
+Comment
+
+Output_format
+
+3bit
+
+0: RGB888 (R at low address, B at
+
+unsigned
+
+high address)
+
+Rect_top
+Rect_width
+Rect_height
+
+U01,
+U10, U11, V00, V01, V10,
+V11,
+U, V, R, G, B, A
+
+1: RGBX8888
+2: RGBA8888
+3: ARGB8888 (A at low address, B at
+
+high address)
+5: yuv420sp (U at low address, V at
+high address)
+Output_swap
+
+1bit
+unsigned
+
+Output_layout
+
+1bit
+unsigned
+
+Output_crop_left
+
+Output_crop_top
+
+Output_crop_width
+
+0: No swap
+1: RGB swap RB, YUV swap UV
+0: Linear
+1: FBC compressed
+
+16bit
+
+Range [0, 65534] crop_left <
+
+unsigned
+
+output_left + output_width
+
+16bit
+
+Range [0, 65534] crop_top <
+
+unsigned
+
+output_top + output_height
+
+16bit
+
+Range [1, 65535]
+
+unsigned
+
+crop_left + crop_wdith ≤ output_left +
+output_width
+
+Output_crop_height
+
+16bit
+unsigned
+
+Range [1, 65535]
+crop_top + crop_height ≤ output_top +
+output_height
+
+2.4 Video Subsystem
+2.4.1 Introduction
+The Video Processing Unit (VPU) is a video accelerator engine with two cores
+designed for decoding and encoding multiple video standards. It includes a host CPU
+to run firmware to control the hardware engine of functions, such as bit stream parsing,
+control of video hardware sub-blocks and error resilience.
+
+The VPU can work at up to 819MHz clock frequency, and supports a wide range of
+video standards, including H.265, H.264, VP8, VP9, MPEG4, MPEG2 and H263. It
+supports simultaneous
+•
+
+Encoding and decoding at 1080P@60fps
+
+•
+
+H264/H265 encoding at 1080P@30fps and H264/H265 decoding at 4K@30fps
+
+The video codec core block executes the actual decoding and encoding for each
+standard by using hardwired logic. Among them, Macroblock Sequencer is the main
+controller that schedules process flows of the sub-blocks, and aims to reduce loads
+on the processor and complexity of the firmware.
+As mentioned, several standard-independent blocks share common logics while they
+are in operation in order to ensure efficiency and streamlined performance.
+
+2.4.2 Video Encoder
+
+2.4.2.1 Encoding Features
+
+•
+
+Configurable Arm Frame Buffer Compression (AFBC) 1.0 or 1.2 for input
+
+•
+
+Support of YUV422 and YUV420 AFBC block split for 16 x 16
+
+•
+
+Support of stride (not applicable to AFBC input formats)
+
+•
+
+Horizontal and vertical mirroring (not applicable to AFBC input formats)
+
+•
+
+Optional source frame rotation in 90-degree steps before encoding (not
+
+applicable to AFBC input format)
+Note. If YUV422 is rotated by 90 or 270 degrees and not converting to
+YUV420, the result will be converted to YUV440.
+•
+
+Encoding support for the following source-frame input formats:
+￮
+
+1-plane YUV422, scan-line format, interleaved in YUYV or UYVY order
+Note. YUV422 input scan be converted to YUV420
+
+￮
+
+1-plane RGB (8-bit) in byte-address order: RGBA, BGRA, ARGB or ABGR
+
+￮
+
+2-plane YUV420, scan-line format, with chroma interleaved in UV or VU
+
+order
+￮
+
+3-plane YUV420, scan-line format
+Note. 3-plane format is supported for testing purposes only, and should
+not be used for optimal performance
+
+￮
+
+AFBC YUV422
+
+￮
+
+AFBC YUV420
+
+2.4.2.2 Supported Encoding Formats
+
+•
+
+HEVC (H.265) Main
+
+•
+
+H.264 Baseline Profile (BP)
+
+•
+
+H.264 Main Profile (MP)
+
+•
+
+H.264 High Profile (HP)
+
+•
+
+VP8
+
+•
+
+VP9 Profile 0
+
+2.4.2.2.1 HEVC (H.265) Encoding Features
+
+•
+
+Encoded bit stream is compliant with the HEVC (H.265) Main Profile
+
+•
+
+Encoding speed of 1080p@60fps (dual cores at approximately 300 MHz)
+
+•
+
+Bitrates up to 50MBit/s using a single core operating at 300MHz
+
+•
+
+Max frame width and height: 4096 pixels
+
+•
+
+8-bit encoding with I, P, and B frames
+
+•
+
+Progressive encoding with 64×64 CTU size
+
+•
+
+Support of tiled mode up to four tiles with horizontal splits only
+
+•
+
+Wave front parallel encoding
+
+•
+
+Motion Estimation (ME) search window dimensions: ±128 pixels horizontally, ±64
+
+pixels vertically
+
+•
+
+ME search precision: down to Quarter Picture Element (QPEL) resolution
+
+•
+
+Luma intra-modes: 8×8, 16×16, and 32×32
+
+•
+
+Chroma intra-modes: 4×4, 8×8, and 16×16
+
+•
+
+Inter-modes: 8×8, 16×16, and 32×32
+
+•
+
+Transform size for luma: 8×8, 16×16, and 32×32
+
+•
+
+Transform size for chromas: 4×4, 8×8, and 16×16
+
+•
+
+Skipped CUs and Merge modes
+
+•
+
+Deblocking
+
+•
+
+Sample Adaptive Offset (SAO)
+
+•
+
+Constrained intra-prediction selectable
+
+•
+
+Fixed Quantization Parameters (QP) or rate-controlled operation.
+
+•
+
+Rate control uses a leaky bucket model based on bitrate and buffer size settings
+
+•
+
+Long term reference frame support
+
+•
+
+Selectable intra-frame refresh interval
+
+•
+
+Slice insertion on a CTU row granularity
+
+•
+
+Selectable limits for the search window and split options
+
+•
+
+Encoders do not prevent the output from exceeding the maximum number of bits
+
+per CTU
+
+2.4.2.2.2 H.264 Encoding Features
+
+•
+
+Encoded bitstream is compliant with the Baseline, Main, High Profiles
+
+•
+
+Encoding speed of 1080p@60fps (dual cores at approximately 300 MHz)
+
+•
+
+Bitrates up to 50MBit/s using a single core operating at 300MHz
+
+•
+
+Max frame width and height: 4096 pixels.
+
+•
+
+Support of I, P, and B frames
+
+•
+
+Support of progressive encoding
+
+•
+
+Context Adaptive Binary Arithmetic Coding (CABAC) or Context Adaptive
+
+Variable Length Coding (CAVLC) entropy coding
+
+Note. B frames are not supported with CAVLC entropy coding
+•
+
+Motion Estimation (ME) search window dimensions: ±128 pixels horizontally, ±64
+
+pixels vertically
+•
+
+ME search precision: down to Quarter Picture Element (QPEL) resolution
+
+•
+
+Luma intra-modes: 4×4, 8×8, 16×16
+
+•
+
+Chroma intra-modes: 8×8
+
+•
+
+Inter-modes: 8×8, and 16×16
+
+•
+
+Transform size: 4×4 and 8×8
+
+•
+
+Support of skipped macroblocks
+
+•
+
+Deblocking
+
+•
+
+Constrained intra-prediction selectable
+
+•
+
+Fixed QP operation or rate-controlled operation
+
+•
+
+Rate control uses a leaky bucket model based on bitrate and buffer size settings
+
+•
+
+Support of long term reference frame
+
+•
+
+Selectable intra-frame refresh intervals
+
+•
+
+Slice insertion granularity of 32-pixel high rows
+
+•
+
+Possible to limit the search window and the macroblock split options
+
+•
+
+Always enabled the escape option to prevent the emulation of a Network
+
+Abstraction Layer (NAL) unit start code regardless of the NAL packet format setting
+Notes.
+•
+
+For further details, please refer to ITU-T H.264 Annex B: VC-1
+
+Compressed Video Bitstream Format and Decoding Process
+•
+
+Encoders do not prevent the output from exceeding the maximum number
+
+of bits per macroblock
+
+2.4.2.2.3 VP8 Encoding Features
+
+•
+
+Encoding speed of 1080p@60fps (dual core at approximately 400 MHz)
+
+•
+
+Bitrate up to 50MBit/s using a single core operating at 400MHz
+
+•
+
+Max frame width and height: 2048 pixels
+
+•
+
+Support of I and P frames
+
+•
+
+Support of progressive encoding
+
+•
+
+Motion Estimation (ME) search window dimensions: ±128 pixels horizontally, ±64
+
+pixels vertically
+•
+
+ME search precision: down to QPEL resolution
+
+•
+
+Luma intra-modes: 4×4, 8×8, 16×16
+
+•
+
+Chroma intra-modes: 8×8
+
+•
+
+Inter-modes: 8x8, and 16×16
+
+•
+
+Support of macroblocks skipping
+
+•
+
+Deblocking
+
+•
+
+Fixed QP operation or rate-controlled operation
+
+•
+
+Rate control uses a leaky bucket model based on bitrate and buffer size settings
+
+•
+
+Selectable intra-frame refresh intervals
+
+•
+
+Possible to limit the search window and the macroblock split
+
+2.4.2.2.4 VP9 Encoding Features
+
+•
+
+Encoded bitstream is compliant with VP9 Profile 0 at 8-bit depth
+
+•
+
+Encoding speed of 1080p@60fps (dual core at approximately 300 MHz)
+
+•
+
+Bitrate up to 50MBit/s using a single core operating at 300MHz
+
+•
+
+Max frame width and height: 4096 pixels
+
+•
+
+Support of 8-bit sample depth
+
+•
+
+Support of I and P frames
+
+•
+
+Support of progressive encoding
+
+•
+
+Tiled rows and columns
+
+•
+
+Motion Estimation (ME) search window dimensions: ± 128 pixels horizontally, ±
+
+64 pixels vertically
+
+•
+
+ME search precision: down to Quarter Picture ELement (QPEL) resolution
+
+•
+
+Luma intra-modes: 8×8, 16×16, and 32×32
+
+•
+
+Chroma intra-modes: 4×4, 8×8, and 16×16
+
+•
+
+Inter-modes: 8×8, 16×16, and 32×32
+
+•
+
+Transform size for luma: 8×8, 16×16, and 32×32
+
+•
+
+Transform size for chroma: 4×4, 8×8, and 16×16
+
+•
+
+Support of superblocks skipping
+
+•
+
+Deblocking
+
+•
+
+Fixed QP operation or rate-controlled operation
+
+•
+
+Rate control uses a leaky bucket model based on bitrate and buffer size settings
+
+•
+
+Selectable intra-frame refresh intervals
+
+•
+
+Support of implicit or explicit probability update using delayed contexts
+
+2.4.2 Video Decoder
+
+2.4.2.1 Decoding Features
+
+•
+
+Support of the following source frame output formats:
+￮
+
+2-plane YUV420 scan line format: chroma interleaved in UV or VU order
+
+￮
+
+3-plane YUV420 scan line format
+Notes.
+•
+
+Support of 3-plane format is included for testing purposes only, do
+
+not use such max performance for normal applications
+•
+
+Ensure of correct alignment of YUV buffer and stride for optima
+
+performance
+•
+
+YUV420 AFBC format, 8-bit color depth
+
+•
+
+Configurable for AFBC 1.0 or AFBC 1.2 output
+
+•
+
+Support of stride for scan-line formats only
+
+•
+
+Decoded frame rotation is supported in 90-degree steps before output
+Note. Not applicable for AFBC output formats
+
+•
+
+Support of output average luminance (brightness) and chrominance (color)
+
+values for each 32×32 pixel block in every displayed output frame
+
+2.4.2.2 Supported Decoding Formats
+
+•
+
+HEVC (H.265): Main Profile
+
+•
+
+H.264: Baseline, Main, High Profile
+
+•
+
+VP8
+
+•
+
+VP9: Profile 0
+
+•
+
+VC-1: SP/MP/AP
+
+•
+
+MPEG4: SP/ASP
+
+•
+
+MPEG2: MP
+
+•
+
+H.263: Profile 0
+
+2.4.2.2.1 HEVC (H.265) Decoding Features
+
+•
+
+Fully compliance with the Main Profiles
+
+•
+
+Support of 2160p@30fps using dual core operating at approximately 300MHz
+
+•
+
+Handle of average bitrate up to 100MBit/s with a single core at 600MHz
+
+•
+
+Max frame width and height: 4096 pixels
+
+•
+
+Error concealment is performed for handling bit errors
+
+•
+
+Output of relevant stream parameter information during decoding
+
+2.4.2.2.2 H.264 Decoding Features
+
+•
+
+Fully compliance with H.264 Baseline, Main, High and High 10 progressive
+
+Profiles
+
+•
+
+For streams using Flexible Macroblock Ordering (FMO) or Arbitrary Slice
+
+Ordering (ASO) in Baseline Profile, it is used WVGA resolution with decoding speed
+of 30fps with a single core at 400MHz
+•
+
+•
+
+•
+
+For streams without FMA and ASO, the decoding speeds are as follows:
+￮
+
+2160p@30fps using dual core at approximately 300MHz
+
+￮
+
+1080i@120fps using dual core at 400MHz
+
+For progressive streams:
+￮
+
+Average bitrate up to 100MBit/s with a single core at 600MHz
+
+￮
+
+Max frame width and height: 4096 pixels
+
+For interlaced streams:
+￮
+
+Average bitrate up to 50MBit/s with a single core at 400MHz
+
+￮
+
+Max frame width: 2048 pixels
+
+￮
+
+Max frame height: 4096 pixels
+
+•
+
+Error concealment is performed for managing bitstream errors
+
+•
+
+Output of relevant stream parameter information during decoding
+
+•
+
+Always enabled the escape option to prevent the emulation of a Network
+
+Abstraction Layer (NAL) unit start code, regardless of the NAL packet format setting
+Note. For further details, please refer to ITU-T H.264 Annex B: VC-1
+Compressed Video Bitstream Format and Decoding Process
+
+2.4.2.2.3 VP8 Decoding Features
+
+•
+
+Fully compliance with the VP8 Specification
+
+•
+
+Support of decoding speed of 1080p@60fps using dual core at approximately
+
+400MHz
+•
+
+Average bitrate up to 50MBit/s with single core at 400MHz
+
+•
+
+Max frame width and height: 2048 pixels
+
+•
+
+Error concealment is performed for managing bitstream errors
+
+2.4.2.2.4 VP9 Decoding Features
+
+•
+
+Fully compliance with Profile 0
+
+•
+
+Support of decoding speed of 2160p@30fps using dual core at approximately
+
+300MHz and assuming no non-visible and no Alt-Ref frames
+•
+
+Support of decoding speed of 2160p@30fps using dual core at approximately
+
+400MHz and assuming an Alt-Ref frame distance of 4
+•
+
+Average bitrate up to 60MBit/s using single core at 600MHz
+
+•
+
+Max frame width and height: 4096 pixels
+
+•
+
+Error concealment is performed for managing bitstream errors
+
+•
+
+Output of relevant stream parameter information during decoding
+
+2.4.2.2.5 VC-1 Decoding Features
+
+•
+
+Fully compliance with VC-1 Simple, Main, and Advanced Profiles
+
+•
+
+Support of decoding speeds of 1080p@60fps and 1080i@120fps using dual core
+
+at approximately 400MHz
+•
+
+Average bitrate up to 40MBit/s with single core at 400MHz
+
+•
+
+Max frame width: 2048 pixels
+
+•
+
+Max frame height: 4096 pixels
+
+•
+
+Error concealment is performed for managing bitstream errors
+Notes.
+•
+
+Advanced Profile bitstream data must always include the Encapsulation
+
+Mechanism regardless of the NAL packet format setting
+•
+
+For further details, please refer to SMPTE-421M-2006 Annex E
+
+•
+
+The range mapping feature of the VC-1 Advanced Profile does not apply
+
+to AFBC output
+
+2.4.2.2.6 MPEG4 Decoding Features
+
+•
+
+Compliance with MPEG4 Simple Profile and Advanced Simple Profile
+
+•
+
+Support of Global Motion Compensation (GMC) with a limitation of a single warp
+
+point
+•
+
+Support of decoding speed of 1080p@60fps or 1080i@120fps using dual core at
+
+400MHz
+•
+
+Handle of average bitrate up to 20MBit/s with a single core operating at 400MHz
+
+•
+
+Max frame width and height: 2048 pixels
+
+•
+
+Error concealment is performed for managing bitstream errors
+
+2.4.2.2.7 MPEG2 Decoding Features
+
+•
+
+Compliance with MPEG2 Main Profile
+
+•
+
+Support of decoding speed of 1080p@60fps or 1080i@120fps using dual core
+
+at 400MHz
+•
+
+Handle of average bitrate up to 20MBit/s with single core operating at 400MHz
+
+•
+
+Max frame width: 4906 pixels (2,048 pixels for interlaced stream)
+
+•
+
+Max frame height: 4096 pixels
+
+•
+
+Error concealment is performed for managing bitstream errors
+
+2.4.2.2.8 H.263 Decoding Features
+
+•
+
+Compliance with H.263 Profile 0
+
+•
+
+Support of decoding speed of 1080p@60fps using dual core at approximately
+
+400MHz
+•
+
+Handle of average bitrates up to 20MBit/s with single core operating at 400MHz
+
+•
+
+Max frame width and height: 2048 pixels
+
+•
+
+Error concealment is performed for managing bitstream errors
+
+2.5 Display Subsystem
+2.5.1 Display Controller
+
+2.5.1.1 Introduction
+
+The Display Controller is a hardware block that is used to transfer display data from
+the display's internal memory to the DSI controller. It supports one independent
+display device through MIPI DSI.
+
+2.5.1.2 Features
+
+•
+
+Support of up to HD+ (1920x1080@60fps)
+
+•
+
+Support of up to 4-full-size-layer composer and maximum 8 layer-composers by
+
+up-down layer reuse in the RDMA channel
+•
+
+Support of cmdlist mechanism allowing hardware register parameters to be
+
+configured
+•
+
+Support of concurrent write-back operations with both raw and AFBC format
+
+•
+
+Support of dithering, cropping, rotation in write-back path
+
+•
+
+Advanced MMU (virtual address) mechanism for nearly no page missing during
+
+90° and 270° rotation
+•
+
+Support of color keying and solid color generation
+
+•
+
+Support of both advanced error diffusion and pattern-based dithering for the
+
+panel
+•
+
+Support of both AFBC and raw format image sources
+
+•
+
+Color saturation and contrast enhancement
+
+•
+
+Support of both video mode and cmd mode (with frame buffer in LCM) for the
+
+panel
+•
+
+Support of dynamic DDR frequency adjustment with an embedded DFC buffer
+
+•
+
+Support of the following input formats (see also the map shown immediately
+
+after):
+￮
+
+A2BGR101010, A2RGB101010, BGR101010A2, RGB101010A2
+
+￮
+
+ABGR8888, ARGB8888, BGRA8888, RGBA8888
+
+￮
+
+XBGR8888, XRGB8888, BGRX8888, RGBX8888
+
+•
+
+￮
+
+BGR888, RGB888, ABGR1555, RGBA5551, BGR565/RGB565
+
+￮
+
+XYUV_444_P1_8, XYUV_444_P1_10, YVYU_422_P1_8, VYUY_422_P1_8
+
+￮
+
+YUV_420_P2_8, YUV_420_P3_8
+
+Support of the following output formats:
+￮
+
+RGB888, RGB565, RGB666
+
+2.5.1.3 Block Diagram
+
+The micro-architecture of the display subsystem is depicted below.
+
+2.5.2 HDMI Interface
+
+2.5.2.1 Features
+
+•
+
+Compliance with HDMI Specification v1.4
+
+•
+
+Dual-channel audio stream within the range 32~192KHz
+
+•
+
+Physical lane speed up to 2.4Gbps/lane × 3lane
+
+•
+
+Support of up to 1920x1440@60Hz
+
+•
+
+Support of RGB and YcbCr 4:2:2 / 4:4:4 input video format
+
+•
+
+Support of RGB and YcbCr 4:2:2 / 4:4:4 output video formats
+
+•
+
+Support of 8bpc / 10bpc / 12bpc input and output color depths
+
+•
+
+Support of EIA/CEA-861-F video timing and InfoFrame structure
+
+•
+
+Support of L-PCM(IEC 60958), 32~192KHz dual channel audio data
+
+•
+
+Support of Consumer Electronic Control (CEC) standard packets and
+
+user-defined packets
+•
+
+Inclusion of an Internal I2C Master for remote ED access supporting
+
+100~400Kbps speed
+
+2.5.2.2 Block Diagram
+
+The architecture of the HDMI interface is depicted below.
+
+2.5.3 MIPI DSI Interface
+
+2.5.3.1 Introduction
+
+The MIPI Display Serial Interface (MIPI DSI) is a high-speed interface between a host
+processor and peripheral devices that adheres to MIPI Alliance specifications for
+mobile device interfaces.
+
+2.5.3.2 Features
+
+•
+
+Compliance with the MIPI DSI standard v1.0
+
+•
+
+Compliance with the MIPI DPHY specification v1.1
+
+•
+
+Support of MIPI DPHY up to 4 data lanes and speed up to 1200Mbps per lane
+
+•
+
+Support of 1 active panel per DPHY link
+
+•
+
+Compliance with the Display Command Set (DCS) standard
+
+•
+
+Support of all pixel formats defined in DSI and DCS
+
+•
+
+Support of video burst mode with DPHY up to 1.2Ghz per lane
+
+•
+
+Support of virtual channels in the MIPI Link
+
+•
+
+Support of up to 1080p resolution
+
+•
+
+Support of command, video and burst modes
+
+•
+
+Support of HS-TX, LP-TX, LP-RX and LP-CD signaling
+
+2.5.4 SPI LCD Display Interface
+
+2.5.4.1 Introduction
+
+The SPI LCD Display Interface is used to
+•
+
+Send image data commands
+
+•
+
+Read image data
+
+•
+
+Transmit image data
+
+It supports the operational modes
+•
+
+Single data line mode
+
+•
+
+Dual data line mode
+
+where each of which support the work modes
+•
+
+3-line/9bit mode
+
+•
+
+4-line/8bit mode
+
+By software, it is possible to configure which line will be the first for transmitting data.
+Further, it is possible to configure the transfer mode choosing between
+•
+
+Packet transfer mode
+
+•
+
+Unpacked transfer mode
+
+As example, below are depicted the transfers modes for some color formats,
+highlighting how data are organized and transmitted.
+[Packet transfer mode for RGB565]
+
+[Packet transfer mode for RGB666]
+
+[Packet transfer mode for RGB888]
+
+[Unpacked transfer mode for RGB666]
+
+[Unpacked transfer mode for RGB888]
+
+2.5.4.2 Features
+
+•
+
+Support of SPI LCD module with resolution up to 320x240
+
+•
+
+Support of 3-/4-line Serial Peripheral Interface (SPI) and 2-line SPI data
+
+transmission
+•
+
+Support of up to 3 simultaneous overlays (2 for RGB, 1 for YUV & RGB)
+
+•
+
+Support of dithering
+
+•
+
+Support of gamma curve
+
+•
+
+Alpha blending with configurable alpha values or per-pixel alpha blending
+
+•
+
+Support of YUV to RGB color space conversion
+
+•
+
+Support of image scaling
+
+•
+
+Support of color keying
+
+•
+
+Support of memory write-back
+
+•
+
+Support of the following input formats for image layer:
+￮
+
+YUV422 planar
+
+￮
+
+YUV422 packet
+
+￮
+
+YUV420 planar
+
+￮
+
+RGB888
+
+￮
+
+RGB565
+
+￮
+
+RGB666
+
+￮
+
+BGR888
+
+￮
+
+BGR565
+
+￮
+
+BGR666
+
+Note. As can be seen, it is supported R-B swap option for the sake of
+flexibility
+•
+
+Support of the following input formats for OSD layer:
+￮
+
+RGB888
+
+￮
+
+RGB565
+
+￮
+
+RGB666
+
+￮
+
+BGR888
+
+￮
+
+BGR565
+
+￮
+
+BGR666
+
+Note. As can be seen, it is supported R-B swap option for the sake of
+flexibility
+
+2.5.4.3 Block Diagram
+
+The architecture of the SPI LCD Display Interface is depicted below.
+
+It is clearly understandable how the display data are efficiently processed, then
+converted into SPI-compatible signals, then transmitted to the connected LCD
+display.
+
+2.5.4.4 Functions
+
+2.5.4.4.1 Blending Function
+
+The blending function of the DSI controller is used to combine multiple layers of
+images or overlays with different levels of transparency (alpha values).
+An example of layers and their respective alpha values is depicted below, where
+•
+
+L0: Bottom layer, base image
+
+•
+
+L1: Middle layer, alpha value a1
+
+•
+
+L2: Top layer, alpha value a2
+
+The following blending modes are supported:
+•
+
+Normal Alpha Blending Mode
+
+•
+
+Pre-Multiple Alpha Blending Mode
+
+•
+
+Special Alpha Blending Mode
+
+In the code, a different formula is implemented for each blending mode that uses the
+alpha value a1 as per the following conditions:
+C
+
+if (L1 == color_key)
+a1 = 8’h0;
+else if (layer_alpha_sel == 1)
+a1 = layer_alpha;
+else
+a1 = pixel_alpha;
+Details for each blending mode are explained in the following subsections.
+
+2.5.4.4.1.1 Normal Alpha Blending Mode
+
+With reference to the example figure shown above,
+•
+
+For 2 layers, the formula implemented is
+￮
+
+•
+
+For 3 layers (not recommended), the formula implemented is
+￮
+
+Note. Alpha value is not supported for write-back in this case
+In the code, the pixel value L' depends on the alpha value a1 as per the following
+conditions:
+C
+if (a1 == 8’hFF)
+L' = L1;
+else if (a1 == 8’h00)
+L' = L0;
+else
+L' = (L1-L0) × a1/256 + L0
+
+2.5.4.4.1.2 Pre-Multiple Alpha Blending Mode
+
+With reference to the example figure shown above,
+•
+
+For 2 layers, the formula implemented is
+
+￮
+•
+
+For 3 layers (not recommended), the formula implemented is
+￮
+
+Note. Alpha value is supported for write-back and its value is given by the
+formula
+In the code, the pixel value L' depends on the alpha value a1 as per the following
+conditions:
+C
+if (a1 == 8’hFF)
+L' = L1;
+else if (a1 == 8’h00)
+L' = L0;
+else
+L' = L1-L0 × (1-a1)/256;
+
+2.5.4.4.1.3 Special Alpha Blending Mode
+
+With reference to the example figure shown above,
+•
+
+For 2 layers, the formula implemented is
+￮
+
+•
+
+For 3 layers (not recommended), the formula implemented is
+￮
+
+Note. Alpha value is not supported for write-back in this case
+In the code, the pixel value L' depends on the alpha value a1 as per the following
+conditions:
+C
+
+if (a1 == 8’hFF)
+L' = L0;
+else
+L' = L1 + L0 × a1/256;
+
+2.5.4.4.2 Dither Function
+
+The process of the Dither function is depicted below.
+
+The Dither function can be enabled/disabled by software.
+
+2.5.4.4.3 Fmark Function
+
+The Fmark function controls the start of displaying output. In particular,
+•
+
+If Fmark function is enabled, displaying output will wait until the Fmark signal is
+
+received
+•
+
+If Fmark function is disabled, displaying output will start immediately after
+
+initiated by software
+By software is possible to enable/disable Fmark function as well as control the polarity
+of the Fmark signal.
+It is recommended to have a register to set how long displaying output is delayed after
+LCDC received the Fmark signal.
+
+2.5.4.4.4 Background Color Display Function
+
+When no layer is enabled, a background color can be displayed without fetching data
+from DDR. The background color can be configured by software.
+
+2.5.4.4.5 Image Capture Function
+
+To apply the image capture function, the following parameters should be configured
+by software firstly:
+•
+
+startx = X coordinate of the start point of the capture
+
+•
+
+starty = Y coordinate of the start point of the capture
+
+•
+
+width = Width (in pixels) of the capture from (X,Y) start point
+
+•
+
+height = Height (in pixels) of the capture from (X, Y) start point
+
+•
+
+base_addr = Memory start address for storing the capture
+
+•
+
+pitch = Distance (in bytes) between the start of two consecutive rows of pixels
+
+stored in the memory, including any padding for alignment or hardware requirements
+The process of the image capture function is depicted below.
+
+2.6 Audio Subsystem
+2.6.1 Introduction
+Audio subsystem integrates two primary interfaces:
+•
+
+2 × Full-Duplex I2S Interfaces
+
+•
+
+1 × HDMI Audio Interface
+
+2.6.2 Features
+I2S Interfaces
+•
+
+Full-duplex operation with simultaneous playback and recording support
+
+•
+
+Compliance with standard I2S format with fixed parameters:
+
+•
+
+￮
+
+48 kHz sample rate
+
+￮
+
+16-bit data depth
+
+￮
+
+2 channels
+
+Configurable system clock (sysclk) modes: 64fs, 128fs or 256fs
+
+HDMI Audio Interface
+•
+
+Playback-only functionality with fixed parameters:
+￮
+
+48 kHz sample rate
+
+￮
+
+16-bit data depth
+
+￮
+
+2 channels
+
+2.7 Connectivity Subsystem
+2.7.1 PCIe 2.0
+
+2.7.1.1 Introduction
+
+X1 implements three PCIe Dual-Mode ports which can be configured as either Root
+Complex (RC) or Endpoint (EP) device.
+All ports support Gen2 with a data transfer speed of 5GT/s per lane. However, one
+port supports one lane only and two ports support two lanes each.
+
+2.7.1.2 Features
+
+•
+
+Support of Dual-Mode, programmable as either Complex (RC) or Endpoint (EP)
+
+device
+•
+
+Support of all non-optional features of the PCI Express Base Specification -
+
+Revision 5.0 - Version 1.0 (limited to Gen2 speed scope)
+•
+
+Support of Internal Address Translation Unit (iATU) with 8 entries for outbound
+
+and 8 entries for inbound traffic
+•
+
+Support of Embedded DMA with Hardware Flow Control which includes 4 write
+
+channels and 4 read channels
+•
+
+Support of ECRC generation and check
+
+•
+
+Support of max payload size up to 256 bytes
+
+•
+
+Supports Automatic Lane Flip and Reversal
+
+•
+
+Support of L0 and L1 Power State of Active State Link PM
+
+•
+
+Support of Latency Tolerance Reporting (LTR)
+
+•
+
+Support of only Virtual Channel 0
+
+•
+
+Support of ID Based Ordering (IDO)
+
+•
+
+Support of Completion Timeout Ranges
+
+•
+
+Support of Separate Reference Clock With Independent Spread (SRIS)
+
+•
+
+Support of up to 64 outbound Non-Post Requests
+
+•
+
+Support of up to 32 outstanding AXI slave Non-Post requests
+
+•
+
+Support of only Function 0 with 6 size-programmable BARs in EP Mode
+
+•
+
+Support of MSI Capability in EP Mode
+
+•
+
+Support of Integrated MSI Reception Module in RC Mode
+
+2.7.1.3 Block Diagram
+
+The architecture of the PCIe Dual-Mode port set is depicted below.
+
+As can be seen, there are
+•
+
+One PCIe Gen2x1 Dual-Mode port (hereafter Port A)
+
+•
+
+Two PCIe Gen2x2 Dual-Mode ports (hereafter Port B and Port C)
+
+as said previously, and all them consists of
+•
+
+A controller integrated into SoC via 3 AXI ports which are designed as
+￮
+
+AXI Master Port to manages inbound traffic (i.e. data coming into the system)
+
+either from a remote device or through the PCIe controller's internal DMA,
+allowing the access to DDR memory for transferring data both to and from the
+remote device
+￮
+
+AXI Data Slave Port to allows the local CPU accessing itself for outbound
+
+traffic
+￮
+
+AXI DBI Slave Port to be used for the PCIe controller's configuration
+
+interface
+
+•
+
+A PHY complied with PIPE 3 specification and distinguished in
+￮
+
+Phy2x1_22 which
+▪
+
+Supports Gen2 with one lane (x1)
+
+▪
+
+Is built using a 22nm process
+
+▪
+
+Is shared between Port A and USB3 controller but not simultaneously, i.e.
+
+both Port A and USB3 controller can operate but not at the same time
+￮
+
+Phy2x2_22 which
+▪
+
+Supports Gen2 with two lanes (x2)
+
+▪
+
+Is built using a 22nm process
+
+▪
+
+Comes for Port B and Port C distinctly, i.e. Port B and Port C have their
+
+own dedicated PHY
+•
+
+A miscellaneous logic, in particular chip I/O with remote links partner as
+
+follows:
+￮
+
+Differential Data Signals: Rx_p/n, Tx_p/n (x2 lanes for Port B/C, x1 lane for
+
+Port A)
+￮
+
+Reference Clock Signals: refclk_p/n (support of both input and output
+
+mode)
+￮
+
+Warm Reset Signal: PERST# (input in EP mode, output in RC mode)
+
+￮
+
+Wake-Up signal: WAKE# (output in EP mode, input in RC mode)
+
+2.7.2 USB
+
+2.7.2.1 Introduction
+
+X1 includes three USB ports as follows:
+•
+
+A USB2.0 OTG Port
+
+•
+
+A USB2.0 Host Only Port
+
+•
+
+A USB3.0 Port with a USB2.0 DRD interface
+
+2.7.2.2 Features
+
+2.7.2.2.1 USB2.0 OTG Port Features
+
+•
+
+Controller:
+￮
+
+Support of both USB2.0 Host and Device mode
+
+￮
+
+Compliance with the USB2.0 standard
+
+￮
+
+Support of USB2.0 High Speed (480Mb/s) and Full Speed (12Mb/s) for both
+
+Host and Device modes
+￮
+
+Support of USB2.0 Low Speed (1.5Mb/s) for Host Only Mode
+
+￮
+
+Host controller registers and data structures are compliant with the Intel EHCI
+
+specification
+￮
+
+Device controller registers and data structures are implemented as
+
+extensions to the EHCI programming interface
+￮
+•
+
+Communication Interface:
+￮
+
+•
+
+•
+
+Bus interface is compliant with AMBA-AHB specification
+
+Implementation of UTMI+ interface to communicate with USB2.0 PHY
+
+Protocols:
+￮
+
+Support of the Session Request Protocol (SRP)
+
+￮
+
+Support of the Host Negotiation Protocol (HNP)
+
+Channel & Endpoint:
+￮
+
+Support of up to 16 host channels
+
+￮
+
+In Device mode, support of 16 IN and 16 OUT endpoints, where
+▪
+
+16KB buffer is for transmitting data
+
+▪
+
+2KB buffer is for receiving data
+
+2.7.2.2.2 USB2.0 Host Only Port Features
+
+•
+
+Controller:
+
+￮
+
+Support of USB2.0 HS, USB2.0 FS, USB2.0 LS Host modes
+
+￮
+
+Compliance with the USB2.0 standard
+
+￮
+
+Support of High Speed (480Mb/s), Full Speed (12Mb/s), Low Speed (1.5Mb/s)
+
+for Host mode
+￮
+
+Host controller registers and data structures are compliant with the Intel EHCI
+
+specification
+￮
+•
+
+Communication Interface:
+￮
+
+•
+
+Bus interface is compliant with AMBA-AHB specification
+
+Implementation of UTMI+ interface to communicate with USB2.0 PHY
+
+Channel Support:
+￮
+
+Support of up to 16 host channels
+
+2.7.2.2.3 USB3.0 Port with a USB2.0 DRD Interface Features
+
+•
+
+Controller
+￮
+
+Support of both USB3.0 Host and Device modes
+
+￮
+
+Support of both USB2.0 Host and Device modes
+
+￮
+
+Compliance with both the USB3.0 and USB2.0 standards
+
+￮
+
+Support of USB3.0 (Super Speed) and USB2.0 Host and Device mode
+
+￮
+
+USB3.0 Host Controller registers and data structures are compliant with the
+
+Intel xHCI specification
+￮
+
+USB3.0 Device controller registers and data structures are self-defined
+
+requiring software configuration
+￮
+
+Support of one USB3.0 port and one USB2.0 port
+
+￮
+
+Support of High Speed (480Mb/s) and Full Speed (12Mb/s) for Host and
+
+Device mode
+￮
+•
+
+Support of Low Speed (1.5Mb/s) for Host-Only mode
+
+Communication Interface:
+￮
+
+Use of PIPE3 (125MHz) interface for USB3.0 PHY
+
+￮
+
+Use of UTMI+ (30/60MHz) interface for USB2.0 PHY
+
+•
+
+•
+
+•
+
+Clock Domains:
+￮
+
+PIPE3 PHY (125MHz)
+
+￮
+
+UTMI+ PHY (30/60MHz)
+
+￮
+
+MAC (nominal 125MHz)
+
+￮
+
+BUS clock domain
+
+￮
+
+RAM clock domain
+
+System & Power Management:
+￮
+
+Internal DMA controller
+
+￮
+
+Support of USB2.0 suspend mode
+
+￮
+
+Support of U1/U2/U3 low-power modes for USB3.0
+
+Endpoint & Memory:
+￮
+
+Support of up to 32 endpoints in Device mode
+
+￮
+
+Flexible endpoint FIFO sizes (not limited to powers of 2) allowing the use of
+
+contiguous memory locations
+￮
+
+Descriptor caching and data pre-fetching for improving performance in
+
+high-latency systems
+•
+
+Additional Features:
+￮
+
+Software-controlled standard USB commands (USB SETUP commands
+
+forwarded to application for decoding)
+￮
+
+Hardware-level error handling for USB bus and packet-level issues
+
+￮
+
+Support of interrupts
+
+2.7.2.3 Block Diagram
+
+The architecture of the USB port set is depicted below, where
+•
+
+USB#0 Port = USB2.0 OTG Port
+
+•
+
+USB#1 Port = USB2.0 Host-Only Port
+
+•
+
+USB#2 Port = USB3.0 Port with a USB2.0 DRD interface
+
+2.7.3 Ethernet GMAC
+2.7.3.1 Introduction
+
+X1 features a GMAC IP core which includes the essential protocol requirements for
+the operation of 10/100/1000 Mbps Ethernet/IEEE 802.3-2012 compliant node.
+The GMAC IP core can operate at 10 Mbps, 100 Mbps (Fast Ethernet) or 1000 Mbps
+(Gigabit Ethernet). Additionally, it includes a powerful 64-bit Scatter-Gather DMA to
+transfer packets between HOST Memory and Internal FIFOs to achieve high
+performance.
+
+2.7.3.2 Features
+
+•
+
+Handle of transmit/receive data encapsulation functions, including Framing
+
+(frame boundary delimitation, frame synchronization) and Error Detection (physical
+medium transmission errors)
+•
+
+Media access management with medium allocation (collision avoidance) and
+
+contention resolution (collision handling) in Half-Duplex Mode of operation at speeds
+of 10/100 Mbps
+
+•
+
+Retransmission of frames that result in Collision in Half-Duplex mode
+
+•
+
+Support of Flow Control functions in Full Duplex mode by decoding PAUSE
+
+control frames, disabling the transmitter and generating PAUSE control Frames
+•
+
+Support of a 4-bit data path based RGMII Interface to connect with RGMII-based
+
+PHY
+•
+
+Support of Management Interface by generating management frames on the
+
+MDC/MDIO pins to communicate with external PHY devices
+•
+
+Bus mastering on the AXI interface to transfer packets between the HOST
+
+memory and the internal FIFOs using 64-bit transfer mode
+•
+
+Automatic transfer of packets between the HOST memory and internal FIFOs
+
+(based on descriptors) to minimize CPU overhead
+
+2.7.3.3 Block Diagram
+
+The micro-architecture of Ethernet GMAC unit is depicted below.
+
+2.7.4 SDIO Interface
+
+2.7.4.1 Introduction
+
+The SDIO interface is a hardware block that serves as the host of the SDIO bus to
+transfer data between the SDIO Wi-Fi module and the internal bus master.
+
+2.7.4.2 Features
+
+•
+
+Compliance with with 4-bit SDIO 4.10 protocol specification
+
+•
+
+Consistent with the register set defined in SD-HCI specification with additional
+
+vendor-specific registers
+•
+
+Support of 1-bit and 4-bit SDIO bus
+
+•
+
+Support of the following data transfer type defined in the SD-HCI specification:
+
+•
+
+•
+
+￮
+
+PIO
+
+￮
+
+SDMA
+
+￮
+
+ADMA
+
+￮
+
+ADMA2
+
+Support of the following speed modes defined in SD 3.0 specification:
+￮
+
+Default Speed mode, up to 12.5MB/s, 3.3V signal level
+
+￮
+
+High Speed mode, up to 25MB/s, 3.3V signal
+
+￮
+
+SDR12, SDR up to 25 MHz, 1.8V signal
+
+￮
+
+SDR25, SDR up to 50 MHz, 1.8V signal
+
+￮
+
+SDR50, SDR up to 100 MHz, 1.8V signal
+
+￮
+
+SDR104, SDR up to 208 MHz, 1.8V signal
+
+￮
+
+DDR50, DDR up to 100MHz, 1.8V signal
+
+Hardware-based CRC generation and check for all command and data
+
+transactions on the card bus
+•
+
+Support of read-wait control in SDIO cards
+
+•
+
+Support of suspend/resume functionality in SDIO cards
+
+•
+
+1024 Bytes (2 x 512 Bytes data block) FIFO for sending and receiving data
+
+2.7.5 CAN-FD Interface
+
+2.7.5.1 Introduction
+
+The CAN-FD controller is a full implementation of the CAN protocol specification
+which is compliant with both the CAN with Flexible Data-Rate (CAN-FD) protocol and
+CAN 2.0 Part B protocol.
+
+2.7.5.2 Features
+
+•
+
+Full implementation of the CAN-FD protocol and CAN specification 2.0 Part B
+
+with
+￮
+
+Standard data frames
+
+￮
+
+Extended data frames
+
+￮
+
+Data lengths from 0 to 64 bytes
+
+￮
+
+Programmable bit rate
+
+￮
+
+Content-related addressing
+
+•
+
+Compliant with the ISO 11898-1 standard
+
+•
+
+Silicon-proven implementation passing ISO 16845-1:2016 CAN conformance
+
+tests
+•
+
+Flexible mailboxes configurable to store 0, 8, 16, 32 or 64 bytes of data
+
+•
+
+Each mailbox configurable to either receive or transmit supporting both standard
+
+and extended messages
+•
+
+Distinct receive mask registers per mailbox
+
+•
+
+Full-featured receive FIFO with a storage capacity of up to 6 frames with
+
+automatic internal pointer handling and DMA support
+•
+
+Transmission abort capability
+
+•
+
+Support of flexible message buffers with a total of 128 message buffer slots (8
+
+bytes each) which can be configurable as transmitter or receiver
+•
+
+Programmable clock source for the CAN Protocol Engine, either peripheral clock
+
+or oscillator clock
+•
+
+RAM is not used for reception or transmission but can be used as general
+
+purpose RAM space
+
+•
+
+Support of Listen-Only Mode (LOM)
+
+•
+
+Programmable Loop-Back mode for self-test operation
+
+•
+
+Programmable transmission priority scheme: based on lowest ID, lowest buffer
+
+number or highest priority
+•
+
+16-bit free-running timer for time stamps with an optional external time tick
+
+•
+
+Global network time synchronized by a specific message
+
+•
+
+Maskable interrupts
+
+•
+
+Independence from the transmission medium (required an external transceiver)
+
+•
+
+Short latency for high-priority messages due to an arbitration scheme
+
+•
+
+Low-power modes with programmable wakeup on bus activity or frame matching
+
+(pretended networking)
+•
+
+Transceiver Delay Compensation (TDC) when transmitting CAN-FD messages at
+
+faster data rates
+•
+
+Remote request frames can be managed automatically by software
+
+•
+
+CAN bit time settings and configuration can only be written in Freeze mode
+
+•
+
+Configurable transmission mailbox status: either lowest priority buffer or empty
+
+buffer
+•
+
+Support of Identifier Acceptance Filter Hit Indicator (IDHIT) register for received
+
+frames
+•
+
+SYNCH bit in Error Status 1 register indicates synchronization with the CAN bus
+
+•
+
+Support of CRC status for transmitted message
+
+•
+
+Support for reception FIFO Global Mask register
+
+•
+
+Selectable priority between mailboxes and reception FIFO during matching
+
+process
+•
+
+Advanced receive FIFO ID filtering, capable of matching incoming IDs against
+
+either 128 extended IDs, 256 standard IDs, or 512 partial (8 bit) IDs, with up to 32
+elements in the ID Filter Table
+•
+
+Fully backward compatibility with previous CAN-FD version
+
+•
+
+Support of detection and correction of errors in memory read accesses. Each
+
+byte of CAN-FD memory is paired with 5 parity bits, forming a 13-bit word. The error
+correction mechanism can
+
+•
+
+￮
+
+Detect and correct single-bit errors (correctable errors)
+
+￮
+
+Detect, but not correct, two-bit errors (non-correctable errors)
+
+Support of pretended networking functionality in low-power modes: Doze mode
+
+and Stop mode
+
+2.7.6 SPI Interface
+
+2.7.6.1 Introduction
+
+The SPI interface is a synchronous serial interface that allows the communication with
+external devices using Motorola Serial Peripheral Interface (SPI) protocol for data
+transfer. It can be configured to operate in either Master mode (where the attached
+peripheral functions as a slave) or Slave mode (where the attached peripheral
+functions as a master).
+
+2.7.6.2 Feature
+
+•
+
+Support of four combinations of CPOL and CPHA for Serial Peripheral Interface
+
+(SPI)
+•
+
+Configurable to operate in either Master mode (where the attached peripheral
+
+functions as a slave) or Slave mode (where the attached peripheral functions as a
+master)
+•
+
+Support of Receive-without-Transmit operation
+
+•
+
+Support of serial bit rate from 6.3Kps (min recommended) to 52Mbps (max)
+
+•
+
+Data size configurable to 8, 16, 18 or 32 bits in length
+
+•
+
+Availability of a transmit FIFO (TXFIFO) and another independent receive FIFO
+
+(RXFIFO), where
+￮
+
+In Non-Packed Data mode, both FIFOs are 32 rows deep x 32 bits wide
+
+supporting a total of 32 samples
+￮
+
+In Packed Data mode, double-depth FIFOs are used when the data samples
+
+are 8 bits or 16 bits wide, and both FIFOs are 64 locations deep x 16 bits wide
+supporting a total of 64 samples
+￮
+
+Both FIFOs can be loaded or emptied by using either programmed I/O (PIO)
+
+or DMA burst transfers
+
+2.7.7 UART Interface
+
+2.7.7.1 Introduction
+
+The Universal Asynchronous Receiver/Transmitter (UART) interface is controlled via
+Direct-Memory Access (DMA) or programmed I/O.
+
+2.7.7.2 Features
+
+•
+
+Support of up to 10 UART interfaces
+
+•
+
+Compatible with the 16550A and 16750 UART standards
+
+•
+
+Support of adding and deleting standard asynchronous communication bits (start,
+
+stop and parity) in the serial data stream
+•
+
+Independent control of transmission, reception, line status, data-set interrupts
+
+•
+
+Modem control functions (CTSn and RTSn for both UART2 and UART3)
+
+•
+
+Auto-flow capability for data I/O management without generating interrupts,
+
+where
+
+•
+
+￮
+
+RTSn (output) is controlled by the UART receive FIFO
+
+￮
+
+CTSn (input) is from UART modem transmission controls
+
+Programmable serial interface with configurable options as follow:
+￮
+
+7-bit or 8-bit character length
+
+￮
+
+Even, odd or no parity detection
+
+￮
+
+1 stop-bit generation
+
+￮
+
+Baud rate generation up to 3.6Mbps for the 4 Fast UARTs
+
+￮
+
+False start-bit detection
+
+•
+
+64-byte transmit FIFO
+
+•
+
+64-byte receive FIFO
+
+•
+
+Support of complete status reporting
+
+•
+
+Support of generating and detecting line breaks
+
+•
+
+Support of internal diagnostics including:
+￮
+
+Loopback control for fault isolation in communications link
+
+￮
+
+Break, parity and framing error simulation
+
+•
+
+Fully prioritized interrupt system
+
+•
+
+Support of separated DMA requests for both transmit and receive data services
+
+•
+
+Serial infrared asynchronous interface compliant with the Infrared Data
+
+Association (IrDA) specification
+
+2.7.8 I2C Bus Interface
+
+2.7.8.1 Introduction
+
+The Inter-Integrated Circuit (I2C) bus is a true multi-master bus including collision
+detection and arbitration.
+A dedicated I2C module, referred to as the power I2C module, is used to interface to
+the power management IC.
+The I2C bus interface can function as both a master and a slave device on the I2C
+bus. This serial bus, developed by Philips Corporation, uses a 2-pin interface as
+follows:
+•
+
+SDA: Data pin for input and output functions
+
+•
+
+SCL: Clock pin for timing reference and control of the I2C bus
+
+The I2C bus allows the I2C unit to interface with other I2C peripherals and
+microcontrollers. It requires minimal hardware, providing an economical solution for
+communicating status and control information between chips and external devices.
+
+The I2C bus interface is a peripheral device residing on the peripheral bus that
+performs
+•
+
+Data transfer, handled through a buffered interface for reliable communication
+
+•
+
+Control and status management, accessed via memory-mapped registers
+
+2.7.8.2 Features
+
+•
+
+Compliance with I2C bus specification with the exception of the support for the
+
+hardware general call, 10-bit slave addressing and CBUS compatibility
+•
+
+Support of Multi-Master and Arbitration
+
+•
+
+Operation modes and speeds as follows:
+￮
+
+Standard Operation Mode: up to 100 Kbps
+
+￮
+
+Fast Operation Mode: up to 400 Kbps
+
+￮
+
+High-Speed Slave Operation Mode: up to 3.4 Mbps (High-Speed I2C only)
+
+￮
+
+High-Speed Master Operation Mode: up to 3.3 Mbps (High-Speed I2C only)
+
+Note. In High-Speed Master Operation Mode, I2C operational frequencies
+decrease due to the pull-up resistors on the bus. The SCL frequency is
+inversely proportional to the pull-up resistor value (1/R).
+
+2.7.8.3 Block Diagram
+
+The architecture of the I2C bus interface is depicted below.
+
+2.7.9 IR-RX Interface
+
+2.7.9.1 Features
+
+•
+
+Infrared input signals are transformed into the Run-Length-Code (RLC) format
+
+•
+
+Configurable signal width threshold for noise detection
+
+•
+
+32 Bytes FIFO for received data storage
+
+2.7.10 One-Wire Bus Master Interface
+
+2.7.10.1 Introduction
+
+The One-Wire Bus Master Interface Controller is responsible for receiving and
+transmitting data on the One-Wire bus. It fully controls the One-Wire bus using 8-bit
+commands. The processor interacts with the controller by loading commands, reading
+and writing data, and configuring interrupt controls through 5 specific registers.
+All One-Wire bus timing and control are generated within the One-Wire Bus Master
+Interface Controller once a command or data is loaded by the host. When there is
+activity on the bus that requires the CPU to respond, the One-Wire Bus Master
+Interface Controller sets a status bit and, if enabled, sends an interrupt to the CPU.
+For detailed information about specific slave implementations, please refer to Book of
+iButton® Standards which describes the operation of the One-Wire bus master
+interface.
+
+2.7.10.2 Block Diagram
+
+The architecture of the One-Wire Bus Master Interface is depicted below.
+
+2.7.11 I2S Interface
+
+2.7.11.1 Introduction
+
+The I2S interface is a synchronous serial interface designed to connect to various
+external devices, including Analog-to-Digital converters (ADC), audio and
+telecommunication codec. It directly supports the Inter-IC Sound (I2S) Protocol for
+data transfer.
+
+2.7.11.2 Features
+
+•
+
+Configurable to operate in either Master mode (where the attached peripheral
+
+functions as a slave) or Slave mode (where the attached peripheral functions as a
+master)
+•
+
+Support of Receive-without-Transmit operation
+
+•
+
+Support of serial bit rate from 6.3Kbps (min recommended) up to 52Mbps (max)
+
+•
+
+Data sizes configurable to 8, 16, 18 or 32 bits in lenght
+
+•
+
+Availability of a transmit FIFO (TXFIFO) and another independent receive FIFO
+
+(RXFIFO), where
+￮
+
+In Non-Packed Data mode, both FIFOs are 32 rows deep x 32 bits wide
+
+supporting a total of 32 samples
+￮
+
+In Packed Data mode, double-depth FIFOs are used when the data samples
+
+are 8 bits or 16 bits wide, and both FIFOs are 64 locations deep x 16 bits wide
+supporting a total of 64 samples
+￮
+
+Both FIFOs can be loaded or emptied by using either programmed I/O (PIO)
+
+or DMA burst transfers
+•
+
+Support of up to eight time slots with independent transmit/receive operation in
+
+any/all/none of the time slots
+•
+
+Audio clock control provides a 4x or 8x output clock to support most standard
+
+audio frequencies
+
+2.8 Security Subsystem
+2.8.1 Encryption Engine
+
+2.8.1.1 Features
+
+•
+
+Support of symmetric encryption algorithms including AES
+
+•
+
+Support of public key algorithms including RSA/ECC
+
+•
+
+Support of HASH algorithms including SHA2
+
+2.8.2 TRNG
+
+2.8.2.1 Features
+
+•
+
+Support of True Random Number Generator (TRNG) for security applications
+
+2.8.3 eFuse
+
+2.8.3.1 Features
+
+•
+
+Support of total 4K eFuse bits organized into 16 banks
+
+•
+
+User keys storage
+
+•
+
+Anti-Rollback bits for secure firmware update
+
+•
+
+Life Cycle Stage (LCS) bits for secure life cycle management
+
+•
+
+Hardware lock for each eFuse bank
+
+2.8.4 AES Engine
+
+2.8.4.1 Features
+
+•
+
+Dedicated high-performance AES Engine for massive data encryption/decryption
+
+2.9 System Peripherals
+2.9.1 DMA
+
+2.9.1.1 Introduction
+
+The Direct-Memory Access (DMA) controller is designed to transfer data between
+memory and peripheral devices without CPU intervention.
+Peripheral devices do not directly supply addresses or commands to the memory
+controller. Each DMA request from a peripheral triggers a memory-bus transaction.
+The processor can directly access the peripheral bus by using the DMA controller
+which acts as a DMA bridge to bypass the DMA of the system
+The DMA controller can manage different data transfer types in DMA Flow-Through
+Mode through 16 configurable DMA channels as tabled below.
+Internal
+
+External
+
+Internal
+
+External
+
+Memory
+
+Memory
+
+Peripheral
+
+Peripheral
+
+___
+
+___
+
+___
+
+___
+
+___
+
+Internal
+
+Flow-Through
+
+Memory
+
+Mode
+
+External
+
+Flow-Through
+
+Flow-Through
+
+Memory
+
+Mode
+
+Mode
+
+Internal
+
+Flow-Through
+
+Flow-Through
+
+Peripheral
+
+Mode
+
+Mode
+
+External
+
+Flow-Through
+
+Flow-Through
+
+Peripheral
+
+Mode
+
+Mode
+
+___
+
+___
+
+___
+
+___
+
+2.9.1.2 Features
+
+•
+
+•
+
+Handle of data transfers by two instances of the DMA controller, in particular
+￮
+
+One for secure domains
+
+￮
+
+One for non-secure domains
+
+Support of the following data transfer types in DMA Flow-Through Mode:
+￮
+
+Memory-to-memory
+
+￮
+
+Peripheral-to-memory
+
+￮
+
+Memory-to-peripheral
+
+•
+
+Support of DMA Flow-Through Mode for data transfers between Flash and DDR
+
+•
+
+Implementation of a priority mechanism to process active channels at any time
+
+(up to 4 channels with outstanding DMA requests)
+•
+
+Each of the 16 DMA channels is allow to operate for descriptor-fetch or
+
+non-descriptor-fetch transfers
+•
+
+Support of the following special descriptor modes:
+￮
+
+Descriptor Comparison
+
+￮
+
+Descriptor branching
+
+•
+
+Retrieve of the trailing bytes from the receive peripheral-device buffers
+
+•
+
+Support of programmable data-burst sizes (8, 16, 32 or 64 bytes) and
+
+configurable peripheral device data widths (byte, half-word or word)
+•
+
+Support of up to 8191 bytes of data transfer per descriptor (larger data transfers
+
+can be performed by chaining multiple descriptors)
+•
+
+Support of a flow control bit to manage requests from peripheral device (requests
+
+are not processed unless a flow control bit is set)
+
+2.9.1.3 Block Diagram
+
+The architecture of the DMA controller is depicted below.
+
+2.9.2 Timer
+
+2.9.2.1 Introduction
+
+X1 includes three general-purpose 32bit timers for system applications, and each one
+has its own 32bit Timer Counter Control Register (TCCRn) functioning as an up
+counter.
+
+2.9.2.2 Features
+
+•
+
+Programmable count mode as follows:
+￮
+
+Fast count mode by input clock frequency of 12.8 MHz, 6.4 MHz, 3 MHz or 1
+
+MHz
+￮
+
+Slow count mode by input clock frequency of 32.768 KHz
+
+2.9.3 WatchDog
+
+2.9.3.1 Introduction
+
+X1 includes one 16bit WatchDog Timer (WDT).
+
+2.9.3.2 Features
+
+•
+
+Programmable count mode as follows:
+￮
+
+Fast count mode by input clock frequency of 12.8 MHz, 6.4 MHz, 3 MHz or 1
+
+MHz)
+￮
+
+Slow count mode by input clock frequency of 32.768 KHz
+
+2.9.4 Temperature Sensor
+
+2.9.4.1 Introduction
+
+The Temperature Sensor Module (TSEN) provides temperature sensing and
+conversion functions, using a temperature-dependent voltage to time conversion
+method.
+TSEN has an alarm function that triggers an interrupt when the temperature exceeds
+a specified warning threshold. It also includes a programmable self-repeating mode
+which performs temperature sensing operations automatically at intervals by a
+programmed delay.
+TSEN can be used by software to monitor the on-die temperature to let take all
+necessary actions, such as reducing the core frequency when a temperature interrupt
+is triggered.
+
+2.9.4.2 Features
+
+•
+
+Possibility to turn on/off TSEN (by software)
+
+•
+
+Possibility to configure (by software) a high and low warning threshold of a BJT
+
+temperature for triggering related interrupts
+•
+
+Record of the highest detected temperature of a BJT and its corresponding ID,
+
+and keeping track of the two most recent detected temperatures
+•
+
+Possibility to enable (by software) the emergency system reset/reboot when a
+
+temperature violation occurs (the temperature sensor will trigger a system
+reset/reboot similar to the one performed by the Watchdog if the detected temperature
+exceeds the configured threshold)
+
+2.9.4.3 Block Diagram
+
+The architecture of the Temperature Sensor Module is depicted below.
+
+2.9.5 PWM
+
+2.9.5.1 Introduction
+
+X1 contains 20 Pulse-Width Modulation (PWM) channels labeled as PWMx where
+x=[0,19].
+Each PWM channel operates independently with its own configuration registers and
+generates an output PWM signal on a multi-function pin.
+Each PWM channel allows controlling over both the leading-edge timing and the
+trailing-edge timing of its output signal.
+The timing of each PWM channel can be set to run continuously or be adjusted
+dynamically to meet the change of requirements.
+The power-saving mode allows stopping the internal clock of a PWM channel
+(PSCLK_PWM), resulting to a constant high or low state of the output signal of that
+PWM channel (PWM_OUT), thus saving power when the output signal of that PWM
+channel is not needed.
+
+2.9.5.2 Features
+
+•
+
+Support of 50% duty-cycle ranging from 198.4Hz to 6.5MHz (additional duty-cycle
+
+options depend on the choice of the preferred frequency)
+•
+
+Enhanced period time controlled through 6-bit clock divider and 10-bit period time
+
+counter
+•
+
+15-bit pulse counter control
+
+2.9.6 Mailbox
+
+2.9.6.1 Introduction
+
+The Mailbox is designed to deliver messages or signals between SoC and MCU
+subsystem.
+
+2.9.6.2 Features
+
+•
+
+A processor is allow to generate an interrupt for another processor
+
+•
+
+Support of a polling word to enable signaling an event from one party to another
+
+without the need of interrupts
+•
+
+Reception of an ACK interrupt indicates that the other party is active
+
+•
+
+A processor can wake up another processor (supported)
+
+2.9.6.3 Block Diagram
+
+The architecture of the Mailbox is depicted below.
+
+2.9.7 GPIO
+
+2.9.7.1 Introduction
+
+X1 provides General-Purpose Input/Output (GPIO) ports for generating and capturing
+application-specific input and output. These ports are accessed through the alternate
+function muxing, and the GPIO unit manages their control and status.
+
+2.9.7.2 Features
+
+•
+
+A GPIO port configured as an input can also serve as an interrupt source
+
+•
+
+At system reset, by default all GPIO ports are configured as an input until
+
+changed by the boot process or user software
+•
+
+Each GPIO port has a dedicated control signal
+
+•
+
+Support of separated interrupts over either leading-edge timing or trailing-edge
+
+timing or both
+•
+
+The GPIO port output can be individually set or cleared
+
+•
+
+The GPIO port input can be individually read
+
+2.9.8 RTC
+
+2.9.8.1 Features
+
+•
+
+Count of the number of seconds basing on the internal 1-Hz clock
+
+•
+
+Possibility to calibrate the frequency of the internal oscillator
+
+•
+
+Support of an alarm interrupt and 1-Hz interrupt
+
+2.9.9 Time-Out Monitor
+
+2.9.9.1 Features
+
+•
+
+Configurable time-out monitor threshold
+
+•
+
+Configurable auto response function for time-out monitor events
+
+•
+
+Save of the address and ID of the first time-out monitor transaction for debugging
+
+purposes
+•
+
+Configurable check for AW/ARREADY signals
+
+2.10 Sensor-Hub Subsystem
+2.10.1 Features
+
+•
+
+Support of 1 I2C interface
+
+•
+
+Support of 1 SPP interface
+
+•
+
+Support of 2 UART interfaces
+
+•
+
+Support of 1 CAN interface
+
+2.11 Clock & Reset
+2.11.1 Introduction
+X1 comes with the following clocks:
+•
+
+One 32K RTC clock
+
+•
+
+One 24M OSC clock
+
+2.11.2 Features
+
+•
+
+Three PLLs implemented inside to provide various frequencies to meet different
+
+scenario requirements
+•
+
+DVFS feature supported to balance the tradeoff between power and performance
+
+•
+
+Glitch-free clock switches and clock dividers implemented to provide all required
+
+frequencies with limited PLLs cost
+•
+
+Clock gating and software reset schemes applied to modules in fine granularity to
+
+achieve power saving and flexible management
+
+2.11.3 Block Diagram
+
+2.11.3.1 Clock System
+
+The detailed clock tree structure is depicted below, where is highlighted how the clock
+signals are generated, managed and distributed across the system to support various
+modules and functions.
+
+Instead, the high-level architecture of the clock system is depicted below.
+
+VCXO_OUT is driven with the OSC frequency if either of the following occurs:
+•
+
+VCXO_REQ is asserted, and the relevant REQ_EN bit field is set in the VCXO
+
+software request control register
+•
+
+Software request bit field is enabled in the VCXO software request control
+
+register
+There are three Phase-Locked Loop (PLL) designed to accept a wide range of input
+frequencies, and generate a broad range of output frequencies to all modules for
+functioning properly in different application scenario. Details for each PLL are
+provided in the following subsections.
+
+2.11.3.1.1 PLL1
+
+PLL1 is designed to generate fixed frequency points for the CPU cores and other
+peripherals, where
+•
+
+Changes of the run-time frequency in the PLL1 output are only available for
+
+debugging purposes and should not be used in production systems
+•
+
+PLL1 is enabled by default at system reset and shutdown only when the entire
+
+chip entered sleep mode with VCXO shutdown enabled
+•
+
+The settings configured in the PLL1 and oscillator control registers of the Main
+
+PMU control the delay required for the PLL1 output clocks to stabilize after system
+reset or shutdown
+•
+
+Updating the PLL1 configuration registers to change frequency during normal
+
+operations is not recommended
+
+2.11.3.1.2 PLL2
+
+PLL2 is designed to generate various fixed frequencies, working alongside PLL1 to
+provide a full range of frequencies required for different modules, where
+•
+
+Changes of run-time frequency in the PLL2 output are only available for
+
+debugging purposes and should not be used in production systems
+•
+
+PLL2 is disabled at system reset and must be enabled through software when
+
+required
+•
+
+The settings configured in the PLL2 and oscillator control registers of the Main
+
+PMU control the delay required for the PLL2 output clocks to stabilize after system
+reset or shutdown
+•
+
+Updating the PLL2 configuration registers to change frequency during normal
+
+operations is not recommended
+
+2.11.3.1.3 PLL3
+
+PLL3 is designed to provide frequencies for CPU frequency scaling and switching,
+where
+•
+
+PLL3 is disabled at system reset and must be enabled through software when
+
+required
+•
+
+The settings configured in the PLL3 and oscillator control register of the Main
+
+PMU control the delay required for the PLL3 output clocks to stabilize after system
+reset or shutdown
+•
+
+Updating the PLL3 configuration registers to change frequency during normal
+
+operations is not recommended
+
+2.11.3.2 Resource Reset Schemes
+
+X1 allows applying different schemes of resource reset as tabled below.
+No.
+
+Resource Reset
+
+Description
+
+Scheme
+1
+
+Power-On-Reset
+
+Reset the whole chip during power-on sequence
+
+2
+
+WatchDog Reset
+
+Reset the whole chip excluding pinmux registers and
+debug registers
+
+3
+
+Module Software
+
+Reset each module individually through software
+
+Reset
+4
+
+Power Island
+
+Reset the whole power island during its power-on
+
+POR Reset
+
+sequence
+
+2.12 Boot Modes
+2.12.1 Introduction
+
+X1 supports booting from
+•
+
+SPI NAND Flash
+
+•
+
+SPI NOR Flash
+
+•
+
+eMMC
+
+•
+
+SD/TF Card
+
+The details of the boot mode selection are tabled below.
+N
+
+QSPI_DATA[1] /
+
+QSPI_DATA[0] /
+
+Boot Mode
+
+o.
+
+STRAP[1]
+
+STRAP[0]
+
+1
+
+Down
+
+Down
+
+SD/TF Card -> EMMC (default)
+
+2
+
+Up
+
+Down
+
+SD/TF Card -> SPI NAND Flash
+
+3
+
+Down
+
+Up
+
+SD/TF Card -> SPI NOR Flash
+
+4
+
+Up
+
+Up
+
+SD/TF Card
+
+2.13 Power Management Unit
+2.13.1 Introduction
+A two-level power management strategy is implemented to control various
+granularities of power consumption. Different power domains and power states are
+also defined to achieve ultra-low power consumption.
+A total of 9 power domains are implemented, and they are for
+•
+
+CPU cores
+Note. Each CPU core has its own power domain independently controlled
+
+•
+
+CPU clusters
+
+Note. Each CPU cluster has its own power domain independently controlled
+•
+
+Video Encoder/Decoder
+
+•
+
+GPU
+
+•
+
+HDMI Display Subsystem
+
+•
+
+MIPI DSI Subsystem
+
+•
+
+Video Input Subsystem
+
+•
+
+RCPU (including N308, Audio Codec, RCPU Peripherals)
+
+•
+
+Always-On-Domain (AON)
+
+All those power domains, except AON, can be powered off depending on specific
+application scenarios.
+In order to achieve the minimal power consumption, different power states are
+designed as tabled below:
+No.
+
+Power State
+
+Description
+
+Name
+1
+
+ACTIVE
+
+The system is alive and active, with all power domains
+on, except those power domains with power switches
+that can be turned off selectively and independently.
+
+2
+
+CORE-IDLE
+
+Each core stops executing instructions and enters an
+idle state, with clock gating automatically after a
+Wait-for-Interrupt (WFI) execution. The core exits this
+state when receiving an interrupt routed to it and
+continues execution.
+
+3
+
+Core-Power-O
+
+Each core, when voted, enters a power-off state after
+
+ff
+
+Core-Idle sleep mode. The core exits this state when
+receiving an interrupt, with power turned on and reset
+released.
+
+4
+
+CPU-Cluster-
+
+Each CPU cluster, when voted, enters this low-power
+
+Power-Off
+
+state after all cores within this cluster have entered the
+Core-Power-Off state, with L2/TCM memory also shut
+
+down.
+Any active interrupt routing to CPU cores in this cluster
+would bring CPU cluster out of this state, then power
+on, clock resume and reset release.
+5
+
+Home-Screen
+
+The main bus fabric AXI clock is gated off (if voted)
+after both CPU clusters enter CPU-Cluster-Power-Off
+mode.
+Any interrupt will wake up the chip from this state by
+resuming the main bus AXI clock, and powering up the
+corresponding CPU cluster and CPU core to which the
+interrupt is routed, resuming the CPU clock, and
+releasing the reset to service the interrupt routine.
+
+6
+
+Chip-Sleep
+
+This is the most ultra-low power state, with all
+PLLs/Power islands off. Only 32K RTC clock remains
+alive, and the 24M VCXO can be configured to be on or
+off.
+In this state only the logic/IO in AON domain alives, and
+a pin named SLEEP_OUT connected to PMIC would
+be deasserted to signal PMIC to lower the VCC power
+supply voltage to reduce lower power comsumption.
+
+7
+
+RCPU with
+
+RCPU power domain is an independent power island
+
+SOC LP
+
+and can function in any of above PMU states. RCPU
+can vote for different SoC low-power states according
+to its specific scenario requirements.
+The RCPU itself has four low-power states as follows:
+•
+
+Active Mode: Clock running
+
+•
+
+ClkGate Mode: Clock gating
+
+•
+
+PLL Off Mode: PLL powered off
+
+•
+
+Power Off Mode: RCPU power is shut down, but
+
+the RCPU AON domain remains alive
+
+Note. VPU, GPU, ISP, DPU power islands can be turned on or off by software, and
+are independent of the power states No. 1~5 in the table above
+
+In the Chip-Sleep low power state (see No. 6 in the table above), the following
+interrupts or events can wake up the chip:
+•
+
+Pad edge detection
+
+•
+
+Keypad press
+
+•
+
+RTC/Timer/WDT
+
+•
+
+USB/RCPU/AP2AUDIO_IPC
+
+•
+
+SD/EMMC/PCIE
+
+•
+
+PMIC
+
+In the RCPU power off state (see No. 7 in the table above), the following interrupts or
+events can wake up RCPU PMU to resume its power supply:
+•
+
+Audio plug interrupt / Hook key interrupt / Class-G short power interrupt / Audio
+
+OCP interrupt
+•
+
+AP IPC power-on request
+
+•
+
+RCPU AON Timer wakeup request
+
+•
+
+Sensor-Hub GPIO wakeup request
+
+3. Package
+3.1 Introduction
+X1 is available in two packages as tabled below.
+Type
+
+Size
+
+Pin Pitch
+
+Pin Count
+
+FCCSP
+
+17×17 mm
+
+0.65 mm
+
+676
+(26x26)
+
+FCBGA
+
+19×19 mm
+
+0.65 mm
+
+676
+(26x26)
+
+The related package outline drawing (POD) are depicted in the following sections.
+
+3.2 FCCSP Type
+
+Item
+
+Symbol
+
+Dimension (in mm)
+Min
+
+Typ
+
+Max
+
+Total thickness
+
+A
+
+0.890
+
+0.990
+
+1.090
+
+Pin stand off
+
+A1
+
+0.160
+
+0.210
+
+0.260
+
+Substrate + Die +
+
+A2
+
+0.710
+
+0.780
+
+0.850
+
+Mold
+
+Substrate + Die
+
+c
+
+0.290
+
+0.330
+
+0.370
+
+Body
+
+X
+
+D
+
+16.900
+
+17.000
+
+17.100
+
+size
+
+direction
+E
+
+16.900
+
+17.000
+
+17.100
+
+D1
+
+—
+
+16.250
+
+—
+
+E1
+
+—
+
+16.250
+
+—
+
+e
+
+—
+
+0.650
+
+—
+
+Pin width
+
+b
+
+0.250
+
+0.300
+
+0.350
+
+Package edge
+
+aaa
+
+0.100
+
+HAT flatness
+
+bbb
+
+0.100
+
+Coplanarity
+
+ddd
+
+0.100
+
+Pin offset (package)
+
+eee
+
+0.150
+
+Pin offset (ball)
+
+fff
+
+0.080
+
+Y
+direction
+Edge pin
+
+X
+
+center to
+
+direction
+
+center
+Y
+direction
+Pin pitch
+
+X/Y
+direction
+
+tolerance
+
+Pin diameter
+
+0.300
+
+Pin count
+
+676
+
+MD/ME
+
+26/26
+
+3.3 FCBGA Type
+
+Item
+
+Body size
+
+Symbol
+
+X
+
+D
+
+Dimension (in mm)
+Min
+
+Typ
+
+Max
+
+18.900
+
+19.000
+
+19.10
+
+direction
+Y
+
+0
+E
+
+18.900
+
+direction
+Pin pitch
+
+X
+
+direction
+
+19.10
+0
+
+eD
+
+0.650
+
+eE
+
+0.650
+
+direction
+Y
+
+19.000
+
+Total thickness
+
+A
+
+2.157
+
+2.257
+
+2.357
+
+Hat + Adhesive
+
+A3
+
+1.322
+
+1.375
+
+1.428
+
+Substrate thickness
+
+c
+
+0.602
+
+0.672
+
+0.742
+
+Pin stand off
+
+A1
+
+0.169
+
+0.210
+
+0.260
+
+Pin width
+
+b
+
+0.250
+
+0.300
+
+0.350
+
+Package edge tolerance
+
+aaa
+
+0.150
+
+HAT flatness
+
+ccc
+
+0.350
+
+Coplanarity
+
+ddd
+
+0.080
+
+Pin offset (package)
+
+eee
+
+0.150
+
+Pin offset (ball)
+
+fff
+
+0.080
+
+Pin count
+
+n
+
+676
+
+D1
+
+16.250
+
+E1
+
+16.250
+
+gD
+
+1.375
+
+gE
+
+1.375
+
+Edge pin center to center
+
+X
+direction
+Y
+direction
+
+Edge pin center to
+
+X
+
+package edge
+
+direction
+Y
+direction
+
+4. Pinout
+
+4.1 Introduction
+The two available packages of X1 as per Chapter 3 are pin-to-pin.
+
+4.2 Pinout Diagram & Description
+The overall pinout diagram of X1 is depicted below.
+
+Note. Meaning of the different colors:
+•
+
+Power supplies (different voltages):
+•
+
+Brown
+
+•
+
+Dark Blue
+
+•
+
+Grey
+
+•
+
+Light Blue
+
+•
+
+Orange
+
+•
+
+Purple
+
+•
+
+Red
+
+￮
+
+Yellow
+
+￮
+
+▪
+
+Grounds:
+￮
+
+Dark Green
+
+▪
+
+Light Green
+
+Signals:
+▪
+
+White
+
+Let's consider the division into the quadrants
+▪
+
+(A~N, 1~13)
+
+▪
+
+(A~N, 14~26)
+
+￮
+
+(M~AF, 1~13)
+
+▪
+
+(M~AF, 14~26)
+in order to provide conveniently the pinout description of X1 in the following
+
+subsections.
+
+4.2.1 (A~N, 1~13)
+
+Note. Definition of symbols used for pin type:
+▪
+
+AO = Analog output
+
+▪
+
+AI = Analog input
+
+▪
+
+AIO = Analog input/output
+
+￮
+
+G = Ground
+
+•
+
+I/O = Input/Output
+
+￮
+
+P = Power
+
+￮
+
+RO = Reference output
+
+Pin ID
+
+Name
+
+Type
+
+Power
+
+Function
+
+Domain
+A1
+
+VSS
+
+G
+
+0V
+
+Digital Core
+Ground
+
+A2
+
+VSSQ_DDR
+
+G
+
+0V
+
+DDR
+Ground
+
+A3
+
+DQ_B_2
+
+AIO
+
+lp3: 1.2V
+lp4x: 0.6V
+
+LPDDR4X:
+CHB DQ2
+LPDDR3:
+DQ28
+
+A4
+
+DMI0_B
+
+AIO
+
+lp3: 1.2V
+lp4x: 0.6V
+
+LPDDR4X:
+Channel B
+DM0
+LPDDR3:
+DQ25
+
+A5
+
+VSSQ_DDR
+
+G
+
+0V
+
+DDR
+Ground
+
+A6
+
+DQ_B_6
+
+AIO
+
+lp3: 1.2V
+
+LPDDR4X:
+
+lp4x: 0.6V
+
+CHB DQ6
+LPDDR3:
+DQ24
+
+A7
+
+DQ_B_4
+
+AIO
+
+lp3: 1.2V
+lp4x: 0.6V
+
+LPDDR4X:
+CHB DQ4
+LPDDR3:
+DQ30
+
+A8
+
+DQ_B_13
+
+AIO
+
+lp3: 1.2V
+lp4x: 0.6V
+
+LPDDR4X:
+CHB DQ13
+LPDDR3:
+DQ15
+
+A9
+
+DQ_B_15
+
+AIO
+
+lp3: 1.2V
+lp4x: 0.6V
+
+LPDDR4X:
+CHB DQ15
+LPDDR3:
+DQ12
+
+A10
+
+VSSQ_DDR
+
+G
+
+0V
+
+DDR
+Ground
+
+A11
+
+DQ_B_9
+
+AIO
+
+lp3: 1.2V
+lp4x: 0.6V
+
+LPDDR4X:
+CHB DQ9
+LPDDR3:
+DQ8
+
+A12
+
+DQ_B_12
+
+AIO
+
+lp3: 1.2V
+lp4x: 0.6V
+
+LPDDR4X:
+CHB DQ12
+LPDDR3:
+DQ10
+
+A13
+
+DQ_B_11
+
+AIO
+
+lp3: 1.2V
+lp4x: 0.6V
+
+LPDDR4X:
+CHB DQ11
+LPDDR3:
+
+DQ11
+B1
+
+VSS
+
+G
+
+0V
+
+Digital Core
+Ground
+
+B2
+
+DQ_B_3
+
+AIO
+
+lp3: 1.2V
+lp4x: 0.6V
+
+LPDDR4X:
+CHB DQ3
+LPDDR3:
+DQM3
+
+B3
+
+VSSQ_DDR
+
+G
+
+0V
+
+DDR
+Ground
+
+B4
+
+DQ_B_1
+
+AIO
+
+lp3: 1.2V
+lp4x: 0.6V
+
+LPDDR4X:
+CHB DQ1
+LPDDR3:
+DQ27
+
+B5
+
+DQ_B_0
+
+AIO
+
+lp3: 1.2V
+lp4x: 0.6V
+
+LPDDR4X:
+CHB DQ0
+LPDDR3:
+DQ31
+
+B6
+
+DQ_B_7
+
+AIO
+
+lp3: 1.2V
+lp4x: 0.6V
+
+LPDDR4X:
+CHB DQ7
+LPDDR3:
+DQ29
+
+B7
+
+DQ_B_5
+
+AIO
+
+lp3: 1.2V
+lp4x: 0.6V
+
+LPDDR4X:
+CHB DQ5
+LPDDR3:
+DQ26
+
+B8
+
+VDDQ_V1P
+2
+
+P
+
+lp3: 1.2V
+lp4x: 0.6V
+
+LPDDR3 IO
+power
+
+B9
+
+DQ_B_14
+
+AIO
+
+lp3: 1.2V
+lp4x: 0.6V
+
+LPDDR4X:
+CHB DQ14
+LPDDR3:
+DQ13
+
+B10
+
+DMI1_B
+
+AIO
+
+lp3: 1.2V
+lp4x: 0.6V
+
+LPDDR4X:
+Channel B
+DM1
+LPDDR3:
+DQ14
+
+B11
+
+DQ_B_8
+
+AIO
+
+lp3: 1.2V
+lp4x: 0.6V
+
+LPDDR4X:
+CHA DQ12
+LPDDR3:
+DQM1
+
+B12
+
+DQ_B_10
+
+AIO
+
+lp3: 1.2V
+lp4x: 0.6V
+
+LPDDR4X:
+CHB DQ10
+LPDDR3:
+DQ9
+
+B13
+
+VSSQ_DDR
+
+G
+
+0V
+
+DDR
+Ground
+
+C1
+
+GPIO_58
+
+I/O
+
+1.8V
+
+General
+Purpose I/O
+58
+
+C2
+
+GPIO_57
+
+I/O
+
+1.8V
+
+General
+Purpose I/O
+57
+
+C3
+
+GPIO_56
+
+I/O
+
+1.8V
+
+General
+Purpose I/O
+56
+
+C4
+
+GPIO_55
+
+I/O
+
+1.8V
+
+General
+Purpose I/O
+55
+
+C5
+
+GPIO_54
+
+I/O
+
+1.8V
+
+General
+Purpose I/O
+54
+
+C6
+
+DQS0_T_B
+
+AIO
+
+lp3: 1.2V
+lp4x: 0.6V
+
+LPDDR4X:
+Positive of
+CHB DQS0
+LPDDR3:
+Positive of
+DQS3
+
+C7
+
+VSSQ_DDR
+
+G
+
+0V
+
+DDR
+Ground
+
+C8
+
+CS1_B
+
+AO
+
+lp3: 1.2V
+lp4x: 0.6V
+
+LPDDR4X:
+Active-low
+chip select 1
+of CHB
+LPDDR3:
+N/A
+
+C9
+
+CA_B_1
+
+AO
+
+lp3: 1.2V
+lp4x: 0.6V
+
+LPDDR4X:
+CHB CA1
+LPDDR3:
+CA5
+
+C10
+
+CKE0_B
+
+AO
+
+lp3: 1.2V
+lp4x: 1.1V
+
+LPDDR4X:
+clock
+enabling 0 of
+CHB
+LPDDR3:
+
+N/A
+C11
+
+CKE1_B
+
+AO
+
+lp3: 1.2V
+lp4x: 1.1V
+
+LPDDR4X:
+clock
+enabling 1 of
+CHB
+LPDDR3:
+N/A
+
+C12
+
+VDDQ_V1P
+
+P
+
+2
+C13
+
+CA_B_5
+
+lp3: 1.2V
+lp4x: 0.6V
+
+AO
+
+lp3: 1.2V
+lp4x: 0.6V
+
+LPDDR3 IO
+power
+LPDDR4X:
+CHB CA5
+LPDDR3:
+CA8
+
+D1
+
+GPIO_114
+
+I/O
+
+1.8V
+
+General
+Purpose I/O
+114
+
+D2
+
+GPIO_113
+
+I/O
+
+1.8V
+
+General
+Purpose I/O
+113
+
+D3
+
+GPIO_112
+
+I/O
+
+1.8V
+
+General
+Purpose I/O
+112
+
+D4
+
+GPIO_111
+
+I/O
+
+1.8V
+
+General
+Purpose I/O
+111
+
+D5
+
+GPIO_53
+
+I/O
+
+1.8V
+
+General
+Purpose I/O
+53
+
+D6
+
+DQS0_C_B
+
+AIO
+
+lp3: 1.2V
+lp4x: 0.6V
+
+LPDDR4X:
+Negative of
+CHB DQS0
+LPDDR3:
+Negtive of
+DQS3
+
+D7
+
+VSSQ_DDR
+
+G
+
+0V
+
+DDR
+Ground
+
+D8
+
+CA_B_0
+
+AO
+
+lp3: 1.2V
+lp4x: 0.6V
+
+D9
+
+VSSQ_DDR
+
+G
+
+0V
+
+LPDDR4X:
+CHB CA0
+DDR
+Ground
+
+D10
+
+DDR_lp4x_
+
+AIO
+
+1.8V
+
+SEL
+
+LPDDR4X:
+connect to
+1.8V
+LP234:
+connect to
+Ground
+
+D11
+
+CK_C_B
+
+AO
+
+lp3: 1.2V
+lp4x: 0.6V
+
+LPDDR4X:
+negative
+LPDDR
+differential
+clock of CHB
+LPDDR3:
+negative
+LPDDR
+differential
+clock
+
+D12
+
+CA_B_2
+
+AO
+
+lp3: 1.2V
+
+LPDDR4X:
+
+lp4x: 0.6V
+
+CHB CA2
+LPDDR3:
+CA9
+
+D13
+
+CA_B_4
+
+AO
+
+lp3: 1.2V
+lp4x: 0.6V
+
+LPDDR4X:
+CHA CA4
+LPDDR3:
+CA7
+
+E1
+
+GPIO_67
+
+I/O
+
+1.8V
+
+General
+Purpose I/O
+67
+
+E2
+
+GPIO_65
+
+I/O
+
+1.8V
+
+General
+Purpose I/O
+65
+
+E3
+
+GPIO_64
+
+I/O
+
+1.8V
+
+General
+Purpose I/O
+64
+
+E4
+
+VSS
+
+G
+
+0V
+
+Digital Core
+Ground
+
+E5
+
+GPIO_63
+
+I/O
+
+1.8V
+
+General
+Purpose I/O
+63
+
+E6
+
+VSS
+
+G
+
+0V
+
+Digital Core
+Ground
+
+E7
+
+VSSQ_DDR
+
+G
+
+0V
+
+DDR
+Ground
+
+E8
+
+VDDQ_V1P
+2
+
+P
+
+lp3: 1.2V
+lp4x: 0.6V
+
+LPDDR3 IO
+power
+
+E9
+
+DDR_LP23_
+
+P
+
+VREFDQ
+
+lp3: 0.6V
+lp4: high-z
+
+DQ VREF
+for lpddr23 ,
+LP4/4x
+Keep the pin
+NC
+
+E10
+
+VSSQ_DDR
+
+G
+
+0V
+
+DDR
+Ground
+
+E11
+
+CK_T_B
+
+AO
+
+lp3: 1.2V
+lp4x: 0.6V
+
+LPDDR4X:
+positive
+LPDDR
+differential
+clock of CHB
+LPDDR3:
+positive
+LPDDR
+differential
+clock
+
+E12
+
+CA_B_3
+
+AO
+
+lp3: 1.2V
+lp4x: 0.6V
+
+LPDDR4X:
+CHB CA3
+LPDDR3:
+CA6
+
+E13
+
+AVSS18_D
+
+G
+
+0V
+
+DR
+F1
+
+VSS
+
+DDR
+Ground
+
+G
+
+0V
+
+Digital Core
+Ground
+
+F2
+
+VSS
+
+G
+
+0V
+
+Digital Core
+Ground
+
+F3
+
+GPIO_69
+
+I/O
+
+1.8V
+
+General
+Purpose I/O
+
+69
+F4
+
+GPIO_68
+
+I/O
+
+1.8V
+
+General
+Purpose I/O
+68
+
+F5
+
+GPIO_66
+
+I/O
+
+1.8V
+
+General
+Purpose I/O
+66
+
+F6
+
+VCC18_GPI
+
+P
+
+1.8V
+
+O
+
+GPIO1/4/5/P
+MIC I/O
+power
+
+F7
+
+VSS
+
+G
+
+0V
+
+Digital Core
+Ground
+
+F8
+
+VSSQ_DDR
+
+G
+
+0V
+
+DDR
+Ground
+
+F9
+
+VDDQ_V1P
+
+P
+
+2
+F10
+
+VDDQ_V1P
+
+lp4x: 0.6V
+P
+
+2
+F11
+
+VSSQ_DDR
+
+lp3: 1.2V
+
+lp3: 1.2V
+lp4x: 0.6V
+
+G
+
+0V
+
+LPDDR3 IO
+power
+LPDDR3 IO
+power
+DDR
+Ground
+
+F12
+
+CS0_B
+
+AO
+
+lp3: 1.2V
+lp4x: 0.6V
+
+LPDDR4X:
+clock
+enabling 1 of
+CHB
+LPDDR3:
+N/A
+
+F13
+
+DDR_RESE
+
+AO
+
+T_N
+
+G1
+
+MIPI_CSI1_
+
+lp3: 1.2V
+lp4x: 1.1V
+
+AI
+
+1.8V
+
+D1N
+
+LPDDR
+SDRAM
+reset
+CSI1
+DATA1LAN
+EN
+
+G2
+
+MIPI_CSI1_
+
+AI
+
+1.8V
+
+D1P
+
+CSI1
+DATA1LAN
+EP
+
+G3
+
+VSS
+
+G
+
+0V
+
+Digital Core
+Ground
+
+G4
+
+MIPI_CSI1_
+
+AI
+
+1.8V
+
+D0N
+
+CSI1
+DATA0LAN
+EN
+
+G5
+
+MIPI_CSI1_
+
+AI
+
+1.8V
+
+D0P
+
+CSI1
+DATA0LAN
+EP
+
+G6
+
+VSS
+
+G
+
+0V
+
+Digital Core
+Ground
+
+G7
+
+VSS
+
+G
+
+0V
+
+Digital Core
+Ground
+
+G8
+
+VSS
+
+G
+
+0V
+
+Digital Core
+Ground
+
+G9
+
+VSS
+
+G
+
+0V
+
+Digital Core
+Ground
+
+G10
+
+VSSQ_DDR
+
+G
+
+0V
+
+DDR
+Ground
+
+G11
+
+VDDQ_V1P
+
+P
+
+2
+G12
+
+AVDD11_D
+
+lp3: 1.2V
+lp4x: 0.6V
+
+P
+
+DR
+
+lp4x: 1.1V
+lp4: 1.1V
+lp3: 1.2V
+
+G13
+
+VDDQ_V1P
+
+P
+
+2
+H1
+
+MIPI_CSI1_
+
+lp3: 1.2V
+lp4x: 0.6V
+
+AI
+
+1.8V
+
+D2N
+
+LPDDR3 IO
+power
+LPDDR PHY
+power
+supply
+
+LPDDR3 IO
+power
+CSI1
+DATA2LAN
+EN
+
+H2
+
+MIPI_CSI1_
+
+AI
+
+1.8V
+
+D2P
+
+CSI1
+DATA2LAN
+EP
+
+H3
+
+VSS
+
+G
+
+0V
+
+Digital Core
+Ground
+
+H4
+
+MIPI_CSI1_
+
+AO
+
+1.8V
+
+CLKN
+H5
+
+MIPI_CSI1_
+
+CKLANEN
+AO
+
+1.8V
+
+CLKP
+H6
+
+AVSS18_AF
+
+XI_PAD
+
+CSI1
+CKLANEP
+
+G
+
+0V
+
+EAP
+H7
+
+CSI1
+
+DCXO
+Ground
+
+AI
+
+1.8V
+
+DCXO
+crystal input
+
+H8
+
+AVSS18_AF
+EAP
+
+G
+
+0V
+
+DCXO
+Ground
+
+H9
+
+VSS
+
+G
+
+0V
+
+Digital Core
+Ground
+
+H10
+
+VSSU_DDR
+
+G
+
+0V
+
+system DDR
+Ground
+
+H11
+
+VSSU_DDR
+
+G
+
+0V
+
+system DDR
+Ground
+
+H12
+
+AVDD18_P
+
+P
+
+1.8V
+
+HY
+H13
+
+AVDDU_DD
+
+Analog 1.8V
+power
+
+P
+
+0.9V
+
+R
+
+LPDDR PHY
+PLL logical
+power
+
+J1
+
+MIPI_CSI3_
+
+AI
+
+1.8V
+
+D0N
+
+CSI3
+DATA0LAN
+EN
+
+J2
+
+MIPI_CSI3_
+
+AI
+
+1.8V
+
+D0P
+
+CSI3
+DATA0LAN
+EP
+
+J3
+
+AVSS_CSI
+
+G
+
+0V
+
+MIPI_CSI
+Ground
+
+J4
+
+MIPI_CSI1_
+
+AI
+
+1.8V
+
+D3N
+
+CSI1
+DATA3LAN
+EN
+
+J5
+
+MIPI_CSI1_
+
+AI
+
+1.8V
+
+D3P
+
+CSI1
+DATA3LAN
+EP
+
+J6
+
+AVSS_CSI
+
+G
+
+0V
+
+MIPI_CSI
+Ground
+
+J7
+
+XO_PAD
+
+AO
+
+1.8V
+
+DCXO
+crystal
+output
+
+J8
+
+AVSS18_AF
+
+G
+
+0V
+
+EAP
+J9
+
+AVSS18_AF
+
+Ground
+G
+
+0V
+
+EAP
+J10
+
+VCC_M1
+
+DCXO
+
+DCXO
+Ground
+
+P
+
+0.9V
+
+Digital Core
+power
+
+J11
+
+AVDDU_PH
+
+P
+
+0.9V
+
+Y
+
+LPDDR PHY
+core logical
+power
+
+J12
+
+AVDDU_PH
+
+P
+
+0.9V
+
+Y
+
+LPDDR PHY
+core logical
+power
+
+J13
+
+AVDDU_PH
+
+P
+
+0.9V
+
+Y
+
+LPDDR PHY
+core logical
+power
+
+K1
+
+MIPI_CSI3_
+CLKN
+
+AO
+
+1.8V
+
+CSI3
+CKLANEN
+for CSI3
+DATALANE
+0/1 when
+CSI3 is
+configured
+as two 2ch
+CSI;
+CSI3
+CKLANEN
+for CSI3
+
+DATALANE
+0/1/2/3 when
+CSI3 is
+configured
+as 4ch CSI
+K2
+
+MIPI_CSI3_
+
+AO
+
+1.8V
+
+CLKP
+
+CSI3
+CKLANEP
+for CSI3
+DATALANE
+0/1 when
+CSI3 is
+configured
+as two 2ch
+CSI;
+CSI3
+CKLANEP
+for CSI3
+DATALANE
+0/1/2/3 when
+CSI3 is
+configured
+as 4ch CSI
+
+K3
+
+AVSS_CSI
+
+G
+
+0V
+
+MIPI_CSI
+Ground
+
+K4
+
+MIPI_CSI3_
+
+AI
+
+1.8V
+
+D1N
+
+CSI3
+DATA1LAN
+EN
+
+K5
+
+MIPI_CSI3_
+
+AI
+
+1.8V
+
+D1P
+
+CSI3
+DATA1LAN
+EP
+
+K6
+
+AVDD18_C
+
+P
+
+1.8V
+
+MIPI_CSI
+analog
+
+SI
+K7
+
+AVDD09_C
+
+power
+P
+
+0.9V
+
+SI
+K8
+
+AVSS_CSI
+
+MIPI_CSI
+digtial power
+
+G
+
+0V
+
+MIPI_CSI
+Ground
+
+K9
+
+VCC_M1
+
+P
+
+0.9V
+
+Digital Core
+power
+
+K10
+
+VSS
+
+G
+
+0V
+
+Digital Core
+Ground
+
+K11
+
+BG_OUT
+
+AO
+
+1.8V
+
+Bandgap
+output
+
+K12
+
+AVDD18_AF
+
+P
+
+1.8V
+
+EAP
+K13
+
+MPLL_TST_
+
+for DCXO
+AIO
+
+1.8V
+
+CK
+L2
+
+MIPI_CSI3_
+
+1.8V power
+
+Analog
+testpin
+
+AI
+
+1.8V
+
+D2P
+
+CSI3
+DATA2LAN
+EP
+
+L3
+
+AVSS_CSI
+
+G
+
+0V
+
+MIPI_CSI
+Ground
+
+L4
+
+MIPI_CSI2_
+CLKN
+
+AO
+
+1.8V
+
+CKLANEN
+for CSI3
+DATALANE
+2/3 when
+CSI3 is
+configured
+as two 2ch
+
+CSI;
+Disabled
+when CSI3
+is configured
+as 4ch CSI
+L5
+
+MIPI_CSI2_
+
+AO
+
+1.8V
+
+CLKP
+
+CKLANEP
+for CSI3
+DATALANE
+2/3 when
+CSI3 is
+configured
+as two 2ch
+CSI;
+Disabled
+when CSI3
+is configured
+as 4ch CSI
+
+L6
+
+AVDD18_C
+
+P
+
+1.8V
+
+SI
+
+MIPI_CSI
+analog
+power
+
+L7
+
+AVDD09_C
+
+P
+
+0.9V
+
+SI
+L8
+
+AVSS_CSI
+
+MIPI_CSI
+digtial power
+
+G
+
+0V
+
+MIPI_CSI
+Ground
+
+L9
+
+AVSS_CSI
+
+G
+
+0V
+
+MIPI_CSI
+Ground
+
+L10
+
+VCC_M1
+
+P
+
+0.9V
+
+Digital Core
+power
+
+L11
+
+AVDD09_AF
+
+P
+
+0.9V
+
+0.9V power
+
+EAP
+L12
+
+VSSU_AFE
+
+for DCXO
+G
+
+0V
+
+AP
+L13
+
+AVSS_PLL
+
+DCXO
+Ground
+
+G
+
+0V
+
+Analog Core
+Ground
+
+M1
+
+MIPI_CSI3_
+
+AI
+
+1.8V
+
+D3N
+
+CSI3
+DATA3LAN
+EN
+
+M2
+
+MIPI_CSI3_
+
+AI
+
+1.8V
+
+D3P
+
+CSI3
+DATA3LAN
+EP
+
+M3
+
+VSS
+
+G
+
+0V
+
+Digital Core
+Ground
+
+M4
+
+VSS
+
+G
+
+0V
+
+Digital Core
+Ground
+
+M5
+
+VSSU_PCIE
+
+G
+
+0V
+
+A
+M6
+
+AVDD18_U
+
+Ground
+P
+
+1.8V
+
+SB
+M7
+
+AVDD09_U
+
+VSSU_PCIE
+
+P
+
+0.9V
+
+AVDD33_U
+SB
+
+USB2.0
+digital power
+
+G
+
+0V
+
+A
+M9
+
+USB2.0
+1.8V power
+
+SB
+M8
+
+PCIEA
+
+PCIEA
+Ground
+
+P
+
+3.3V
+
+USB2.0
+3.3V power
+
+M10
+
+VSS
+
+G
+
+0V
+
+Digital Core
+Ground
+
+M11
+
+AVDD09_PL
+
+P
+
+0.9
+
+L
+
+System PLL
+power
+supply
+
+M12
+
+VSS
+
+G
+
+0V
+
+Digital Core
+Ground
+
+M13
+
+VSS
+
+G
+
+0V
+
+Digital Core
+Ground
+
+N1
+
+USB2_DN
+
+AIO
+
+3.3V
+
+USB2.0_2
+Ddifferential
+data line
+
+N2
+
+USB2_DP
+
+AIO
+
+3.3V
+
+USB2.0_2
+D+
+differential
+data line
+
+N3
+
+AVSS_USB
+
+G
+
+0V
+
+USB2.0
+Ground
+
+N4
+
+PCIEA_TXN
+
+AO
+
+1.8V
+
+PCIEA
+TXLANEN
+
+N5
+
+PCIEA_TXP
+
+AO
+
+1.8V
+
+PCIEA
+TXLANEP
+
+N6
+
+AVDD18_P
+
+P
+
+1.8V
+
+CIEA
+
+PCIEA
+analog
+power
+
+N7
+
+AVDD09_P
+
+P
+
+0.9V
+
+PCIEA
+
+CIEA
+N8
+
+AVSS_PCIE
+
+digital power
+G
+
+0V
+
+A
+N9
+
+AVDD33_U
+
+Ground
+P
+
+3.3V
+
+SB
+N10
+
+VCC_M1
+
+PCIEA
+
+USB2.0
+3.3V power
+
+P
+
+0.9V
+
+Digital Core
+power
+
+N11
+
+VSS
+
+G
+
+0V
+
+Digital Core
+Ground
+
+N12
+
+VCC_M1
+
+P
+
+0.9V
+
+Digital Core
+power
+
+N13
+
+VSS
+
+G
+
+0V
+
+Digital Core
+Ground
+
+4.2.2 (A~N, 14~26)
+
+Note. Definition of symbols used for pin type:
+•
+
+AO = Analog output
+
+￮
+
+AI = Analog input
+
+￮
+
+AIO = Analog input/output
+
+￮
+
+G = Ground
+
+￮
+
+I/O = Input/Output
+
+￮
+
+P = Power
+
+￮
+
+RO = Reference output
+
+Pin ID
+
+Name
+
+Type
+
+Power
+
+Function
+
+Domain
+A14
+
+DQS1_C_B
+
+AIO
+
+lp3: 1.2V
+lp4x: 0.6V
+
+LPDDR4X:
+Negative of
+CHB DQS1
+LPDDR3:
+Negtive of
+
+DQS1
+A15
+
+DQS1_C_A
+
+AIO
+
+lp3: 1.2V
+lp4x: 0.6V
+
+LPDDR4X:
+Negative of
+CHA DQS1
+LPDDR3:
+Negtive of
+DQS0
+
+A16
+
+DQ_A_12
+
+AIO
+
+lp3: 1.2V
+lp4x: 0.6V
+
+LPDDR4X:
+CHA DQ12
+LPDDR3:
+DQM0
+
+A17
+
+DQ_A_9
+
+AIO
+
+lp3: 1.2V
+lp4x: 0.6V
+
+LPDDR4X:
+CHA DQ9
+LPDDR3:
+DQ7
+
+A18
+
+DQ_A_8
+
+AIO
+
+lp3: 1.2V
+lp4x: 0.6V
+
+LPDDR4X:
+CHB DQ8
+LPDDR3:
+DQ5
+
+A19
+
+DQ_A_15
+
+AIO
+
+lp3: 1.2V
+lp4x: 0.6V
+
+LPDDR4X:
+CHB DQ15
+LPDDR3:
+DQ3
+
+A20
+
+VSSQ_DDR
+
+G
+
+0V
+
+DDR
+Ground
+
+A21
+
+DQ_A_5
+
+AIO
+
+lp3: 1.2V
+lp4x: 0.6V
+
+LPDDR4X:
+CHA DQ5
+LPDDR3:
+
+DQ21
+A22
+
+DQ_A_7
+
+AIO
+
+lp3: 1.2V
+lp4x: 0.6V
+
+LPDDR4X:
+CHA DQ7
+LPDDR3:
+DQ17
+
+A23
+
+DMI0_A
+
+AIO
+
+lp3: 1.2V
+lp4x: 0.6V
+
+LPDDR4X:
+Channel A
+DM0
+LPDDR3:
+DQ22
+
+A24
+
+DQ_A_1
+
+AIO
+
+lp3: 1.2V
+lp4x: 0.6V
+
+LPDDR4X:
+CHA DQ1
+LPDDR3:
+DQ16
+
+A25
+
+VSSQ_DDR
+
+G
+
+0V
+
+DDR
+Ground
+
+A26
+
+VSS
+
+G
+
+0V
+
+Digital Core
+Ground
+
+B14
+
+DQS1_T_B
+
+AIO
+
+lp3: 1.2V
+lp4x: 0.6V
+
+LPDDR4X:
+Positive of
+CHB DQS1
+LPDDR3:
+Positive of
+DQS1
+
+B15
+
+DQS1_T_A
+
+AIO
+
+lp3: 1.2V
+lp4x: 0.6V
+
+LPDDR4X:
+Positive of
+CHA DQS1
+LPDDR3:
+Positive of
+
+DQS0
+B16
+
+DQ_A_11
+
+AIO
+
+lp3: 1.2V
+lp4x: 0.6V
+
+LPDDR4X:
+CHA DQ11
+LPDDR3:
+DQ4
+
+B17
+
+DQ_A_10
+
+AIO
+
+lp3: 1.2V
+lp4x: 0.6V
+
+LPDDR4X:
+CHA DQ10
+LPDDR3:
+DQ6
+
+B18
+
+DMI1_A
+
+AIO
+
+lp3: 1.2V
+lp4x: 0.6V
+
+LPDDR4X:
+Channel A
+DM1
+LPDDR3:
+DQ2
+
+B19
+
+DQ_A_14
+
+AIO
+
+lp3: 1.2V
+lp4x: 0.6V
+
+LPDDR4X:
+CHA DQ14
+LPDDR3:
+DQ1
+
+B20
+
+DQ_A_13
+
+AIO
+
+lp3: 1.2V
+lp4x: 0.6V
+
+LPDDR4X:
+CHA DQ13
+LPDDR3:
+DQ0
+
+B21
+
+DQ_A_4
+
+AIO
+
+lp3: 1.2V
+lp4x: 0.6V
+
+LPDDR4X:
+CHB DQ4
+LPDDR3:
+DQ18
+
+B22
+
+DQ_A_6
+
+AIO
+
+lp3: 1.2V
+lp4x: 0.6V
+
+LPDDR4X:
+CHB DQ6
+
+LPDDR3:
+DQ23
+B23
+
+VSSQ_DDR
+
+G
+
+0V
+
+DDR
+Ground
+
+B24
+
+DQ_A_2
+
+AIO
+
+lp3: 1.2V
+lp4x: 0.6V
+
+LPDDR4X:
+CHA DQ2
+LPDDR3:
+DQ19
+
+B25
+
+DQ_A_3
+
+AIO
+
+lp3: 1.2V
+lp4x: 0.6V
+
+LPDDR4X:
+CHB DQ3
+LPDDR3:
+DQM2
+
+B26
+
+VSS
+
+G
+
+0V
+
+Digital Core
+Ground
+
+C14
+
+VSSQ_DDR
+
+G
+
+0V
+
+DDR
+Ground
+
+C15
+
+VSSQ_DDR
+
+G
+
+0V
+
+DDR
+Ground
+
+C16
+
+CA_A_4
+
+AO
+
+lp3: 1.2V
+lp4x: 0.6V
+
+LPDDR4X:
+CHA CA4
+LPDDR3:
+CA3
+
+C17
+
+VSSQ_DDR
+
+G
+
+0V
+
+DDR
+Ground
+
+C18
+
+CKE1_A
+
+AO
+
+lp3: 1.2V
+lp4x: 1.1V
+
+LPDDR4X:
+clock
+enabling 1 of
+
+CHA
+LPDDR3:
+clock
+enabling 1
+C19
+
+CA_A_1
+
+AO
+
+lp3: 1.2V
+lp4x: 0.6V
+
+LPDDR4X:
+CHA CA1
+LPDDR3:
+CA2
+
+C20
+
+CS1_A
+
+AO
+
+lp3: 1.2V
+lp4x: 0.6V
+
+LPDDR4X:
+Active-low
+chip select 1
+of CHA
+LPDDR3:
+Active-low
+chip select 1
+
+C21
+
+AVDD06_D
+
+P
+
+DR
+
+lp4x: 0.6V
+lp4:
+
+LPDDR4X
+IO power
+
+TBD/lp3:
+TBD
+C22
+
+DQ_A_0
+
+AIO
+
+lp3: 1.2V
+lp4x: 0.6V
+
+LPDDR4X:
+CHA DQ0
+LPDDR3:
+DQ20
+
+C23
+
+VSS
+
+G
+
+0V
+
+Digital Core
+Ground
+
+C24
+
+EMMC_DS
+
+I/O
+
+1.8V
+
+eMMC data
+strobe
+
+C25
+
+EMMC_D7
+
+I/O
+
+1.8V
+
+eMMC data7
+
+C26
+
+EMMC_D2
+
+I/O
+
+1.8V
+
+eMMC data2
+
+D14
+
+VSSQ_DDR
+
+G
+
+0V
+
+DDR
+Ground
+
+D15
+
+AVDD06_D
+
+P
+
+DR
+
+lp4x: 0.6V
+lp4: TBD
+
+LPDDR4X
+IO power
+
+lp3: TBD
+D16
+
+CA_A_2
+
+AO
+
+lp3: 1.2V
+lp4x: 0.6V
+
+D17
+
+CK_C_A
+
+AO
+
+lp3: 1.2V
+lp4x: 0.6V
+
+LPDDR4X:
+CHA CA2
+LPDDR4X:
+negative
+LPDDR
+differential
+clock of CHA
+LPDDR3:
+N/A
+
+D18
+
+CKE0_A
+
+AO
+
+lp3: 1.2V
+lp4x: 1.1V
+
+LPDDR4X:
+clock
+enabling 0 of
+CHA
+LPDDR3:
+clock
+enabling 0
+
+D19
+
+CA_A_0
+
+AO
+
+lp3: 1.2V
+lp4x: 0.6V
+
+LPDDR4X:
+CHA CA0
+LPDDR3:
+CA4
+
+D20
+
+DQS0_T_A
+
+AIO
+
+lp3: 1.2V
+
+LPDDR4X:
+Positive of
+
+lp4x: 0.6V
+
+CHA DQS0
+LPDDR3:
+Positive of
+DQS2
+
+D21
+
+DQS0_C_A
+
+AIO
+
+lp3: 1.2V
+lp4x: 0.6V
+
+LPDDR4X:
+Negative of
+CHA DQS0
+LPDDR3:
+Negative of
+DQS2
+
+D22
+
+VSS
+
+G
+
+0V
+
+Digital Core
+Ground
+
+D23
+
+EMMC_D4
+
+I/O
+
+1.8V
+
+eMMC data4
+
+D24
+
+EMMC_D1
+
+I/O
+
+1.8V
+
+eMMC data1
+
+D25
+
+VSS
+
+G
+
+0V
+
+Digital Core
+Ground
+
+D26
+
+EMMC_D0
+
+I/O
+
+1.8V
+
+eMMC data0
+
+E14
+
+AVDD18_D
+
+P
+
+1.8V
+
+LPDDR PHY
+
+DR
+
+PLL 1.8V
+power
+
+E15
+
+CA_A_5
+
+AO
+
+lp3: 1.2V
+lp4x: 0.6V
+
+LPDDR4X:
+CHA CA5
+LPDDR3:
+CA1
+
+E16
+
+CS0_A
+
+AO
+
+lp3: 1.2V
+lp4x: 0.6V
+
+LPDDR4X:
+Active-low
+chip select 0
+
+of CHA
+LPDDR3:
+Active-low
+chip select 0
+E17
+
+CK_T_A
+
+AO
+
+lp3: 1.2V
+lp4x: 0.6V
+
+LPDDR4X:
+positive
+LPDDR
+differential
+clock of CHA
+LPDDR3:
+N/A
+
+E18
+
+AVDD06_D
+
+P
+
+DR
+
+lp4x: 0.6V
+lp4: TBD
+
+LPDDR4X
+IO power
+
+lp3: TBD
+E19
+
+AVDD06_D
+
+P
+
+DR
+
+lp4x: 0.6V
+lp4: TBD
+
+LPDDR4X
+IO power
+
+lp3: TBD
+E20
+
+VSSQ_DDR
+
+G
+
+0V
+
+DDR
+Ground
+
+E21
+
+AVSS_EMM
+
+G
+
+0V
+
+C
+
+eMMC
+Ground
+
+E22
+
+EMMC_D6
+
+I/O
+
+1.8V
+
+eMMC data6
+
+E23
+
+AVSS_EMM
+
+G
+
+0V
+
+eMMC
+
+C
+
+Ground
+
+E24
+
+EMMC_CLK
+
+I/O
+
+1.8V
+
+eMMC Clock
+
+E25
+
+EMMC_D3
+
+I/O
+
+1.8V
+
+eMMC data3
+
+E26
+
+EMMC_D5
+
+I/O
+
+1.8V
+
+eMMC data5
+
+F14
+
+ZQ_DDR_P
+
+AIO
+
+lp3: 1.2V
+
+DDR ZQ
+
+HY
+F15
+
+CA_A_3
+
+lp4x: 0.6V
+AO
+
+lp3: 1.2V
+lp4x: 0.6V
+
+calibration
+LPDDR4X:
+CHA CA3
+LPDDR3:
+CA0
+
+F16
+
+VSSQ_DDR
+
+G
+
+0V
+
+DDR
+Ground
+
+F17
+
+DDR_LDO_
+
+RO
+
+0.7~0.9V
+
+CAP
+
+External
+LDO output
+ball;
+Connect to a
+100nF
+capacitor on
+PCB board
+
+F18
+
+AVDD06_D
+
+P
+
+DR
+
+lp4x: 0.6V
+lp4: TBD
+
+LPDDR4X
+IO power
+
+lp3: TBD
+F19
+
+VSSQ_DDR
+
+G
+
+0V
+
+DDR
+Ground
+
+F20
+
+AVSS_EMM
+
+G
+
+0V
+
+C
+F21
+
+AVSS_EMM
+
+Ground
+G
+
+0V
+
+C
+F22
+
+AVSS_EMM
+
+eMMC
+
+eMMC
+Ground
+
+G
+
+0V
+
+eMMC
+
+C
+
+Ground
+
+F23
+
+QSPI_DAT2
+
+I/O
+
+1.8V/3.3V
+
+QSPI data2
+
+F24
+
+QSPI_DAT1
+
+I/O
+
+1.8V/3.3V
+
+QSPI data1
+
+F25
+
+EMMC_CM
+
+I/O
+
+1.8V
+
+eMMC
+
+D
+
+command
+
+F26
+
+QSPI_DAT0
+
+I/O
+
+1.8V/3.3V
+
+QSPI data0
+
+G14
+
+DDR_LP23_
+
+P
+
+lp3: 0.6V
+
+CA VREF for
+
+VREFCA
+
+lp4: high-z
+
+lpddr23,
+LP4/4x
+Keep the pin
+NC
+
+G15
+
+AVDD11_D
+
+P
+
+DR
+
+lp4x: 1.1V
+lp4: 1.1V
+lp3: 1.2V
+
+G16
+
+AVDD06_D
+
+P
+
+DR
+
+lp4x: 0.6V
+lp4: TBD
+
+LPDDR PHY
+power
+supply
+
+LPDDR4X
+IO power
+
+lp3: TBD
+G17
+
+VSSQ_DDR
+
+G
+
+0V
+
+DDR
+Ground
+
+G18
+
+AVDD18_EF
+
+P
+
+1.8V
+
+ANAGRP
+
+G
+
+0V
+
+eMMC
+
+USE
+G19
+
+AVSS_EMM
+C
+
+G20
+
+AVSS_EMM
+C
+
+Ground
+G
+
+0V
+
+eMMC
+Ground
+
+G21
+
+AVSS_EMM
+
+G
+
+0V
+
+C
+
+eMMC
+Ground
+
+G22
+
+QSPI_DAT3
+
+I/O
+
+1.8V/3.3V
+
+QSPI data3
+
+G23
+
+QSPI_CLK
+
+I/O
+
+1.8V/3.3V
+
+QSPI CLK
+
+G24
+
+QSPI_CS1
+
+I/O
+
+1.8V/3.3V
+
+QSPI CS
+
+G25
+
+VSS
+
+G
+
+0V
+
+Digital Core
+Ground
+
+G26
+
+VSS
+
+G
+
+0V
+
+Digital Core
+Ground
+
+H14
+
+AVSSU_DD
+
+G
+
+0V
+
+R
+H15
+
+AVDD18_P
+
+Ground
+P
+
+1.8V
+
+HY
+H16
+
+VSSU_DDR
+
+DDR
+
+Analog 1.8V
+power
+
+G
+
+0V
+
+System
+DDR
+Ground
+
+H17
+
+VSSU_DDR
+
+G
+
+0V
+
+System
+DDR
+Ground
+
+H18
+
+VSSU_EMM
+
+G
+
+0V
+
+C
+H19
+
+AVDD18_E
+
+eMMC
+Ground
+
+P
+
+1.8V
+
+MMC
+
+eMMC
+analog
+power
+
+H20
+
+AVDD09_E
+
+P
+
+0.9V
+
+eMMC
+
+MMC
+H21
+
+VCC1833_Q
+
+digtial power
+P
+
+1.8V/3.3V
+
+SPI
+H22
+
+PCIEC_TX0
+
+power
+AO
+
+1.8V
+
+P
+H23
+
+PCIEC_TX0
+
+AVSS_PCIE
+
+AO
+
+1.8V
+
+PCIEC_RX0
+
+G
+
+0V
+
+PCIEC_RX0
+
+AI
+
+1.8V
+
+AVDDU_PH
+
+PCIEC
+RX0LANEP
+
+AI
+
+1.8V
+
+N
+J14
+
+PCIEC
+Ground
+
+P
+H26
+
+PCIEC
+TX0LANEN
+
+C
+H25
+
+PCIEC
+TX0LANEP
+
+N
+H24
+
+QSPI IO
+
+PCIEC
+RX0LANEN
+
+P
+
+0.9V
+
+Y
+
+LPDDR PHY
+core logical
+power
+
+J15
+
+AVDDU_PH
+
+P
+
+0.9V
+
+Y
+
+LPDDR PHY
+core logical
+power
+
+J16
+
+VSS
+
+G
+
+0V
+
+Digital Core
+Ground
+
+J17
+
+VCC_M1
+
+P
+
+0.9V
+
+Digital Core
+power
+
+J18
+
+VSSU_EMM
+C
+
+G
+
+0V
+
+eMMC
+Ground
+
+J19
+
+QSPI_VCC_
+
+RO
+
+1.8V
+
+CAP
+J20
+
+AVDD09_E
+
+LDO cap
+P
+
+0.9V
+
+MMC
+J21
+
+AVSS_PCIE
+
+PCIEC_REF
+
+G
+
+0V
+
+PCIEC_REF
+
+AIO
+
+1.8V
+
+AVSS_PCIE
+
+AIO
+
+1.8V
+
+PCIEC_RX1
+
+G
+
+0V
+
+PCIEC_RX1
+
+AI
+
+1.8V
+
+AVDD18_PL
+
+PCIEC
+RX1LANEP
+
+AI
+
+1.8V
+
+N
+K14
+
+PCIEC
+Ground
+
+P
+J26
+
+PCIEC
+CKLANEN
+
+C
+J25
+
+PCIEC
+CKLANEP
+
+CLK_N
+J24
+
+PCIEC
+Ground
+
+CLK_P
+J23
+
+eMMC
+digtial power
+
+C
+J22
+
+QSPI 1.8V
+
+PCIEC
+RX1LANEN
+
+P
+
+1.8
+
+L
+
+System PLL
+power
+supply
+
+K15
+
+VCC_M1
+
+P
+
+0.9V
+
+Digital Core
+power
+
+K16
+
+VSS
+
+G
+
+0V
+
+Digital core
+Ground
+
+K17
+
+VCC_M1
+
+P
+
+0.9V
+
+Digital Core
+power
+
+K18
+
+VSSU_PCIE
+
+G
+
+0V
+
+C
+K19
+
+VSSU_PCIE
+
+Ground
+G
+
+0V
+
+C
+K20
+
+AVDD09_P
+
+AVSS_PCIE
+
+P
+
+0.9V
+
+PCIEC_TX1
+
+G
+
+0V
+
+PCIEC_TX1
+
+AO
+
+1.8V
+
+AVSS_PCIE
+
+AO
+
+1.8V
+
+PCIEB_RX0
+
+G
+
+0V
+
+PCIEB_RX0
+
+AI
+
+1.8V
+
+VSSU_PLL
+
+PCIEB
+RX0LANEP
+
+AI
+
+1.8V
+
+N
+L14
+
+PCIEC
+Ground
+
+P
+K26
+
+PCIEC
+TX1LANEN
+
+C
+K25
+
+PCIEC
+TX1LANEP
+
+N
+K24
+
+PCIEC
+Ground
+
+P
+K23
+
+PCIEC
+digital power
+
+C
+K22
+
+PCIEC
+Ground
+
+CIEC
+K21
+
+PCIEC
+
+PCIEB
+RX0LANEN
+
+G
+
+0V
+
+System PLL
+Ground
+
+L15
+
+VSS
+
+G
+
+0V
+
+Digital core
+Ground
+
+L16
+
+VCC_M1
+
+P
+
+0.9V
+
+Digital Core
+power
+
+L17
+
+VSSU_PCIE
+
+G
+
+0V
+
+PCIEC
+
+C
+L18
+
+VSSU_PCIE
+
+Ground
+G
+
+0V
+
+C
+L19
+
+AVDD18_P
+
+PCIEC
+Ground
+
+P
+
+1.8V
+
+CIEC
+
+PCIEC
+analog
+power
+
+L20
+
+AVDD09_P
+
+P
+
+0.9V
+
+CIEB
+L21
+
+AVDD09_P
+
+digital power
+P
+
+0.9V
+
+CIEB
+L22
+
+PCIEB_TX0
+
+PCIEB_TX0
+
+AO
+
+1.8V
+
+AVSS_PCIE
+
+AO
+
+1.8V
+
+PCIEB_REF
+
+G
+
+0V
+
+PCIEB_REF
+
+AIO
+
+1.8V
+
+VSS
+
+PCIEB
+CKLANEP
+
+AIO
+
+1.8V
+
+CLK_N
+M14
+
+PCIEB
+Ground
+
+CLK_P
+L26
+
+PCIEB
+TX0LANEN
+
+B
+L25
+
+PCIEB
+TX0LANEP
+
+N
+L24
+
+PCIEB
+digital power
+
+P
+L23
+
+PCIEB
+
+PCIEB
+CKLANEN
+
+G
+
+0V
+
+Digital Core
+Ground
+
+M15
+
+VCC_M1
+
+P
+
+0.9V
+
+Digital Core
+power
+
+M16
+
+VSS
+
+G
+
+0V
+
+Digital Core
+
+Ground
+M17
+
+VSSU_PCIE
+
+G
+
+0V
+
+B
+M18
+
+VSSU_PCIE
+
+Ground
+G
+
+0V
+
+B
+M19
+
+AVDD18_P
+
+PCIEB
+
+PCIEB
+Ground
+
+P
+
+1.8V
+
+CIEB
+
+PCIEB
+analog
+power
+
+M20
+
+AVSS_PCIE
+
+G
+
+0V
+
+B
+M21
+
+AVSS_PCIE
+
+Ground
+G
+
+0V
+
+B
+M22
+
+PCIEB_TX1
+
+PCIEB_TX1
+
+AO
+
+1.8V
+
+AVSS_PCIE
+
+AO
+
+1.8V
+
+PCIEB_RX1
+
+G
+
+0V
+
+PCIEB_RX1
+
+AI
+
+1.8V
+
+VCC_M1
+
+PCIEB
+RX1LANEP
+
+AI
+
+1.8V
+
+N
+N14
+
+PCIEB
+Ground
+
+P
+M26
+
+PCIEB
+TX1LANEN
+
+B
+M25
+
+PCIEB
+TX1LANEP
+
+N
+M24
+
+PCIEB
+Ground
+
+P
+M23
+
+PCIEB
+
+PCIEB
+RX1LANEN
+
+P
+
+0.9V
+
+Digital Core
+power
+
+N15
+
+VSS
+
+G
+
+0V
+
+Digital Core
+
+Ground
+N16
+
+VCC_M1
+
+P
+
+0.9V
+
+Digital Core
+power
+
+N17
+
+AVSS18_AU
+
+G
+
+0V
+
+D
+N18
+
+AVDD3V3_
+
+Audio
+Ground
+
+P
+
+3.3V
+
+AUD
+
+3.3V power
+for earphone
+driver
+
+N19
+
+AVSS18_AU
+
+G
+
+0V
+
+D
+N20
+
+AVSS18_AU
+
+Ground
+G
+
+0V
+
+D
+N21
+
+AUD_VPOS
+
+Audio
+
+Audio
+Ground
+
+P
+
+1.8V
+
+Positive
+voltage for
+headphone
+driver
+
+N22
+
+AUD_VNEG
+
+P
+
+-1.8V
+
+Negative
+voltage for
+headphone
+driver
+
+N23
+
+HS_R
+
+AO
+
++/-1.8V
+
+Headphone
+R-channel
+driver
+
+N24
+
+HS_L
+
+AO
+
++/-1.8V
+
+Headphone
+L-channel
+driver
+
+N25
+
+EAR_P
+
+AO
+
+3.3V
+
+Earphone
+
+driver P
+N26
+
+EAR_N
+
+AO
+
+3.3V
+
+Earphone
+driver N
+
+4.2.3 (P~AF, 1~13)
+
+Note. Definition of symbols used for pin type:
+￮
+
+AO = Analog output
+
+•
+
+AI = Analog input
+
+￮
+
+AIO = Analog input/output
+
+▪
+
+G = Ground
+
+▪
+
+I/O = Input/Output
+
+▪
+
+P = Power
+
+▪
+
+RO = Reference output
+
+Pin ID
+
+Name
+
+Type
+
+Power
+
+Function
+
+Domain
+P1
+
+PCIEA_RXN
+
+AI
+
+1.8V
+
+PCIEA
+RXLANEN
+
+P2
+
+PCIEA_RXP
+
+AI
+
+1.8V
+
+PCIEA
+RXLANEP
+
+P3
+
+AVSS_USB
+
+G
+
+0V
+
+USB2.0
+Ground
+
+P4
+
+PCIEA_R_E
+
+AO
+
+1.8V
+
+XT
+
+PCIEA
+External
+calibration
+resistor
+
+P5
+
+AVSS_USB
+
+G
+
+0V
+
+USB2.0
+Ground
+
+P6
+
+AVDD18_U
+
+P
+
+1.8V
+
+SB
+P7
+
+AVDD09_U
+
+1.8V power
+P
+
+0.9V
+
+SB
+P8
+
+AVDD09_U
+
+AVDD33_U
+
+P
+
+0.9V
+
+VSS
+
+USB2.0
+digital power
+
+P
+
+3.3V
+
+SB
+P10
+
+USB2.0
+digital power
+
+SB
+P9
+
+USB2.0
+
+USB2.0
+3.3V power
+
+G
+
+0V
+
+Digital Core
+Ground
+
+P11
+
+VCC_M1
+
+P
+
+0.9V
+
+Digital Core
+power
+
+P12
+
+VSS
+
+G
+
+0V
+
+Digital Core
+Ground
+
+P13
+
+VCC_M1
+
+P
+
+0.9V
+
+Digital Core
+power
+
+R1
+
+PCIEA_REF
+
+AIO
+
+1.8V
+
+CLK_N
+R2
+
+PCIEA_REF
+
+CKLANEN
+AIO
+
+1.8V
+
+CLK_P
+R3
+
+VSS
+
+PCIEA
+
+PCIEA
+CKLANEP
+
+G
+
+0V
+
+Digital core
+Ground
+
+R4
+
+USB1_DN
+
+AIO
+
+3.3V
+
+USB2.0_1
+Ddifferential
+data line
+
+R5
+
+USB1_DP
+
+AIO
+
+3.3V
+
+USB2.0_1
+D+
+differential
+data line
+
+R6
+
+AVDD18_D
+
+P
+
+1.8V
+
+SI1
+R7
+
+AVSS_USB
+
+DSI analog
+power
+
+G
+
+0V
+
+USB2.0
+Ground
+
+R8
+
+VSS
+
+G
+
+0V
+
+Digital Core
+Ground
+
+R9
+
+VSS
+
+G
+
+0V
+
+Digital Core
+Ground
+
+R10
+
+VCC_M1
+
+P
+
+0.9V
+
+Digital Core
+power
+
+R11
+
+VSS
+
+G
+
+0V
+
+Digital Core
+Ground
+
+R12
+
+VCC_M1
+
+P
+
+0.9V
+
+Digital Core
+power
+
+R13
+
+VSS
+
+G
+
+0V
+
+Digital Core
+Ground
+
+T1
+
+MIPI_DSI1_
+
+AO
+
+1.2V
+
+D3N
+
+DSI
+DATA3LAN
+EN
+
+T2
+
+MIPI_DSI1_
+
+AO
+
+1.2V
+
+D3P
+
+DSI
+DATA3LAN
+EP
+
+T3
+
+VSS
+
+G
+
+0V
+
+Digital core
+ground
+
+T4
+
+USB0_DN
+
+AIO
+
+3.3V
+
+USB2.0_0
+Ddifferential
+data line
+
+T5
+
+USB0_DP
+
+AIO
+
+3.3V
+
+USB2.0_0
+D+
+differential
+data line
+
+T6
+
+VSS
+
+G
+
+0V
+
+Digital core
+ground
+
+T7
+
+AVDD09_D
+
+P
+
+0.9V
+
+DSI digital
+
+SI1
+T8
+
+AVDD12_D
+
+power
+P
+
+1.2V
+
+SI1
+T9
+
+VCC_M1
+
+DSI driver
+power
+
+P
+
+0.9V
+
+Digital Core
+power
+
+T10
+
+VSS
+
+G
+
+0V
+
+Digital Core
+ground
+
+T11
+
+VCC_M1
+
+P
+
+0.9V
+
+Digital Core
+power
+
+T12
+
+VSS
+
+G
+
+0V
+
+Digital Core
+ground
+
+T13
+
+VCC_M1
+
+P
+
+0.9V
+
+Digital Core
+power
+
+U1
+
+MIPI_DSI1_
+
+AO
+
+1.2V
+
+D2N
+
+DSI
+DATA2LAN
+EN
+
+U2
+
+MIPI_DSI1_
+
+AO
+
+1.2V
+
+D2P
+
+DSI
+DATA2LAN
+EP
+
+U3
+
+AVSS_DSI1
+
+G
+
+0V
+
+DSI Ground
+
+U4
+
+AVSS_DSI1
+
+G
+
+0V
+
+DSI Ground
+
+U5
+
+AVSS_DSI1
+
+G
+
+0V
+
+DSI Ground
+
+U6
+
+VCC_M1
+
+P
+
+0.9V
+
+Digital Core
+power
+
+U7
+
+AVSS_DSI1
+
+G
+
+0V
+
+DSI Ground
+
+U8
+
+VCC_M1
+
+P
+
+0.9V
+
+Digital Core
+power
+
+U9
+
+VSS
+
+G
+
+0V
+
+Digital Core
+ground
+
+U10
+
+VCC_M1
+
+P
+
+0.9V
+
+Digital Core
+power
+
+U11
+
+VSS
+
+G
+
+0V
+
+Digital Core
+ground
+
+U12
+
+VCC_M1
+
+P
+
+0.9V
+
+Digital Core
+power
+
+U13
+
+VSS
+
+G
+
+0V
+
+Digital Core
+ground
+
+V1
+
+MIPI_DSI1_
+
+AO
+
+1.2V
+
+CLKN
+V2
+
+MIPI_DSI1_
+
+DSI
+CKLANEN
+
+AO
+
+1.2V
+
+CLKP
+
+DSI
+CKLANEP
+
+V3
+
+AVSS_DSI1
+
+G
+
+0V
+
+DSI Ground
+
+V4
+
+AVSS_DSI1
+
+G
+
+0V
+
+DSI Ground
+
+V5
+
+AVSS_DSI1
+
+G
+
+0V
+
+DSI Ground
+
+V6
+
+AVSS_DSI1
+
+G
+
+0V
+
+DSI Ground
+
+V7
+
+VCC_M1
+
+P
+
+0.9V
+
+Digital Core
+power
+
+V8
+
+VSS
+
+G
+
+0V
+
+Digital Core
+ground
+
+V9
+
+VCC_M1
+
+P
+
+0.9V
+
+Digital Core
+power
+
+V10
+
+VSS
+
+G
+
+0V
+
+Digital Core
+ground
+
+V11
+
+VCC_M1
+
+P
+
+0.9V
+
+Digital Core
+power
+
+V12
+
+VSS
+
+G
+
+0V
+
+Digital Core
+ground
+
+V13
+
+VCC_M1
+
+P
+
+0.9V
+
+Digital Core
+power
+
+W1
+
+VSS
+
+G
+
+0V
+
+Digital Core
+ground
+
+W2
+
+VSS
+
+G
+
+0V
+
+Digital Core
+ground
+
+W3
+
+VSS
+
+G
+
+0V
+
+Digital Core
+ground
+
+W4
+
+MIPI_DSI1_
+
+AO
+
+1.2V
+
+D1N
+
+DSI
+DATA1LAN
+EN
+
+W5
+
+MIPI_DSI1_
+
+AO
+
+1.2V
+
+D1P
+
+DSI
+DATA1LAN
+EP
+
+W6
+
+VCC_M1
+
+P
+
+0.9V
+
+Digital Core
+power
+
+W7
+
+VSS
+
+G
+
+0V
+
+Digital Core
+ground
+
+W8
+
+VCC_M1
+
+P
+
+0.9V
+
+Digital Core
+power
+
+W9
+
+VSS
+
+G
+
+0V
+
+Digital Core
+ground
+
+W10
+
+VCC_M1
+
+P
+
+0.9V
+
+Digital Core
+power
+
+W11
+
+VSS
+
+G
+
+0V
+
+Digital Core
+ground
+
+W12
+
+VCC_M1
+
+P
+
+0.9V
+
+Digital Core
+power
+
+W13
+
+GPIO3_VCC
+
+RO
+
+1.8V
+
+_CAP
+Y1
+
+PRI_TRST_
+
+GPIO3 1.8V
+LDO cap
+
+I/O
+
+1.8V
+
+JTAG reset
+
+I/O
+
+1.8V
+
+General
+
+N
+Y2
+
+GPIO_74
+
+Purpose I/O
+74
+Y3
+
+VSS
+
+G
+
+0V
+
+Digital Core
+ground
+
+Y4
+
+MIPI_DSI1_
+
+AO
+
+1.2V
+
+D0N
+
+DSI
+DATA0LAN
+EN
+
+Y5
+
+MIPI_DSI1_
+
+AO
+
+1.2V
+
+D0P
+
+DSI
+DATA0LAN
+EP
+
+Y6
+
+VSS
+
+G
+
+0V
+
+Digital Core
+
+ground
+Y7
+
+AVDD33_H
+
+P
+
+3.3V
+
+DMI
+Y8
+
+AVDD33_H
+
+power
+P
+
+3.3V
+
+DMI
+Y9
+
+AVDD09_H
+
+AVDD09_H
+
+P
+
+0.9V
+
+VSS
+
+HDMI digtial
+power
+
+P
+
+0.9V
+
+DMI
+Y11
+
+HDMI 3.3V
+power
+
+DMI
+Y10
+
+HDMI 3.3V
+
+HDMI digtial
+power
+
+G
+
+0V
+
+Digital Core
+ground
+
+Y12
+
+VSS
+
+G
+
+0V
+
+Digital Core
+ground
+
+Y13
+
+VSS
+
+G
+
+0V
+
+Digital Core
+ground
+
+AA1
+
+PRI_TCK
+
+I/O
+
+1.8V
+
+JTAG clock
+
+AA2
+
+PRI_TDO
+
+I/O
+
+1.8V
+
+JTAG output
+data
+
+AA3
+
+VSS
+
+G
+
+0V
+
+Digital Core
+ground
+
+AA4
+
+VSS
+
+G
+
+0V
+
+Digital Core
+ground
+
+AA5
+
+VSS
+
+G
+
+0V
+
+Digital Core
+ground
+
+AA6
+
+VSS
+
+G
+
+0V
+
+Digital Core
+
+ground
+AA7
+
+AVSS_HDM
+
+G
+
+0V
+
+I
+AA8
+
+HDMI_TX2N
+
+HDMI
+Ground
+
+AO
+
+1.8V
+
+HDMI
+data2n
+
+AA9
+
+AVDD18_H
+
+P
+
+1.8V
+
+DMI
+AA10
+
+AVDD18_H
+
+power
+P
+
+1.8V
+
+DMI
+AA11
+
+VSS
+
+HDMI 1.8V
+
+HDMI 1.8V
+power
+
+G
+
+0V
+
+Digital Core
+ground
+
+AA12
+
+VSS
+
+G
+
+0V
+
+Digital Core
+ground
+
+AA13
+
+VCC1833_G
+
+P
+
+1.8V/3.3V
+
+PIO3
+AB1
+
+PRI_TDI
+
+GPIO3 IO
+power
+
+I/O
+
+1.8V
+
+JTAG input
+data
+
+AB2
+
+PRI_TMS
+
+I/O
+
+1.8V
+
+JTAG mode
+selection
+
+AB3
+
+VSS
+
+G
+
+0V
+
+Digital Core
+ground
+
+AB4
+
+HDMI_TXC
+
+AO
+
+1.8V
+
+HDMI clkn
+
+AO
+
+1.8V
+
+HDMI
+
+N
+AB5
+
+HDMI_TX0N
+
+data0n
+
+AB6
+
+AVSS_HDM
+
+G
+
+0V
+
+I
+AB7
+
+HDMI_TX1N
+
+HDMI
+Ground
+
+AO
+
+1.8V
+
+HDMI
+data1n
+
+AB8
+
+HDMI_TX2P
+
+AO
+
+1.8V
+
+HDMI
+data2p
+
+AB9
+
+AVSS_HDM
+
+G
+
+0V
+
+I
+AB10
+
+VSS
+
+HDMI
+Ground
+
+G
+
+0V
+
+Digital Core
+ground
+
+AB11
+
+VSS
+
+G
+
+0V
+
+Digital Core
+ground
+
+AB12
+
+VSS
+
+G
+
+0V
+
+Digital Core
+ground
+
+AB13
+
+GPIO_51
+
+I/O
+
+1.8V/3.3V
+
+General
+purpose I/O
+51
+
+AC1
+
+GPIO_61
+
+I/O
+
+1.8V
+
+General
+Purpose I/O
+61
+
+AC2
+
+GPIO_62
+
+I/O
+
+1.8V
+
+General
+Purpose I/O
+62
+
+AC3
+
+VCC18_GPI
+O
+
+P
+
+1.8V
+
+GPIO1/4/5/P
+MIC I/O
+power
+
+AC4
+
+HDMI_TXC
+
+AO
+
+1.8V
+
+HDMI clkp
+
+AO
+
+1.8V
+
+HDMI
+
+P
+AC5
+
+HDMI_TX0P
+
+data0p
+AC6
+
+AVSS_HDM
+
+G
+
+0V
+
+I
+AC7
+
+HDMI_TX1P
+
+HDMI
+Ground
+
+AO
+
+1.8V
+
+HDMI
+data1p
+
+AC8
+
+AVSS_HDM
+
+G
+
+0V
+
+I
+AC9
+
+AVSS_HDM
+
+Ground
+G
+
+0V
+
+I
+AC10
+
+GPIO_86
+
+HDMI
+
+HDMI
+Ground
+
+I/O
+
+1.8V
+
+General
+Purpose I/O
+86
+
+AC11
+
+VCC18_GPI
+
+P
+
+1.8V
+
+O
+
+GPIO1/4/5/P
+MIC I/O
+power
+
+AC12
+
+GPIO_52
+
+I/O
+
+1.8V/3.3V
+
+General
+Purpose I/O
+52
+
+AC13
+
+GPIO_47
+
+I/O
+
+1.8V/3.3V
+
+General
+Purpose I/O
+47
+
+AD1
+
+GPIO_59
+
+I/O
+
+1.8V
+
+General
+Purpose I/O
+59
+
+AD2
+
+GPIO_60
+
+I/O
+
+1.8V
+
+General
+Purpose I/O
+60
+
+AD3
+
+VSS
+
+G
+
+0V
+
+Digital Core
+ground
+
+AD4
+
+VSS
+
+G
+
+0V
+
+Digital Core
+ground
+
+AD5
+
+VSS
+
+G
+
+0V
+
+Digital Core
+ground
+
+AD6
+
+VSS
+
+G
+
+0V
+
+Digital Core
+ground
+
+AD7
+
+VSS
+
+G
+
+0V
+
+Digital Core
+ground
+
+AD8
+
+GPIO_87
+
+I/O
+
+1.8V
+
+General
+Purpose I/O
+87
+
+AD9
+
+GPIO_85
+
+I/O
+
+1.8V
+
+General
+Purpose I/O
+85
+
+AD10
+
+PMIC_INT_
+
+I/O
+
+1.8V
+
+N
+AD11
+
+VCC18_GPI
+
+PMIC
+interrupt
+
+P
+
+1.8V
+
+O
+
+GPIO1/4/5/P
+MIC I/O
+power
+
+AD12
+
+GPIO_50
+
+I/O
+
+1.8V/3.3V
+
+General
+Purpose I/O
+50
+
+AD13
+
+GPIO_48
+
+I/O
+
+1.8V/3.3V
+
+General
+Purpose I/O
+48
+
+AE1
+
+VSS
+
+G
+
+0V
+
+Digital Core
+ground
+
+AE2
+
+MPLL_TST_
+
+AIO
+
+1.8V
+
+AD
+AE3
+
+VSS
+
+Analog
+testpin
+
+G
+
+0V
+
+Digital Core
+ground
+
+AE4
+
+GPIO_92
+
+I/O
+
+1.8V
+
+General
+Purpose I/O
+92
+
+AE5
+
+GPIO_90
+
+I/O
+
+1.8V
+
+General
+Purpose I/O
+90
+
+AE6
+
+GPIO_91
+
+I/O
+
+1.8V
+
+General
+Purpose I/O
+91
+
+AE7
+
+GPIO_89
+
+I/O
+
+1.8V
+
+General
+Purpose I/O
+89
+
+AE8
+
+GPIO_84
+
+I/O
+
+1.8V
+
+General
+Purpose I/O
+84
+
+AE9
+
+GPIO_81
+
+I/O
+
+1.8V
+
+General
+Purpose I/O
+81
+
+AE10
+
+DVL0
+
+I/O
+
+1.8V
+
+Hardware
+dynamic
+voltage
+regulation
+signal0
+
+AE11
+
+PWR_SCL
+
+I/O
+
+1.8V
+
+PMIC I2C
+bus clock
+
+AE12
+
+EXT_32K_I
+
+I/O
+
+1.8V
+
+N
+AE13
+
+VSS
+
+32K clock
+input
+
+G
+
+0V
+
+Digital Core
+ground
+
+AF1
+
+VSS
+
+G
+
+0V
+
+Digital Core
+ground
+
+AF2
+
+VSS
+
+G
+
+0V
+
+Digital Core
+ground
+
+AF3
+
+RESET_IN_
+
+I/O
+
+1.8V
+
+Reset input
+
+I/O
+
+1.8V
+
+Primary
+
+N
+AF4
+
+JTAG_SEL
+
+JTAG
+selection
+AF5
+
+VSS
+
+G
+
+0V
+
+Digital Core
+ground
+
+AF6
+
+GPIO_88
+
+I/O
+
+1.8V
+
+General
+Purpose I/O
+88
+
+AF7
+
+GPIO_82
+
+I/O
+
+1.8V
+
+General
+Purpose I/O
+
+82
+AF8
+
+GPIO_83
+
+I/O
+
+1.8V
+
+General
+Purpose I/O
+83
+
+AF9
+
+DVL1
+
+I/O
+
+1.8V
+
+Hardware
+dynamic
+voltage
+regulation
+signal1
+
+AF10
+
+VSS
+
+G
+
+0V
+
+Digital Core
+ground
+
+AF11
+
+SLEEP_OU
+
+I/O
+
+1.8V
+
+T
+AF12
+
+PWR_SDA
+
+VCXO
+enabling
+
+I/O
+
+1.8V
+
+PMIC I2C
+bus
+data/addres
+s
+
+AF13
+
+GPIO_49
+
+I/O
+
+1.8V/3.3V
+
+General
+Purpose I/O
+49
+
+4.2.4 (P~AF, 14~26)
+
+Note. Definition of symbols used for pin type:
+￮
+
+AO = Analog output
+
+▪
+
+AI = Analog input
+
+￮
+
+AIO = Analog input/output
+
+▪
+
+G = Ground
+
+▪
+
+I/O = Input/Output
+
+￮
+
+P = Power
+
+▪
+
+RO = Reference output
+
+Pin ID
+
+Name
+
+Type
+
+Power
+
+Function
+
+Domain
+P14
+
+VSS
+
+G
+
+0V
+
+Digital Core
+Ground
+
+P15
+
+VCC_M1
+
+P
+
+0.9V
+
+Digital Core
+power
+
+P16
+
+VSS
+
+G
+
+0V
+
+Digital Core
+Ground
+
+P17
+
+AUD_GNDS
+
+G
+
+0V
+
+NS
+
+Headphone
+sense_Grou
+nd
+
+P18
+
+AVDD18_A
+
+P
+
+1.8V
+
+UD
+P19
+
+AVDD18_A
+
+for audio
+P
+
+1.8V
+
+UD
+P20
+
+DACR_N
+
+1.8V power
+
+1.8V power
+for audio
+
+AO
+
+1.8V
+
+Audio DAC
+R-channel
+output -N
+
+P21
+
+DACL_N
+
+AO
+
+1.8V
+
+Audio DAC
+L-channel
+output -N
+
+P22
+
+DACL_P
+
+AO
+
+1.8V
+
+Audio DAC
+L-channel
+output -P
+
+P23
+
+LINE_R
+
+AI
+
+1.8V
+
+Linein
+R-channel
+
+P24
+
+LINE_L
+
+AI
+
+1.8V
+
+Linein
+L-channel
+
+P25
+
+MAIN_MICN
+
+AI
+
+1.8V
+
+Board main
+-mic input -N
+
+P26
+
+MAIN_MICP
+
+AI
+
+1.8V
+
+Board main
+-mic input -P
+
+R14
+
+VCC_M1
+
+P
+
+0.9V
+
+Digital Core
+power
+
+R15
+
+VSS
+
+G
+
+0V
+
+Digital Core
+Ground
+
+R16
+
+VCC_M1
+
+P
+
+0.9V
+
+Digital Core
+power
+
+R17
+
+AUD_VSSU
+
+G
+
+0V
+
+Audio
+Ground
+
+R18
+
+AUD_VDDU
+
+P
+
+0.9V
+
+09
+R19
+
+AUD_REFG
+
+0.9V power
+for audio
+
+G
+
+0V
+
+ND
+
+Audio
+Reference
+Ground
+
+R20
+
+DACR_P
+
+AO
+
+1.8V
+
+Audio DAC
+R-channel
+output -P
+
+R21
+
+AUD_AURE
+
+RO
+
+1.8V
+
+F10
+
+Audio
+reference
+voltage
+
+R22
+
+AUX_MICN
+
+AI
+
+1.8V
+
+Board aux
+-mic input -N
+
+R23
+
+AUX_MICP
+
+AI
+
+1.8V
+
+Board aux
+-mic input -P
+
+R24
+
+VSS
+
+G
+
+0V
+
+Digital core
+ground
+
+R25
+
+HP_MICP
+
+AI
+
+1.8V
+
+Headset
+
+-mic input -N
+R26
+
+HP_MICN
+
+AI
+
+1.8V
+
+Headset
+-mic input -P
+
+T14
+
+VSS
+
+G
+
+0V
+
+Digital Core
+ground
+
+T15
+
+VCC_M1
+
+P
+
+0.9V
+
+Digital Core
+power
+
+T16
+
+VSS
+
+G
+
+0V
+
+Digital Core
+ground
+
+T17
+
+VCC_M1
+
+P
+
+0.9V
+
+Digital Core
+power
+
+T18
+
+VSS
+
+G
+
+0V
+
+Digital Core
+ground
+
+T19
+
+VSS
+
+G
+
+0V
+
+Digital Core
+ground
+
+T20
+
+VSS
+
+G
+
+0V
+
+Digital Core
+ground
+
+T21
+
+AVSS18_AU
+
+G
+
+0V
+
+D
+T22
+
+AVSS18_AU
+
+Ground
+G
+
+0V
+
+D
+T23
+
+MICDET
+
+Audio
+
+Audio
+Ground
+
+AI
+
+1.8V
+
+Headset
+detect
+
+T24
+
+VSS
+
+G
+
+0V
+
+Digital Core
+ground
+
+T25
+
+MICBIAS_M
+
+AO
+
+3.3V
+
+AIN
+
+MicBias
+voltage for
+Main
+mic&AUX
+mic
+
+T26
+
+VSS
+
+G
+
+0V
+
+Digital core
+ground
+
+U14
+
+VCC_M1
+
+P
+
+0.9V
+
+Digital Core
+power
+
+U15
+
+VSS
+
+G
+
+0V
+
+Digital Core
+ground
+
+U16
+
+VCC_M1
+
+P
+
+0.9V
+
+Digital Core
+power
+
+U17
+
+VSS
+
+G
+
+0V
+
+Digital Core
+ground
+
+U18
+
+VCC_M1_F
+
+P
+
+0.9V
+
+B
+
+Digital Core
+power
+FeedBack
+
+U19
+
+VSS_FB
+
+G
+
+0V
+
+Digital Core
+ground
+FeedBack
+
+U20
+
+VSS
+
+G
+
+0V
+
+Digital core
+ground
+
+U21
+
+GPIO_123
+
+I/O
+
+1.8V
+
+General
+Purpose I/O
+123
+
+U22
+
+GPIO_125
+
+I/O
+
+1.8V
+
+General
+
+Purpose I/O
+125
+U23
+
+HSDET
+
+AI
+
+1.8V
+
+plug-in
+detect
+
+U24
+
+MICBIAS_H
+
+AO
+
+3.3V
+
+P
+
+micbias
+voltage for
+HP mic
+
+U25
+
+GPIO_126
+
+I/O
+
+1.8V
+
+General
+Purpose I/O
+126
+
+U26
+
+GPIO_127
+
+I/O
+
+1.8V
+
+General
+Purpose I/O
+127
+
+V14
+
+VSS
+
+G
+
+0V
+
+Digital Core
+ground
+
+V15
+
+VCC_M1
+
+P
+
+0.9V
+
+Digital Core
+power
+
+V16
+
+VSS
+
+G
+
+0V
+
+Digital Core
+ground
+
+V17
+
+VCC_M1
+
+P
+
+0.9V
+
+Digital Core
+power
+
+V18
+
+VSS
+
+G
+
+0V
+
+Digital Core
+ground
+
+V19
+
+VSS
+
+G
+
+0V
+
+Digital Core
+ground
+
+V20
+
+VSS
+
+G
+
+0V
+
+Digital Core
+
+ground
+V21
+
+GPIO_121
+
+I/O
+
+1.8V
+
+General
+Purpose I/O
+121
+
+V22
+
+VSS
+
+G
+
+0V
+
+Digital Core
+ground
+
+V23
+
+GPIO_124
+
+I/O
+
+1.8V
+
+General
+Purpose I/O
+124
+
+V24
+
+GPIO_120
+
+I/O
+
+1.8V
+
+General
+Purpose I/O
+120
+
+V25
+
+VSS
+
+G
+
+0V
+
+Digital Core
+ground
+
+V26
+
+GPIO_122
+
+I/O
+
+1.8V
+
+General
+purpose I/O
+122
+
+W14
+
+VCC_M1
+
+P
+
+0.9V
+
+Digital Core
+power
+
+W15
+
+VSS
+
+G
+
+0V
+
+Digital Core
+ground
+
+W16
+
+VCC_M1
+
+P
+
+0.9V
+
+Digital Core
+power
+
+W17
+
+VSS
+
+G
+
+0V
+
+Digital Core
+ground
+
+W18
+
+VCC_M1
+
+P
+
+0.9V
+
+Digital Core
+
+power
+W19
+
+VSS
+
+G
+
+0V
+
+Digital Core
+ground
+
+W20
+
+VSS
+
+G
+
+0V
+
+Digital Core
+ground
+
+W21
+
+GPIO_110
+
+I/O
+
+1.8V
+
+General
+Purpose I/O
+110
+
+W22
+
+GPIO_117
+
+I/O
+
+1.8V
+
+General
+Purpose I/O
+117
+
+W23
+
+GPIO_116
+
+I/O
+
+1.8V
+
+General
+Purpose I/O
+116
+
+W24
+
+VSS
+
+G
+
+0V
+
+Digital Core
+ground
+
+W25
+
+GPIO_119
+
+I/O
+
+1.8V
+
+General
+Purpose I/O
+119
+
+W26
+
+GPIO_118
+
+I/O
+
+1.8V
+
+General
+Purpose I/O
+118
+
+Y14
+
+MMC1_VCC
+
+RO
+
+1.8V
+
+_CAP
+
+SD card
+1.8V LDO
+cap
+
+Y15
+
+GPIO2_VCC
+_CAP
+
+RO
+
+1.8V
+
+GPIO2 1.8V
+LDO cap
+
+Y16
+
+VSS
+
+G
+
+0V
+
+Digital Core
+ground
+
+Y17
+
+VSS
+
+G
+
+0V
+
+Digital Core
+ground
+
+Y18
+
+VSS
+
+G
+
+0V
+
+Digital Core
+ground
+
+Y19
+
+VSS
+
+G
+
+0V
+
+Digital Core
+ground
+
+Y20
+
+VSS
+
+G
+
+0V
+
+Digital Core
+ground
+
+Y21
+
+VCC18_GPI
+
+P
+
+1.8V
+
+O
+
+GPIO1/4/5/P
+MIC I/O
+power
+
+Y22
+
+GPIO_26
+
+I/O
+
+1.8V
+
+General
+Purpose I/O
+26
+
+Y23
+
+GPIO_27
+
+I/O
+
+1.8V
+
+General
+Purpose I/O
+27
+
+Y24
+
+VSS
+
+G
+
+0V
+
+Digital Core
+ground
+
+Y25
+
+GPIO_28
+
+I/O
+
+1.8V
+
+General
+Purpose I/O
+28
+
+Y26
+
+GPIO_115
+
+I/O
+
+1.8V
+
+General
+Purpose I/O
+115
+
+AA14
+
+VCC1833_M
+
+P
+
+1.8V/3.3V
+
+MC1
+AA15
+
+VCC1833_G
+
+power
+P
+
+1.8V/3.3V
+
+PIO2
+AA16
+
+MMC1_DAT
+
+VSS
+
+GPIO2 IO
+power
+
+I/O
+
+1.8V/3.3V
+
+2
+AA17
+
+SD card IO
+
+SD card
+data 2
+
+G
+
+0V
+
+Digital Core
+ground
+
+AA18
+
+VSS
+
+G
+
+0V
+
+Digital Core
+ground
+
+AA19
+
+GPIO_32
+
+I/O
+
+1.8V
+
+General
+Purpose I/O
+32
+
+AA20
+
+GPIO_29
+
+I/O
+
+1.8V
+
+General
+Purpose I/O
+29
+
+AA21
+
+VCC18_GPI
+
+P
+
+1.8V
+
+O
+
+GPIO1/4/5/P
+MIC I/O
+power
+
+AA22
+
+GPIO_21
+
+I/O
+
+1.8V
+
+General
+Purpose I/O
+21
+
+AA23
+
+GPIO_24
+
+I/O
+
+1.8V
+
+General
+Purpose I/O
+24
+
+AA24
+
+GPIO_23
+
+I/O
+
+1.8V
+
+General
+Purpose I/O
+
+23
+AA25
+
+GPIO_25
+
+I/O
+
+1.8V
+
+General
+Purpose I/O
+25
+
+AA26
+
+VSS
+
+G
+
+0V
+
+Digital Core
+ground
+
+AB14
+
+MMC1_DAT
+
+I/O
+
+1.8V/3.3V
+
+0
+AB15
+
+GPIO_78
+
+SD card
+data 0
+
+I/O
+
+1.8V/3.3V
+
+General
+Purpose I/O
+78
+
+AB16
+
+GPIO_77
+
+I/O
+
+1.8V/3.3V
+
+General
+Purpose I/O
+77
+
+AB17
+
+GPIO_02
+
+I/O
+
+1.8V
+
+General
+Purpose I/O
+02
+
+AB18
+
+GPIO_03
+
+I/O
+
+1.8V
+
+General
+Purpose I/O
+03
+
+AB19
+
+VSS
+
+G
+
+0V
+
+Digital Core
+ground
+
+AB20
+
+VSS
+
+G
+
+0V
+
+Digital Core
+ground
+
+AB21
+
+GPIO_41
+
+I/O
+
+1.8V
+
+General
+Purpose I/O
+41
+
+AB22
+
+GPIO_44
+
+I/O
+
+1.8V
+
+General
+Purpose I/O
+44
+
+AB23
+
+GPIO_19
+
+I/O
+
+1.8V
+
+General
+Purpose I/O
+19
+
+AB24
+
+VSS
+
+G
+
+0V
+
+Digital Core
+ground
+
+AB25
+
+GPIO_20
+
+I/O
+
+1.8V
+
+General
+Purpose I/O
+20
+
+AB26
+
+GPIO_22
+
+I/O
+
+1.8V
+
+General
+Purpose I/O
+22
+
+AC14
+
+VCC18_GPI
+
+P
+
+1.8V
+
+O
+
+GPIO1/4/5/P
+MIC I/O
+power
+
+AC15
+
+GPIO_79
+
+I/O
+
+1.8V/3.3V
+
+General
+Purpose I/O
+79
+
+AC16
+
+VSS
+
+G
+
+0V
+
+Digital Core
+ground
+
+AC17
+
+GPIO_05
+
+I/O
+
+1.8V
+
+General
+Purpose I/O
+05
+
+AC18
+
+GPIO_00
+
+I/O
+
+1.8V
+
+General
+Purpose I/O
+00
+
+AC19
+
+VSS
+
+G
+
+0V
+
+Digital Core
+ground
+
+AC20
+
+GPIO_31
+
+I/O
+
+1.8V
+
+General
+Purpose I/O
+31
+
+AC21
+
+GPIO_34
+
+I/O
+
+1.8V
+
+General
+Purpose I/O
+34
+
+AC22
+
+GPIO_42
+
+I/O
+
+1.8V
+
+General
+Purpose I/O
+42
+
+AC23
+
+GPIO_43
+
+I/O
+
+1.8V
+
+General
+Purpose I/O
+43
+
+AC24
+
+GPIO_17
+
+I/O
+
+1.8V
+
+General
+Purpose I/O
+17
+
+AC25
+
+VSS
+
+G
+
+0V
+
+Digital Core
+ground
+
+AC26
+
+GPIO_18
+
+I/O
+
+1.8V
+
+General
+Purpose I/O
+18
+
+AD14
+
+MMC1_CM
+
+I/O
+
+1.8V/3.3V
+
+D
+AD15
+
+GPIO_76
+
+SD card
+command
+
+I/O
+
+1.8V/3.3V
+
+General
+Purpose I/O
+76
+
+AD16
+
+VSS
+
+G
+
+0V
+
+Digital Core
+ground
+
+AD17
+
+GPIO_04
+
+I/O
+
+1.8V
+
+General
+Purpose I/O
+04
+
+AD18
+
+GPIO_01
+
+I/O
+
+1.8V
+
+General
+Purpose I/O
+01
+
+AD19
+
+GPIO_30
+
+I/O
+
+1.8V
+
+General
+Purpose I/O
+30
+
+AD20
+
+GPIO_33
+
+I/O
+
+1.8V
+
+General
+Purpose I/O
+33
+
+AD21
+
+VCC18_GPI
+
+P
+
+1.8V
+
+O
+
+GPIO1/4/5/P
+MIC I/O
+power
+
+AD22
+
+VCC18_GPI
+
+P
+
+1.8V
+
+O
+
+GPIO1/4/5/P
+MIC I/O
+power
+
+AD23
+
+GPIO_14
+
+I/O
+
+1.8V
+
+General
+Purpose I/O
+14
+
+AD24
+
+GPIO_12
+
+I/O
+
+1.8V
+
+General
+Purpose I/O
+12
+
+AD25
+
+GPIO_16
+
+I/O
+
+1.8V
+
+General
+Purpose I/O
+
+16
+AD26
+
+GPIO_15
+
+I/O
+
+1.8V
+
+General
+Purpose I/O
+15
+
+AE14
+
+MMC1_CLK
+
+I/O
+
+1.8V/3.3V
+
+SD card
+clock
+
+AE15
+
+MMC1_DAT
+
+I/O
+
+1.8V/3.3V
+
+3
+AE16
+
+GPIO_75
+
+SD card
+data 3
+
+I/O
+
+1.8V/3.3V
+
+General
+Purpose I/O
+75
+
+AE17
+
+GPIO_11
+
+I/O
+
+1.8V
+
+General
+Purpose I/O
+11
+
+AE18
+
+GPIO_07
+
+I/O
+
+1.8V
+
+General
+Purpose I/O
+07
+
+AE19
+
+GPIO_10
+
+I/O
+
+1.8V
+
+General
+Purpose I/O
+10
+
+AE20
+
+GPIO_37
+
+I/O
+
+1.8V
+
+General
+Purpose I/O
+37
+
+AE21
+
+GPIO_35
+
+I/O
+
+1.8V
+
+General
+Purpose I/O
+35
+
+AE22
+
+GPIO_38
+
+I/O
+
+1.8V
+
+General
+Purpose I/O
+
+38
+AE23
+
+GPIO_46
+
+I/O
+
+1.8V
+
+General
+Purpose I/O
+46
+
+AE24
+
+VSS
+
+G
+
+0V
+
+Digital Core
+ground
+
+AE25
+
+GPIO_13
+
+I/O
+
+1.8V
+
+General
+Purpose I/O
+13
+
+AE26
+
+VSS
+
+G
+
+0V
+
+Digital Core
+ground
+
+AF14
+
+MMC1_DAT
+
+I/O
+
+1.8V/3.3V
+
+1
+AF15
+
+VSS
+
+SD card
+data 1
+
+G
+
+0V
+
+Digital Core
+ground
+
+AF16
+
+GPIO_80
+
+I/O
+
+1.8V/3.3V
+
+General
+Purpose I/O
+80
+
+AF17
+
+GPIO_08
+
+I/O
+
+1.8V
+
+General
+Purpose I/O
+08
+
+AF18
+
+GPIO_06
+
+I/O
+
+1.8V
+
+General
+Purpose I/O
+06
+
+AF19
+
+GPIO_09
+
+I/O
+
+1.8V
+
+General
+Purpose I/O
+09
+
+AF20
+
+VSS
+
+G
+
+0V
+
+Digital Core
+ground
+
+AF21
+
+GPIO_40
+
+I/O
+
+1.8V
+
+General
+Purpose I/O
+40
+
+AF22
+
+GPIO_36
+
+I/O
+
+1.8V
+
+General
+Purpose I/O
+36
+
+AF23
+
+GPIO_39
+
+I/O
+
+1.8V
+
+General
+Purpose I/O
+39
+
+AF24
+
+GPIO_45
+
+I/O
+
+1.8V
+
+General
+Purpose I/O
+45
+
+AF25
+
+VSS
+
+G
+
+0V
+
+Digital Core
+ground
+
+AF26
+
+VSS
+
+G
+
+0V
+
+Digital Core
+ground
+
+4.3 I/O Pin Parameters
+4.3.1 For 1.8V I/O Pins
+
+Power
+
+Symbol
+
+Description
+
+Min
+
+Typ
+
+Max
+
+Vih
+
+High level input
+
+VCC×0.
+
+1.8V
+
+VCC+0.
+
+Domain
+1.8V Input
+
+7V
+
+2V
+
+Vil
+
+Low level input
+
+-0.3V
+
+0V
+
+VCCx0.
+3V
+
+Rpu
+
+Rpd
+
+Iil
+
+Pull up resister
+
+Pull down resister
+
+55kOh
+
+79K
+
+121kOh
+
+m
+
+Ohm
+
+m
+
+51kOh
+
+87k
+
+169kOh
+
+m
+
+Ohm
+
+m
+
+Input leakage current
+
+10uA
+
+Pad in input mode
+1.8V Ouput
+
+Voh
+
+High level output
+
+VCC-0.
+2V
+
+Vol
+
+Low level output
+
+Iol DCS[1:0]=
+
+Low level output
+
+00
+01
+
+current when
+Vpad=0.2V
+
+0.2V
+
+13mA
+25mA
+
+10
+
+37mA
+
+11
+
+49mA
+
+Ioh
+
+High level output
+
+DCS[1:0]=
+
+current when
+
+00
+
+Vpad=VCC-0.2V
+
+01
+10
+11
+
+4.3.2 For 3.3V I/O Pins
+
+11mA
+21mA
+32mA
+42mA
+
+Power
+
+Symbol
+
+Description
+
+Min
+
+Vih
+
+High level input
+
+2V
+
+Typ
+
+Max
+
+Domain
+3.3V Input
+
+VCC+0.
+3V
+
+Vil
+
+Low level input
+
+-0.3V
+
+0V
+
+0.8V
+
+Rpu
+
+Pull up resister
+
+26kOh
+
+47k
+
+72kOhm
+
+m
+
+Ohm
+
+27kOh
+
+54k
+
+267kOh
+
+m
+
+Ohm
+
+m
+
+Rpd
+
+3.3V Ouput
+
+Pull down resister
+
+Iil
+
+Input leakage current
+
+Voh
+
+High level output
+
+Vol
+
+Low level output
+
+Iol DS[2:0]=
+
+Low level output
+
+000
+001
+
+current when
+Vpad=0.4V
+
+10uA
+2.4V
+0.4V
+
+7mA
+10mA
+
+010
+
+14mA
+
+011
+
+18mA
+
+100
+
+21mA
+
+101
+
+24mA
+
+110
+
+28mA
+
+111
+
+31mA
+
+Ioh DS[2:0]=
+000
+001
+
+High level output
+current when
+Vpad=VCC-0.5V
+
+7mA
+10mA
+
+010
+
+13mA
+
+011
+
+16mA
+
+100
+
+19mA
+
+101
+
+23mA
+
+110
+
+26mA
+
+111
+
+29mA
+
+4.4 Multiplexed Signal/Pin Functions
+The Function 0 through 7 signals is assigned to the I/O pins of X1.
+Most I/O pins of X1 are multi-function allowing them to be configured for one of
+several available functions using Multi-Function Pin Registers (MFPRs). Additionally,
+some functions can be configured to be present on several different pins.
+The assigned signals are organized by their functions (e.g. power supply, clock, etc.)
+which are arranged in groups according to their interfaces (e.g. JTAG, SPIx, etc.) as
+per description in the following subsections (sorted alphabetically for user
+convenience).
+Note. Definition of symbols used for signal/pin type:
+▪
+
+I = Input
+
+▪
+
+O = Output
+
+￮
+
+I/O = Input/Output
+
+▪
+
+OD = Open-Drain
+
+▪
+
+RO = Reference output
+
+4.4.1 JTAG
+
+4.4.1.1 Primary
+
+Signal/Pin
+
+Description
+
+Name
+
+Type
+
+PRI_TCK
+
+I
+
+Primary JTAG interface 1 test clock.
+Used for all transfers on the JTAG test interface.
+
+PRI_TDI
+
+I
+
+Primary JTAG interface 1 test data input.
+Used to send data from the JTAG controller to the
+X1 processor. This pin has an internal pullup
+resistor.
+
+PRI_TDO
+
+O
+
+Primary JTAG Interface 1 test data output
+Used to return data from the X1 processor to the
+JTAG controller.
+
+PRI_TMS
+
+I
+
+Primary JTAG Interface 1 test mode select.
+Used to select the test mode required from the
+JTAG controller. This pin has an internal pullup
+resistor.
+
+PRI_TRSTn
+
+I
+
+Primary JTAG Interface 1 test reset.
+Used for IEEE 1194.1 test reset.
+
+VCXO_OUT
+
+O
+
+24 MHz VCXO output clock
+
+VCXO_REQ
+
+I
+
+OCLK1 request
+
+4.4.1.2 Secondary
+
+Signal/Pin
+Name
+
+Description
+Type
+
+SEC2_TCK
+
+I
+
+Secondary JTAG Interface 2 test clock.
+Used for all transfers on the JTAG test interface.
+
+SEC2_TDI
+
+I
+
+Secondary JTAG Interface 2 test data input.
+Used to send data from the JTAG controller to the
+X1 processor. This pin has an internal pullup
+resistor.
+
+SEC2_TDO
+
+O
+
+Secondary JTAG Interface 2 test data output.
+Used to return data from the X1 processor to the
+JTAG controller.
+
+SEC2_TMS
+
+I
+
+Secondary JTAG Interface 2 test mode select.
+Used to select the test mode required from the
+JTAG controller. This pin has an internal pullup
+resistor.
+
+SEC2_TRST
+
+I
+
+n
+
+Secondary JTAG Interface 2 test reset.
+Used for IEEE 1194.1 test reset.
+
+4.4.2 Keypad Controller
+
+Signal/Pin
+
+Description
+
+Name
+
+Type
+
+KP_DK[4: 0]
+
+I
+
+Keypad direct key inputs [4: 0]
+
+KP_MKIN[3:
+
+I
+
+Keypad matrix key inputs [3: 0]
+
+O
+
+Keypad matrix key outputs [3: 0]
+
+0]
+KP_MKOUT[
+3: 0]
+
+4.4.3 Miscellaneous
+
+Signal/Pin
+
+Description
+
+Name
+
+Type
+
+MPLL_TST_
+
+PLL test pin
+
+CK
+MN_CLK_O
+
+O
+
+UT
+
+Fractional (M/N) divided clock.
+Main PMU general purpose M/N fractional clock
+divider clock output.
+CLK_REQ must be set as Function 0 and pulled
+high for the 13 MHz clock to be output on
+GPIO[122] (MN_CLK_OUT).
+
+Sleep_OUT
+
+O
+
+PMIC sleep setting
+
+4.4.4 SPIx
+
+Signal/Pin
+
+Description
+
+Name
+
+Type
+
+SPIx_FRM
+
+I/O
+
+Synchronous serial port frame 0/2.
+The serial frame sync can be configured as an
+output (master mode operation) or an input (slave
+mode operation).
+
+SPIx_RXD
+
+I
+
+Synchronous serial port receive data 0/2.
+Serial data latched using the bit clock.
+
+SPIx_SCL
+
+I/O
+
+K
+
+Synchronous serial port clock 0/2.
+The serial bit clock can be configured as an output
+(master mode operation) or an input (slave mode
+operation).
+
+SPIx_TXD
+
+O
+
+Synchronous serial port transmit data 0/2.
+Serial data driven out synchronously with the bit
+clock.
+
+4.4.5 TWSI
+
+4.4.5.1 Dedicated
+
+Signal/Pin
+
+Description
+
+Name
+
+Type
+
+PWR_SDA
+
+I/O
+
+TWSI serial data/address signal
+
+PWR_SCL
+
+I/O
+
+TWSI serial clock line signal
+
+4.4.5.2 Common
+
+Signal/Pin
+
+Description
+
+Name
+
+Type
+
+I2Cx_SCL
+
+I/O,OD
+
+TWSIx clock
+
+I2Cx_SDA
+
+I/O,OD
+
+TWSIx data
+
+4.4.6 UARTx
+
+Signal/Pin
+
+Description
+
+Name
+
+Type
+
+UARTx_CT
+
+I
+
+UARTx clear-to-send
+
+O
+
+UARTx request-to-send
+
+I
+
+UARTx receive data
+
+O
+
+UARTx transmit data
+
+Sn
+UARTx_RT
+Sn
+UARTx_R
+XD
+UARTx_TX
+D
+
+4.4.7 USB
+
+Signal/Pin
+
+Description
+
+Name
+
+Type
+
+USBx_N
+
+I/O
+
+USBx_P
+
+I/O
+
+VBUS_ON
+
+I
+
+USB D±
+
+USB VBUS present indicator
+
+4.5 Multi-Function I/O Pin Assignments
+All functions that are assigned to a pin as its primary functions are tabled below.
+
+G P
+
+D
+
+P
+
+Func
+
+Functi
+
+Function
+
+Function
+
+Functio
+
+Fu
+
+Fu
+
+r
+
+a
+
+ef
+
+a
+
+tion
+
+on 1
+
+2
+
+3
+
+n4
+
+nct
+
+nc
+
+o
+
+d
+
+a
+
+d
+
+0
+
+ion
+
+tio
+
+u
+
+N
+
+ul
+
+E
+
+5
+
+n6
+
+p
+
+a
+
+t
+
+d
+
+m
+
+P
+
+g
+
+e
+
+ul
+
+e
+
+li
+
+D
+
+n
+
+e
+
+g
+
+t
+e
+c
+t
+e
+d
+
+Q Q
+
+D
+
+E
+
+QSPI
+
+GPIO[9
+
+UART1_T
+
+S S
+
+O
+
+N
+
+_DA
+
+8]
+
+XD
+
+P PI
+
+W
+
+A
+
+T[3]/s
+
+<secure
+
+I
+
+N
+
+B
+
+trap[
+
+domain>
+
+D
+
+L
+
+3]
+
+A
+
+E
+
+_
+
+T
+3
+Q
+
+D
+
+E
+
+QSPI
+
+GPIO[9
+
+UART1_
+
+S
+
+O
+
+N
+
+_DA
+
+9]
+
+RXD
+
+PI
+
+W
+
+A
+
+T[2]/s
+
+<secure
+
+_
+
+N
+
+B
+
+trap[
+
+domain>
+
+D
+
+L
+
+2]
+
+A
+
+E
+
+T
+2
+Q
+
+D
+
+E
+
+QSPI
+
+GPIO[1
+
+UART1_
+
+UART4_
+
+S
+
+O
+
+N
+
+_DA
+
+00]
+
+CTS
+
+TXD
+
+PI
+
+W
+
+A
+
+T[1]/s
+
+<secure
+
+_
+
+N
+
+B
+
+trap[
+
+D
+
+L
+
+1]
+
+A
+
+E
+
+domain>
+
+T
+1
+Q
+
+D
+
+E
+
+QSPI
+
+GPIO[1
+
+UART1_
+
+UART4_
+
+S
+
+O
+
+N
+
+_DA
+
+01]
+
+RTS
+
+RXD
+
+PI
+
+W
+
+A
+
+T[0]/s
+
+<secure
+
+_
+
+N
+
+B
+
+trap[
+
+domain>
+
+D
+
+L
+
+0]
+
+A
+
+E
+
+T
+0
+Q
+
+D
+
+E
+
+QSPI
+
+GPIO[1
+
+UART5_T
+
+S
+
+O
+
+N
+
+_CLK
+
+02]
+
+XD
+
+PI
+
+W
+
+A
+
+_
+
+N
+
+B
+
+C
+
+L
+
+L
+
+E
+
+K
+Q
+
+U
+
+E
+
+QSPI
+
+GPIO[1
+
+UART5_
+
+S
+
+P
+
+N
+
+_CS1
+
+03]
+
+RXD
+
+PI
+
+A
+
+_
+
+B
+
+C
+
+L
+
+S
+
+E
+
+1
+S M
+
+U
+
+E
+
+MMC
+
+R_I2S2
+
+SEC2_T
+
+UART0_T
+
+GPIO[1
+
+PW
+
+D M
+
+P
+
+N
+
+1_DA
+
+_SCLK
+
+MS
+
+XD
+
+04]
+
+M0
+
+C
+
+A
+
+T[3]
+
+M 1_
+
+B
+
+M D
+
+L
+
+C A
+
+E
+
+/
+
+T
+3
+M
+
+U
+
+E
+
+MMC
+
+R_I2S2
+
+SEC2_T
+
+UART0_
+
+GPIO[1
+
+PW
+
+M
+
+P
+
+N
+
+1_DA
+
+_LRCK
+
+DI
+
+RXD
+
+05]
+
+M1
+
+C
+
+A
+
+T[2]
+
+1_
+
+B
+
+D
+
+L
+
+A
+
+E
+
+T
+2
+M
+
+U
+
+E
+
+MMC
+
+R_I2S2
+
+SEC2_T
+
+GPIO[1
+
+PW
+
+M
+
+P
+
+N
+
+1_DA
+
+_TXD
+
+DO
+
+06]
+
+M2
+
+C
+
+A
+
+T[1]
+
+1_
+
+B
+
+D
+
+L
+
+A
+
+E
+
+T
+1
+M
+
+U
+
+E
+
+MMC
+
+R_I2S2
+
+SEC2_T
+
+GPIO[1
+
+PW
+
+M
+
+P
+
+N
+
+1_DA
+
+_RXD
+
+RSTn
+
+07]
+
+M3
+
+C
+
+A
+
+T[0]
+
+1_
+
+B
+
+D
+
+L
+
+A
+
+E
+
+T
+0
+M
+
+U
+
+E
+
+MMC
+
+UART0
+
+CPU_SE
+
+R_UART
+
+GPIO[1
+
+PW
+
+M
+
+P
+
+N
+
+1_C
+
+_TXD
+
+L
+
+0_TXD
+
+08]
+
+M4
+
+C
+
+A
+
+MD
+
+1_
+
+B
+
+C
+
+L
+
+M
+
+E
+
+D
+
+M
+
+D
+
+E
+
+MMC
+
+R_I2S2
+
+SEC2_T
+
+GPIO[1
+
+PW
+
+M
+
+O
+
+N
+
+1_CL
+
+_SYSC
+
+CK
+
+09]
+
+M5
+
+C
+
+W
+
+A
+
+K
+
+LK
+
+1_
+
+N
+
+B
+
+C
+
+L
+
+L
+
+E
+
+K
+P R
+
+U
+
+N
+
+RES
+
+M E
+
+P
+
+O
+
+ET_I
+
+I
+
+S
+
+N_N
+
+C E
+T
+_I
+N
+_
+N
+E
+
+D
+
+N
+
+EXT_
+
+X
+
+O
+
+O
+
+32K_
+
+T
+
+W
+
+_3
+
+N
+
+IN
+
+2
+K
+_I
+N
+P
+
+U
+
+E
+
+PWR
+
+GPIO[9
+
+W
+
+P
+
+N
+
+_SCL
+
+3]
+
+E
+
+PWR
+
+GPIO[9
+
+N
+
+_SD
+
+R
+
+A
+
+_
+
+B
+
+S
+
+L
+
+C
+
+E
+
+L
+P
+W
+
+U
+
+R
+
+P
+
+A
+
+_
+
+B
+
+S
+
+L
+
+D
+
+E
+
+A
+
+4]
+
+A
+S
+
+N
+
+E
+
+SLE
+
+GPIO[9
+
+L
+
+O
+
+N
+
+EP_
+
+5]
+
+E
+
+A
+
+OUT
+
+E
+
+B
+
+P
+
+L
+
+_
+
+E
+
+O
+U
+T
+D
+
+D
+
+E
+
+V
+
+O
+
+N
+
+L0
+
+W
+
+A
+
+N
+
+B
+
+DVL0
+
+GPIO[9
+
+VCXO_R
+
+6]
+
+EQ
+
+L
+E
+D
+
+D
+
+E
+
+V
+
+O
+
+N
+
+L1
+
+W
+
+A
+
+N
+
+B
+
+DVL1
+
+7]
+
+L
+E
+P
+
+U
+
+E
+
+PMIC
+
+MI
+
+P
+
+N
+
+_INT
+
+C
+
+A
+
+_N
+
+_I
+
+B
+
+N
+
+L
+
+T
+
+E
+
+_
+
+GPIO[9
+
+IR_RX
+
+VCXO_O
+UT
+
+N
+G
+
+U
+
+E
+
+GPIO
+
+R_I2S3
+
+UART3_T
+
+UART4_
+
+MN_CL
+
+AP
+
+PI
+
+P
+
+N
+
+[81]
+
+_SCLK
+
+XD
+
+CTS_N
+
+K
+
+_I2
+
+O[
+
+A
+
+C5
+
+81
+
+B
+
+_S
+
+]
+
+L
+
+CL
+
+E
+G
+
+U
+
+E
+
+GPIO
+
+R_I2S3
+
+UART3_
+
+UART4_
+
+UART8_
+
+AP
+
+PI
+
+P
+
+N
+
+[82]
+
+_LRCK
+
+RXD
+
+RTS_N
+
+TXD
+
+_I2
+
+O[
+
+A
+
+C5
+
+82
+
+B
+
+_S
+
+]
+
+L
+
+DA
+
+E
+G
+
+U
+
+E
+
+GPIO
+
+R_I2S3
+
+UART3_
+
+UART4_T
+
+UART8_
+
+AP
+
+PI
+
+P
+
+N
+
+[83]
+
+_TXD
+
+CTS_N
+
+XD
+
+RXD
+
+_I2
+
+O[
+
+A
+
+C6
+
+83
+
+B
+
+_S
+
+]
+
+L
+
+CL
+
+E
+G
+
+U
+
+E
+
+GPIO
+
+R_I2S3
+
+UART3_
+
+UART4_
+
+AP_I2C
+
+PI
+
+P
+
+N
+
+[84]
+
+_RXD
+
+RTS_N
+
+RXD
+
+2_SCL
+
+O[
+
+A
+
+84
+
+B
+
+]
+
+L
+E
+
+G
+
+U
+
+E
+
+GPIO
+
+R_I2S3
+
+UART6_
+
+MN_CLK
+
+AP_I2C
+
+PI
+
+P
+
+N
+
+[85]
+
+_SYSC
+
+CTS_N
+
+2
+
+2_SDA
+
+O[
+
+A
+
+85
+
+B
+
+]
+
+L
+E
+
+LK
+
+G
+
+U
+
+E
+
+GPIO
+
+HDMI_
+
+UART6_T
+
+DCLK
+
+UART7_
+
+PI
+
+P
+
+N
+
+[86]
+
+TX_HS
+
+XD
+
+<SPI_LC
+
+CTS_N
+
+O[
+
+A
+
+86
+
+B
+
+]
+
+L
+
+CL
+
+D>
+
+E
+G
+
+U
+
+E
+
+GPIO
+
+HDMI_
+
+UART6_
+
+DCX/DO
+
+UART7_
+
+PI
+
+P
+
+N
+
+[87]
+
+TX_HS
+
+RXD
+
+UT1
+
+RTS_N
+
+O[
+
+A
+
+87
+
+B
+
+]
+
+L
+
+DA
+
+<SPI_LC
+D>
+
+E
+G
+
+D
+
+E
+
+GPIO
+
+HDMI_
+
+UART7_T
+
+DIN
+
+PI
+
+O
+
+N
+
+[88]
+
+TX_HC
+
+XD
+
+<SPI_LC
+
+O[
+
+W
+
+A
+
+88
+
+N
+
+B
+
+]
+
+EC
+
+PWM6
+
+D>
+
+L
+E
+
+G
+
+D
+
+E
+
+GPIO
+
+HDMI_
+
+UART7_
+
+DOUT0
+
+VCXO_
+
+PI
+
+O
+
+N
+
+[89]
+
+TX_PD
+
+RXD
+
+<SPI_LC
+
+REQ
+
+O[
+
+W
+
+A
+
+89
+
+N
+
+B
+
+]
+
+P
+
+D>
+
+L
+E
+
+G
+
+D
+
+E
+
+GPIO
+
+UART6_
+
+CS<SPI_
+
+VCXO_
+
+AP
+
+PI
+
+O
+
+N
+
+[90]/s
+
+RTS_N
+
+LCD>
+
+OUT
+
+_I2
+
+O[
+
+W
+
+A
+
+trap[
+
+C6
+
+90
+
+N
+
+B
+
+4]
+
+_S
+
+]
+
+L
+
+DA
+
+E
+G
+PI
+
+U
+
+E
+N
+
+GPIO
+
+MN_C
+
+VCXO_O
+
+DSI_TE
+
+R_I2C0
+
+O[
+
+P
+
+A
+
+91
+
+B
+
+]
+
+L
+
+[91]
+
+LK2
+
+UT
+
+_SCL
+
+PWM7
+
+R_I2C0
+
+E
+G
+
+U
+
+E
+
+GPIO
+
+MN_C
+
+PI
+
+P
+
+N
+
+[92]
+
+LK
+
+O[
+
+A
+
+92
+
+B
+
+]
+
+L
+
+_SDA
+
+E
+JT
+
+D
+
+N
+
+JTA
+
+A
+
+O
+
+O
+
+G_S
+
+G
+
+W
+
+_
+
+N
+
+EL
+
+S
+E
+L
+G G
+
+D
+
+E
+
+GPIO
+
+GMAC
+
+UART6_T
+
+P PI
+
+O
+
+N
+
+[0]
+
+0_RXD
+
+XD
+
+I
+
+O[
+
+W
+
+A
+
+O 0]
+
+N
+
+B
+
+PWM8
+
+V
+
+L
+1
+
+E
+G
+
+D
+
+E
+
+GPIO
+
+GMAC
+
+UART6_
+
+PI
+
+O
+
+N
+
+[1]
+
+0_RX_
+
+RXD
+
+O[
+
+W
+
+A
+
+1]
+
+N
+
+B
+
+PWM9
+
+D0
+
+L
+E
+G
+
+D
+
+E
+
+GPIO
+
+GMAC
+
+UART6_
+
+PI
+
+O
+
+N
+
+[2]
+
+0_RX_
+
+CTS_N
+
+O[
+
+W
+
+A
+
+D1
+
+PWM10
+
+2]
+
+N
+
+B
+L
+E
+
+G
+
+D
+
+E
+
+GPIO
+
+GMAC
+
+UART6_
+
+PI
+
+O
+
+N
+
+[3]
+
+0_RX_
+
+RTS_N
+
+O[
+
+W
+
+A
+
+3]
+
+N
+
+B
+
+PWM11
+
+CLK
+
+L
+E
+G
+
+D
+
+E
+
+GPIO
+
+GMAC
+
+UART7_T
+
+PI
+
+O
+
+N
+
+[4]
+
+0_RX_
+
+XD
+
+O[
+
+W
+
+A
+
+4]
+
+N
+
+B
+
+PWM12
+
+D2
+
+L
+E
+G
+
+D
+
+E
+
+GPIO
+
+GMAC
+
+UART7_
+
+PI
+
+O
+
+N
+
+[5]
+
+0_RX_
+
+RXD
+
+O[
+
+W
+
+A
+
+5]
+
+N
+
+B
+
+PWM13
+
+D3
+
+L
+E
+G
+
+D
+
+E
+
+GPIO
+
+GMAC
+
+UART7_
+
+PI
+
+O
+
+N
+
+[6]
+
+0_TX_
+
+CTS_N
+
+O[
+
+W
+
+A
+
+6]
+
+N
+
+B
+
+PWM14
+
+D0
+
+L
+E
+G
+
+D
+
+E
+
+GPIO
+
+GMAC
+
+UART7_
+
+PI
+
+O
+
+N
+
+[7]
+
+0_TX_
+
+RTS_N
+
+O[
+
+W
+
+A
+
+7]
+
+N
+
+B
+L
+
+D1
+
+PWM15
+
+E
+G
+
+D
+
+E
+
+GPIO
+
+GMAC
+
+UART8_T
+
+PI
+
+O
+
+N
+
+[8]
+
+0_TX
+
+XD
+
+O[
+
+W
+
+A
+
+8]
+
+N
+
+B
+L
+E
+
+G
+
+D
+
+E
+
+GPIO
+
+GMAC
+
+UART8_
+
+PI
+
+O
+
+N
+
+[9]
+
+0_TX_
+
+RXD
+
+O[
+
+W
+
+A
+
+9]
+
+N
+
+B
+
+PWM16
+
+D2
+
+L
+E
+G
+
+D
+
+E
+
+GPIO
+
+GMAC
+
+UART8_
+
+PI
+
+O
+
+N
+
+[10]
+
+0_TX_
+
+CTS_N
+
+O[
+
+W
+
+A
+
+10
+
+N
+
+B
+
+]
+
+PWM17
+
+D3
+
+L
+E
+
+G
+
+D
+
+E
+
+GPIO
+
+GMAC
+
+UART8_
+
+PI
+
+O
+
+N
+
+[11]
+
+0_TX_
+
+RTS_N
+
+O[
+
+W
+
+A
+
+11
+
+N
+
+B
+
+]
+
+PWM18
+
+EN
+
+L
+E
+
+G
+
+D
+
+E
+
+GPIO
+
+GMAC
+
+UART9_T
+
+VCXO_O
+
+PI
+
+O
+
+N
+
+[12]
+
+0_MD
+
+XD
+
+UT
+
+O[
+
+W
+
+A
+
+12
+
+N
+
+B
+
+]
+
+L
+E
+
+C
+
+G
+
+D
+
+E
+
+GPIO
+
+GMAC
+
+UART9_
+
+PI
+
+O
+
+N
+
+[13]
+
+0_MDI
+
+RXD
+
+O[
+
+W
+
+A
+
+13
+
+N
+
+B
+
+]
+
+PWM19
+
+O
+
+L
+E
+
+G
+
+D
+
+E
+
+GPIO
+
+GMAC
+
+PI
+
+O
+
+N
+
+[14]
+
+0_INT_
+
+O[
+
+W
+
+A
+
+14
+
+N
+
+B
+
+]
+
+PWM0
+
+N
+
+L
+E
+
+G
+
+U
+
+E
+
+GPIO
+
+MMC2
+
+PCIe0_P
+
+PCIe1_
+
+PI
+
+P
+
+N
+
+[15]
+
+_DATA
+
+ERSTN
+
+PERST
+
+O[
+
+A
+
+15
+
+B
+
+]
+
+L
+
+3
+
+N
+
+E
+G
+
+U
+
+E
+
+GPIO
+
+MMC2
+
+PCIe0_W
+
+VCXO_R
+
+PCIe1_
+
+PI
+
+P
+
+N
+
+[16]
+
+_DATA
+
+AKEN
+
+EQ
+
+WAKEN
+
+O[
+
+A
+
+16
+
+B
+
+]
+
+L
+
+2
+
+E
+G
+
+U
+
+E
+
+GPIO
+
+MMC2
+
+PCIe0_C
+
+VCXO_O
+
+PCIe1_
+
+PI
+
+P
+
+N
+
+[17]
+
+_DATA
+
+LKREQN
+
+UT
+
+CLKRE
+
+O[
+
+A
+
+17
+
+B
+
+]
+
+L
+
+1
+
+QN
+
+E
+G
+PI
+
+U
+
+E
+N
+
+GPIO
+
+MMC2
+_DATA
+
+UART3_T
+
+PCIe2_
+PERST
+
+O[
+
+P
+
+A
+
+18
+
+B
+
+]
+
+L
+
+[18]
+
+0
+
+XD
+
+N
+
+E
+G
+
+U
+
+E
+
+GPIO
+
+MMC2
+
+UART3_
+
+PCIe2_
+
+PI
+
+P
+
+N
+
+[19]
+
+_CMD
+
+RXD
+
+WAKEN
+
+O[
+
+A
+
+19
+
+B
+
+]
+
+L
+E
+
+G
+
+U
+
+E
+
+GPIO
+
+MMC2
+
+UART3_
+
+PI
+
+P
+
+N
+
+[20]
+
+_CLK
+
+CTS_N
+
+O[
+
+A
+
+20
+
+B
+
+]
+
+L
+
+MN_CLK
+
+PCIe2_
+CLKRE
+QN
+
+E
+G
+
+D
+
+E
+
+GPIO
+
+UART2
+
+UART3_
+
+PI
+
+O
+
+N
+
+[21]
+
+_TXD
+
+RTS_N
+
+O[
+
+W
+
+A
+
+21
+
+N
+
+B
+
+PWM2
+
+]
+
+32K_OUT
+
+L
+E
+
+G
+
+D
+
+E
+
+GPIO
+
+UART2
+
+PI
+
+O
+
+N
+
+[22]
+
+_RXD
+
+O[
+
+W
+
+A
+
+22
+
+N
+
+B
+
+]
+
+PWM0
+
+L
+E
+
+G
+
+D
+
+E
+
+GPIO
+
+UART2
+
+UART4_T
+
+PI
+
+O
+
+N
+
+[23]
+
+_CTS_
+
+XD
+
+O[
+
+W
+
+A
+
+23
+
+N
+
+B
+
+N
+
+MN_CLK
+
+PWM1
+
+]
+
+L
+E
+
+G
+
+D
+
+E
+
+GPIO
+
+UART2
+
+UART4_
+
+I2S1_SY
+
+PI
+
+O
+
+N
+
+[24]
+
+_RTS_
+
+RXD
+
+SCLK
+
+O[
+
+W
+
+A
+
+24
+
+N
+
+B
+
+]
+
+PWM2
+
+N
+
+L
+E
+
+G
+
+D
+
+E
+
+GPIO
+
+I2S1_S
+
+UART5_T
+
+PI
+
+O
+
+N
+
+[25]
+
+CLK
+
+XD
+
+O[
+
+W
+
+A
+
+25
+
+N
+
+B
+
+]
+
+PWM3
+
+L
+E
+
+G
+
+D
+
+E
+
+GPIO
+
+I2S1_L
+
+UART5_
+
+PI
+
+O
+
+N
+
+[26]
+
+RCK
+
+RXD
+
+O[
+
+W
+
+A
+
+26
+
+N
+
+B
+
+]
+
+L
+E
+
+G
+
+D
+
+E
+
+GPIO
+
+I2S1_T
+
+UART5_
+
+PI
+
+O
+
+N
+
+[27]
+
+XD
+
+CTS_N
+
+O[
+
+W
+
+A
+
+27
+
+N
+
+B
+
+]
+
+L
+E
+
+G
+
+D
+
+E
+
+GPIO
+
+I2S1_R
+
+UART5_
+
+32K_OU
+
+PI
+
+O
+
+N
+
+[28]
+
+XD
+
+RTS_N
+
+T
+
+O[
+
+W
+
+A
+
+28
+
+N
+
+B
+
+]
+
+L
+E
+
+G
+
+D
+
+E
+
+GPIO
+
+GMAC
+
+UART1_T
+
+PI
+
+O
+
+N
+
+[29]
+
+1_RXD
+
+XD
+
+PERST
+
+O[
+
+W
+
+A
+
+V
+
+<secure
+
+N
+
+29
+
+N
+
+B
+
+]
+
+PWM1
+
+PCIe0_
+
+domain>
+
+L
+E
+
+G
+
+D
+
+E
+
+GPIO
+
+GMAC
+
+UART1_
+
+PI
+
+O
+
+N
+
+[30]
+
+1_RX_
+
+RXD
+
+O[
+
+W
+
+A
+
+D0
+
+<secure
+
+30
+
+N
+
+B
+
+]
+
+PWM2
+
+PCIe0_
+WAKEN
+
+domain>
+
+L
+E
+
+G
+
+D
+
+E
+
+GPIO
+
+GMAC
+
+UART1_
+
+PI
+
+O
+
+N
+
+[31]
+
+1_RX_
+
+CTS_N
+
+CLKRE
+
+O[
+
+W
+
+A
+
+D1
+
+<secure
+
+QN
+
+31
+
+N
+
+B
+
+]
+
+32K_OUT
+
+PCIe0_
+
+domain>
+
+L
+E
+
+G
+
+D
+
+E
+
+GPIO
+
+GMAC
+
+UART1_
+
+PI
+
+O
+
+N
+
+[32]
+
+1_RX_
+
+RTS_N
+
+PERST
+
+O[
+
+W
+
+A
+
+CLK
+
+<secure
+
+N
+
+32
+
+N
+
+B
+
+]
+
+MN_CLK
+
+PCIe1_
+
+domain>
+
+L
+E
+
+G
+
+D
+
+E
+
+GPIO
+
+GMAC
+
+UART4_T
+
+PI
+
+O
+
+N
+
+[33]
+
+1_RX_
+
+XD
+
+O[
+
+W
+
+A
+
+33
+
+N
+
+B
+
+]
+
+PWM3
+
+PCIe1_
+WAKEN
+
+D2
+
+L
+E
+
+G
+
+D
+
+E
+
+PI
+
+O
+
+N
+
+GPIO
+
+GMAC
+1_RX_
+
+UART4_
+
+PWM4
+
+PCIe1_
+CLKRE
+
+O[
+
+W
+
+A
+
+34
+
+N
+
+B
+
+]
+
+[34]
+
+D3
+
+RXD
+
+QN
+
+L
+E
+
+G
+
+D
+
+E
+
+GPIO
+
+GMAC
+
+UART4_
+
+PI
+
+O
+
+N
+
+[35]
+
+1_TX_
+
+CTS_N
+
+O[
+
+W
+
+A
+
+35
+
+N
+
+B
+
+]
+
+PWM5
+
+PCIe2_
+PERST
+
+D0
+
+N
+
+L
+E
+
+G
+
+D
+
+E
+
+GPIO
+
+GMAC
+
+UART4_
+
+PI
+
+O
+
+N
+
+[36]
+
+1_TX_
+
+RTS_N
+
+WAKEN
+
+O[
+
+W
+
+A
+
+36
+
+N
+
+B
+
+PWM7
+
+PCIe2_
+
+]
+
+PWM6
+
+PCIe2_
+
+D1
+
+L
+E
+
+G
+
+D
+
+E
+
+GPIO
+
+GMAC
+
+PI
+
+O
+
+N
+
+[37]
+
+1_TX
+
+O[
+
+W
+
+A
+
+37
+
+N
+
+B
+
+]
+
+CLKRE
+QN
+
+L
+E
+
+G
+
+U
+
+E
+
+GPIO
+
+GMAC
+
+AP_I2C3
+
+R_I2S3_
+
+PI
+
+P
+
+N
+
+[38]
+
+1_TX_
+
+_SCL
+
+SCLK
+
+D2
+
+<secure
+
+O[
+
+A
+
+38
+
+B
+
+]
+
+L
+
+PWM8
+
+domain>
+
+E
+G
+
+U
+
+E
+
+GPIO
+
+GMAC
+
+AP_I2C3
+
+R_I2S3_L
+
+PI
+
+P
+
+N
+
+[39]
+
+1_TX_
+
+_SDA
+
+RCK
+
+D3
+
+<secure
+
+O[
+
+A
+
+39
+
+B
+
+domain>
+
+PWM9
+
+]
+
+L
+E
+
+G
+
+U
+
+E
+
+GPIO
+
+GMAC
+
+AP_I2C4
+
+R_I2S3_
+
+PI
+
+P
+
+N
+
+[40]
+
+1_TX_
+
+_SCL
+
+TXD
+
+O[
+
+A
+
+40
+
+B
+
+]
+
+L
+
+PWM10
+
+EN
+
+E
+G
+
+U
+
+E
+
+GPIO
+
+GMAC
+
+AP_I2C4
+
+R_I2S3_
+
+PI
+
+P
+
+N
+
+[41]
+
+1_MD
+
+_SDA
+
+RXD
+
+O[
+
+A
+
+41
+
+B
+
+]
+
+L
+
+PWM11
+
+C
+
+E
+G
+
+D
+
+E
+
+GPIO
+
+GMAC
+
+UART5_T
+
+R_I2S3_
+
+PI
+
+O
+
+N
+
+[42]
+
+1_MDI
+
+XD
+
+SYSCLK
+
+O[
+
+W
+
+A
+
+42
+
+N
+
+B
+
+]
+
+PWM12
+
+O
+
+L
+E
+
+G
+
+D
+
+E
+
+GPIO
+
+GMAC
+
+UART5_
+
+PI
+
+O
+
+N
+
+[43]
+
+1_INT_
+
+RXD
+
+O[
+
+W
+
+A
+
+43
+
+N
+
+B
+
+]
+
+PWM13
+
+N
+
+L
+E
+
+G
+
+D
+
+E
+
+GPIO
+
+MN_C
+
+UART5_
+
+PI
+
+O
+
+N
+
+[44]
+
+LK
+
+CTS_N
+
+O[
+
+W
+
+A
+
+44
+
+N
+
+B
+
+]
+
+L
+E
+
+R_IR_RX
+
+PWM14
+
+G
+
+D
+
+E
+
+GPIO
+
+GMAC
+
+UART5_
+
+PI
+
+O
+
+N
+
+[45]
+
+0_CLK
+
+RTS_N
+
+O[
+
+W
+
+A
+
+45
+
+N
+
+B
+
+]
+
+PWM15
+
+_REF
+
+L
+E
+
+G
+
+D
+
+E
+
+GPIO
+
+GMAC
+
+PI
+
+O
+
+N
+
+[46]
+
+1_CLK
+
+O[
+
+W
+
+A
+
+46
+
+N
+
+B
+
+]
+
+PWM16
+
+_REF
+
+L
+E
+
+G
+
+D
+
+E
+
+GPIO
+
+R_CA
+
+R_UART
+
+UART9_
+
+PCIe0_
+
+ON
+
+PI
+
+O
+
+N
+
+[110]
+
+N_TX0
+
+1_TXD
+
+CTS_N
+
+PERST
+
+E_
+
+O[
+
+W
+
+A
+
+N
+
+WI
+
+11
+
+N
+
+B
+
+0]
+
+RE
+
+L
+E
+
+G
+
+D
+
+E
+
+GPIO
+
+R_CA
+
+R_UART
+
+UART9_
+
+PCIe0_
+
+PI
+
+O
+
+N
+
+[115]
+
+N_RX0
+
+1_RXD
+
+RTS_N
+
+WAKEN
+
+O[
+
+W
+
+A
+
+11
+
+N
+
+B
+
+5]
+
+L
+E
+
+G
+
+D
+
+E
+
+GPIO
+
+R_PW
+
+R_UART
+
+UART9_T
+
+PCIe0_
+
+VC
+
+PI
+
+O
+
+N
+
+[116]
+
+M1
+
+1_CTS_N
+
+XD
+
+CLKRE
+
+XO
+
+O[
+
+W
+
+A
+
+QN
+
+_R
+
+11
+
+N
+
+B
+
+EQ
+
+L
+
+[1]
+
+6]
+
+E
+G
+
+D
+
+E
+
+PI
+
+O
+
+N
+
+GPIO
+
+R_PW
+
+R_UART
+
+UART9_
+
+PCIe2_
+
+VC
+
+CLKRE
+
+XO
+
+O[
+
+W
+
+A
+
+11
+
+N
+
+B
+
+LK
+
+L
+
+_O
+
+E
+
+UT
+
+7]
+
+[117]
+
+M2
+
+1_RTS_N
+
+RXD
+
+QN
+
+_C
+
+G
+
+U
+
+E
+
+GPIO
+
+AP_I2
+
+AP_I2C6
+
+I2S0_SC
+
+R_PWM
+
+KP
+
+PI
+
+P
+
+N
+
+[118]
+
+C7_SC
+
+_SCL
+
+LK
+
+8
+
+_M
+
+O[
+
+A
+
+L
+
+KIN
+
+11
+
+B
+
+(CAM)
+
+[0]
+
+8]
+
+L
+E
+
+G
+
+U
+
+E
+
+GPIO
+
+AP_I2
+
+AP_I2C6
+
+I2S0_LR
+
+R_PWM
+
+KP
+
+PI
+
+P
+
+N
+
+[119]
+
+C7_SD
+
+_SDA
+
+CK
+
+9
+
+_M
+
+O[
+
+A
+
+A
+
+KO
+
+11
+
+B
+
+(CAM)
+
+UT[
+
+9]
+
+L
+
+0]
+
+E
+G
+
+D
+
+E
+
+GPIO
+
+CAM_
+
+I2S0_TX
+
+R_PWM
+
+KP
+
+PI
+
+O
+
+N
+
+[120]
+
+MCLK2
+
+D
+
+6
+
+_M
+
+O[
+
+W
+
+A
+
+KIN
+
+12
+
+N
+
+B
+
+[1]
+
+0]
+
+L
+E
+
+G
+
+D
+
+E
+
+GPIO
+
+CAME
+
+VBUS_O
+
+I2S0_RX
+
+R_PWM
+
+KP
+
+PI
+
+O
+
+N
+
+[121]
+
+RA2_R
+
+N2
+
+D
+
+7
+
+_M
+
+O[
+
+W
+
+A
+
+12
+
+N
+
+B
+
+UT[
+
+L
+
+1]
+
+1]
+
+ST
+
+KO
+
+E
+G
+
+D
+
+E
+
+GPIO
+
+CAME
+
+PI
+
+O
+
+N
+
+[122]
+
+RA2_P
+
+O[
+
+W
+
+A
+
+12
+
+N
+
+B
+
+DN
+
+USB_ID2
+
+I2S0_SY
+
+KP
+
+SCLK
+
+_M
+KIN
+[2]
+
+2]
+
+L
+E
+
+G
+
+D
+
+E
+
+GPIO
+
+DRIVE
+
+KP_DKIN
+
+KP_MKIN
+
+PI
+
+O
+
+N
+
+[123]
+
+_VBUS
+
+[0]
+
+[0]
+
+O[
+
+W
+
+A
+
+12
+
+N
+
+B
+
+3]
+
+2_ISO
+
+L
+E
+
+G
+
+D
+
+E
+
+GPIO
+
+DRIVE
+
+KP_DKIN
+
+KP_MKO
+
+PI
+
+O
+
+N
+
+[124]
+
+_VBUS
+
+[1]
+
+UT[0]
+
+O[
+
+W
+
+A
+
+12
+
+N
+
+B
+
+4]
+
+1_ISO
+
+L
+E
+
+G
+
+D
+
+E
+
+GPIO
+
+VBUS_
+
+KP_DKIN
+
+KP_MKIN
+
+PI
+
+O
+
+N
+
+[125]
+
+ON0
+
+[2]
+
+[1]
+
+O[
+
+W
+
+A
+
+12
+
+N
+
+B
+
+5]
+
+L
+E
+
+G
+
+D
+
+E
+
+GPIO
+
+USB_I
+
+KP_DKIN
+
+KP_MKO
+
+PI
+
+O
+
+N
+
+[126]
+
+D0
+
+[3]
+
+UT[1]
+
+O[
+
+W
+
+A
+
+12
+
+N
+
+B
+
+6]
+
+L
+E
+
+G
+
+D
+
+E
+
+GPIO
+
+DRIVE
+
+KP_DKIN
+
+KP_MKIN
+
+PI
+
+O
+
+N
+
+[127]
+
+_VBUS
+
+[4]
+
+[2]
+
+O[
+
+W
+
+A
+
+12
+
+N
+
+B
+
+7]
+
+L
+E
+
+0_ISO
+
+G G
+
+U
+
+E
+
+GPIO
+
+SPI2_
+
+SPI3_SC
+
+CAN_TX
+
+UART8_
+
+AP
+
+P PI
+
+P
+
+N
+
+[75]
+
+SCLK
+
+LK
+
+0
+
+TXD
+
+_I2
+
+I
+
+O[
+
+A
+
+<secur
+
+C4
+
+O 75
+
+B
+
+e
+
+_S
+
+]
+
+L
+
+domain
+
+CL
+
+E
+
+>
+
+2
+G
+
+U
+
+E
+
+GPIO
+
+SPI2_F
+
+SPI3_FR
+
+CAN_RX
+
+UART8_
+
+AP
+
+PI
+
+P
+
+N
+
+[76]
+
+RM
+
+M
+
+0
+
+RXD
+
+_I2
+
+O[
+
+A
+
+<secur
+
+C4
+
+76
+
+B
+
+e
+
+_S
+
+]
+
+L
+
+domain
+
+DA
+
+E
+
+>
+
+G
+
+U
+
+E
+
+GPIO
+
+SPI2_T
+
+SPI3_TX
+
+AP_I2C3
+
+UART8_
+
+R_
+
+KP
+
+PI
+
+P
+
+N
+
+[77]
+
+XD
+
+D
+
+_SCL
+
+CTS_N
+
+PW
+
+_M
+
+M0
+
+K
+
+O[
+
+A
+
+<secur
+
+<secure
+
+77
+
+B
+
+e
+
+domain>
+
+]
+
+L
+
+domain
+
+UT
+
+E
+
+>
+
+[2]
+
+O
+
+G
+
+U
+
+E
+
+GPIO
+
+SPI2_
+
+SPI3_RX
+
+AP_I2C3
+
+UART8_
+
+R_
+
+KP
+
+PI
+
+P
+
+N
+
+[78]
+
+RXD
+
+D
+
+_SDA
+
+RTS_N
+
+PW
+
+_M
+
+M1
+
+KI
+
+O[
+
+A
+
+<secur
+
+<secure
+
+78
+
+B
+
+e
+
+domain>
+
+]
+
+L
+
+domain
+
+E
+
+>
+
+3]
+
+G
+
+D
+
+E
+
+GPIO
+
+PI
+
+O
+
+N
+
+[79]
+
+O[
+
+W
+
+A
+
+K
+
+79
+
+N
+
+B
+
+O
+
+L
+
+UT
+
+E
+
+[3]
+
+]
+
+G
+
+D
+
+E
+
+PI
+
+O
+
+N
+
+GPIO
+
+IR_RX
+
+N[
+
+R_PWM2
+
+KP
+_M
+
+MMC_
+Card_d
+
+R_PWM3
+
+UART0_
+
+R_UAR
+
+O[
+
+W
+
+A
+
+80
+
+N
+
+B
+
+]
+
+[80]
+
+etect
+
+RXD
+
+T0_RXD
+
+R_PWM8
+
+AP_I2C
+
+ON
+
+3_SCL<
+
+E_
+
+secure
+
+WI
+
+domain>
+
+RE
+
+AP_I2C
+
+KP
+
+3_SDA<
+
+_M
+
+secure
+
+KO
+
+domain>
+
+UT[
+
+L
+E
+
+G G
+
+U
+
+E
+
+GPIO
+
+R_UA
+
+R_CAN_
+
+P PI
+
+P
+
+N
+
+[47]
+
+RT0_T
+
+TX0
+
+I
+
+O[
+
+A
+
+O 47
+
+B
+
+]
+
+L
+
+3
+
+XD
+
+E
+G
+
+U
+
+E
+
+GPIO
+
+R_UA
+
+R_CAN_
+
+PI
+
+P
+
+N
+
+[48]
+
+RT0_R
+
+RX0
+
+O[
+
+A
+
+48
+
+B
+
+]
+
+L
+
+R_IR_RX
+
+XD
+
+2]
+
+E
+G
+
+U
+
+E
+
+GPIO
+
+R_SPI
+
+R_UART
+
+PI
+
+P
+
+N
+
+[49]
+
+_SCLK
+
+1_CTS_N
+
+R_PWM4
+
+R_I2C0
+
+KP
+
+_SCL
+
+_M
+
+O[
+
+A
+
+KIN
+
+49
+
+B
+
+[3]
+
+]
+
+L
+E
+
+G
+
+U
+
+E
+
+GPIO
+
+R_SPI
+
+R_UART
+
+PI
+
+P
+
+N
+
+[50]
+
+_FRM
+
+1_RTS_N
+
+R_PWM5
+
+R_I2C0
+
+KP
+
+_SDA
+
+_M
+
+O[
+
+A
+
+KO
+
+50
+
+B
+
+UT[
+
+]
+
+L
+
+3]
+
+E
+G
+
+U
+
+E
+
+GPIO
+
+R_SPI
+
+R_UART
+
+PI
+
+P
+
+N
+
+[51]
+
+_TXD
+
+1_TXD
+
+O[
+
+A
+
+51
+
+B
+
+R_PWM6
+
+AP_I2C
+4_SCL
+
+]
+
+L
+E
+
+G
+
+U
+
+E
+
+GPIO
+
+R_SPI
+
+R_UART
+
+PI
+
+P
+
+N
+
+[52]
+
+_RXD
+
+1_RXD
+
+PWM17
+
+O[
+
+A
+
+52
+
+B
+
+]
+
+L
+
+R_PWM7
+
+AP_I2C
+4_SDA
+
+E
+G G
+
+D
+
+E
+
+GPIO
+
+CAM_
+
+P PI
+
+O
+
+N
+
+[53]
+
+MCLK0
+
+I
+
+O[
+
+W
+
+A
+
+O 53
+
+N
+
+B
+
+]
+
+PCIe0_C
+
+UART3_
+
+LKREQN
+
+TXD
+
+L
+
+4
+
+E
+G
+
+U
+
+E
+
+GPIO
+
+AP_I2
+
+CAN_TX
+
+PCIe0_P
+
+UART3_
+
+AP
+
+PI
+
+P
+
+N
+
+[54]
+
+C0_SC
+
+0
+
+ERSTN
+
+RXD
+
+_I2
+
+O[
+
+A
+
+L
+
+C5
+
+54
+
+B
+
+(CAM)
+
+_S
+
+]
+
+L
+
+CL
+
+E
+G
+
+U
+
+E
+
+GPIO
+
+AP_I2
+
+CAN_RX
+
+PCIe0_W
+
+UART3_
+
+AP
+
+PI
+
+P
+
+N
+
+[55]
+
+C0_SD
+
+0
+
+AKEN
+
+CTS_N
+
+_I2
+
+O[
+
+A
+
+A
+
+C5
+
+55
+
+B
+
+(CAM)
+
+_S
+
+]
+
+L
+
+DA
+
+E
+G
+
+U
+
+E
+
+GPIO
+
+AP_I2
+
+UART6_T
+
+PCIe1_P
+
+UART3_
+
+AP
+
+PI
+
+P
+
+N
+
+[56]
+
+C1_SC
+
+XD
+
+ERSTN
+
+RTS_N
+
+_I2
+
+O[
+
+A
+
+L
+
+C6
+
+56
+
+B
+
+(CAM)
+
+_S
+
+]
+
+L
+E
+
+CL
+
+G
+
+U
+
+E
+
+GPIO
+
+AP_I2
+
+UART6_
+
+PCIe1_W
+
+PI
+
+P
+
+N
+
+[57]
+
+C1_SD
+
+RXD
+
+AKEN
+
+PWM18
+
+AP
+_I2
+
+O[
+
+A
+
+A
+
+C6
+
+57
+
+B
+
+(CAM)
+
+_S
+
+]
+
+L
+
+DA
+
+E
+G
+
+D
+
+E
+
+GPIO
+
+CAM_
+
+I2S0_SY
+
+PCIe1_C
+
+PI
+
+O
+
+N
+
+[58]
+
+MCLK1
+
+SCLK
+
+LKREQN
+
+O[
+
+W
+
+A
+
+58
+
+N
+
+B
+
+]
+
+IR_RX
+
+L
+E
+
+G
+
+D
+
+E
+
+GPIO
+
+CAME
+
+I2S0_SC
+
+PCIe2_P
+
+UART4_
+
+PI
+
+O
+
+N
+
+[111]
+
+RA0_R
+
+LK
+
+ERSTN
+
+TXD
+
+O[
+
+W
+
+A
+
+11
+
+N
+
+B
+
+1]
+
+ST
+
+L
+E
+
+G
+
+D
+
+E
+
+GPIO
+
+CAME
+
+I2S0_LR
+
+PCIe2_W
+
+UART4_
+
+PI
+
+O
+
+N
+
+[112]
+
+RA1_R
+
+CK
+
+AKEN
+
+RXD
+
+O[
+
+W
+
+A
+
+11
+
+N
+
+B
+
+2]
+
+ST
+
+L
+E
+
+G
+
+D
+
+E
+
+GPIO
+
+CAME
+
+I2S0_TX
+
+PCIe2_C
+
+UART4_
+
+PI
+
+O
+
+N
+
+[113]
+
+RA0_P
+
+D
+
+LKREQN
+
+CTS_N
+
+O[
+
+W
+
+A
+
+11
+
+N
+
+B
+
+I2S0_RX
+
+DSI_TE
+
+UART4_
+
+3]
+
+DN
+
+L
+E
+
+G
+
+D
+
+E
+
+PI
+
+O
+
+N
+
+GPIO
+
+CAME
+RA1_P
+
+O[
+
+W
+
+A
+
+11
+
+N
+
+B
+
+4]
+
+[114]
+
+DN
+
+D
+
+RTS_N
+
+PWM19
+
+L
+E
+
+G
+
+D
+
+E
+
+GPIO
+
+DRIVE
+
+R_I2S2_
+
+PI
+
+O
+
+N
+
+[63]
+
+_VBUS
+
+SYSCLK
+
+O[
+
+W
+
+A
+
+63
+
+N
+
+B
+
+]
+
+KP
+_D
+
+0_ISO
+
+KIN
+[0]
+
+L
+E
+
+G
+
+D
+
+E
+
+GPIO
+
+VBUS_
+
+R_I2S2_
+
+SPI2_SC
+
+R_PWM
+
+KP
+
+PI
+
+O
+
+N
+
+[64]
+
+ON0
+
+SCLK
+
+LK
+
+0
+
+_D
+
+O[
+
+W
+
+A
+
+<secure
+
+KIN
+
+64
+
+N
+
+B
+
+domain>
+
+[1]
+
+]
+
+L
+E
+
+G
+
+U
+
+E
+
+GPIO
+
+USB_I
+
+R_I2S2_L
+
+SPI2_FR
+
+R_PWM
+
+KP
+
+PI
+
+P
+
+N
+
+[65]
+
+D0
+
+RCK
+
+M
+
+1
+
+_D
+
+O[
+
+A
+
+<secure
+
+KIN
+
+65
+
+B
+
+domain>
+
+[2]
+
+]
+
+L
+E
+
+G
+
+D
+
+E
+
+GPIO
+
+DRIVE
+
+R_I2S2_
+
+SPI2_TX
+
+R_PWM
+
+KP
+
+PI
+
+O
+
+N
+
+[66]
+
+_VBUS
+
+TXD
+
+D
+
+2
+
+_D
+
+O[
+
+W
+
+A
+
+66
+
+N
+
+B
+
+]
+
+1_ISO
+
+<secure
+
+KIN
+
+domain>
+
+[3]
+
+L
+E
+
+G
+
+D
+
+E
+
+GPIO
+
+DRIVE
+
+R_I2S2_
+
+SPI2_RX
+
+R_PWM
+
+KP
+
+PI
+
+O
+
+N
+
+[67]
+
+_VBUS
+
+RXD
+
+D
+
+3
+
+_D
+
+O[
+
+W
+
+A
+
+67
+
+N
+
+B
+
+2_ISO
+
+<secure
+
+KIN
+
+domain>
+
+[4]
+
+]
+
+L
+E
+
+G
+
+D
+
+E
+
+GPIO
+
+VBUS_
+
+UART0_T
+
+AP_I2C2
+
+R_PWM
+
+PI
+
+O
+
+N
+
+[68]
+
+ON2
+
+XD
+
+_SCL
+
+4
+
+O[
+
+W
+
+A
+
+68
+
+N
+
+B
+
+]
+
+L
+E
+
+G
+
+U
+
+E
+
+GPIO
+
+USB_I
+
+UART0_
+
+AP_I2C2
+
+R_PWM
+
+PI
+
+P
+
+N
+
+[69]
+
+D2
+
+RXD
+
+_SDA
+
+5
+
+O[
+
+A
+
+69
+
+B
+
+]
+
+L
+E
+
+G G
+
+U
+
+E
+
+GPIO
+
+HDMI_
+
+SPI3_SC
+
+UART1_T
+
+PCIe1_
+
+P PI
+
+P
+
+N
+
+[59]
+
+TX_HS
+
+LK
+
+XD
+
+PERST
+
+<secure
+
+N
+
+I
+
+O[
+
+A
+
+O 59
+
+B
+
+]
+
+L
+
+5
+
+CL
+
+domain>
+
+E
+G
+
+U
+
+E
+
+GPIO
+
+HDMI_
+
+SPI3_FR
+
+UART1_
+
+PCIe1_
+
+PI
+
+P
+
+N
+
+[60]
+
+TX_HS
+
+M
+
+RXD
+
+WAKEN
+
+O[
+
+A
+
+60
+
+B
+
+]
+
+L
+
+DA
+
+<secure
+domain>
+
+E
+G
+
+U
+
+E
+
+GPIO
+
+HDMI_
+
+SPI3_TX
+
+UART1_
+
+PCIe1_
+
+PI
+
+P
+
+N
+
+[61]
+
+TX_HC
+
+D
+
+CTS_N
+
+CLKRE
+
+<secure
+
+QN
+
+O[
+
+A
+
+61
+
+B
+
+]
+
+L
+E
+
+EC
+
+domain>
+
+G
+
+U
+
+E
+
+GPIO
+
+HDMI_
+
+SPI3_RX
+
+UART1_
+
+PCIe2_
+
+PI
+
+P
+
+N
+
+[62]
+
+TX_PD
+
+D
+
+RTS_N
+
+PERST
+
+<secure
+
+N
+
+O[
+
+A
+
+62
+
+B
+
+]
+
+L
+
+P
+
+domain>
+
+E
+P
+
+U
+
+N
+
+PRI_
+
+GPIO[7
+
+AP_I2C2
+
+DCLK
+
+UART5_
+
+RI
+
+P
+
+O
+
+TDI
+
+0]
+
+_SCL
+
+<SPI_LC
+
+TXD
+
+_
+
+D>
+
+T
+DI
+P
+
+U
+
+N
+
+PRI_
+
+GPIO[7
+
+AP_I2C2
+
+DCX/DO
+
+UART5_
+
+RI
+
+P
+
+O
+
+TMS
+
+1]
+
+_SDA
+
+UT1
+
+RXD
+
+_
+
+<SPI_LC
+
+T
+
+D>
+
+M
+S
+P
+
+D
+
+N
+
+PRI_
+
+GPIO[7
+
+UART9_T
+
+DIN<SPI_
+
+UART5_
+
+RI
+
+O
+
+O
+
+TCK
+
+2]
+
+XD
+
+LCD>
+
+CTS_N
+
+_
+
+W
+
+T
+
+N
+
+C
+K
+P
+
+U
+
+N
+
+PRI_
+
+GPIO[7
+
+UART9_
+
+DOUT0
+
+UART5_
+
+RI
+
+P
+
+O
+
+TDO
+
+3]
+
+RXD
+
+<SPI_LC
+
+RTS_N
+
+_
+
+D>
+
+T
+D
+O
+P
+
+U
+
+N
+
+PRI_
+
+RI
+
+P
+
+O
+
+TRS
+
+_
+
+T
+
+Tn
+
+R
+S
+T
+n
+G
+
+U
+
+E
+
+GPIO
+
+PI
+
+P
+
+N
+
+[74]
+
+O[
+
+A
+
+74
+
+B
+
+]
+
+L
+
+PWM9
+
+E
+E E
+
+EMM
+
+GPIO[9
+
+M M
+
+C_D
+
+3]
+
+M M
+
+0
+
+C C
+5
+
+_
+
+.
+
+D
+
+1
+
+0
+E
+
+EMM
+
+GPIO[9
+
+M
+
+C_D
+
+4]
+
+M
+
+1
+
+C
+_
+D
+1
+E
+
+EMM
+
+GPIO[9
+
+M
+
+C_D
+
+5]
+
+M
+
+2
+
+C
+_
+D
+2
+
+CS<SPI_
+
+PCIe2_
+
+LCD>
+
+WAKEN
+
+E
+
+EMM
+
+GPIO[9
+
+M
+
+C_D
+
+6]
+
+M
+
+3
+
+C
+_
+D
+3
+E
+
+EMM
+
+GPIO[9
+
+M
+
+C_D
+
+7]
+
+M
+
+4
+
+C
+_
+D
+4
+E
+
+EMM
+
+GPIO[9
+
+M
+
+C_D
+
+8]
+
+M
+
+5
+
+C
+_
+D
+5
+E
+
+EMM
+
+GPIO[9
+
+M
+
+C_D
+
+9]
+
+M
+
+6
+
+C
+_
+D
+6
+E
+
+EMM
+
+GPIO[1
+
+M
+
+C_D
+
+00]
+
+M
+
+7
+
+C
+_
+
+D
+7
+E
+
+EMM
+
+GPIO[1
+
+M
+
+C_D
+
+01]
+
+M
+
+S
+
+C
+_
+D
+S
+E
+
+EMM
+
+GPIO[1
+
+M
+
+C_C
+
+02]
+
+M
+
+LK
+
+C
+_
+C
+L
+K
+E
+
+EMM
+
+GPIO[1
+
+M
+
+C_C
+
+03]
+
+M
+
+MD
+
+C
+_
+C
+M
+D
+
+4.6 Power Supply Pins
+Pin Name
+
+AUD_VDD
+U09
+
+Domain
+
+Domain
+
+Name
+
+Voltage
+
+AUDIO
+
+0.9V
+
+Description
+
+0.9V power for audio
+
+AUD_VNE
+
+AUDIO
+
+-1.8V
+
+Negative voltage for headphone driver
+
+AUDIO
+
+1.8V
+
+Positive voltage for headphone driver
+
+AUDIO
+
+1.8V
+
+1.8V power for audio
+
+AUDIO
+
+3.3V
+
+3.3V power for earphone driver
+
+VCC_M1
+
+CORE
+
+0.9V
+
+Digital core power
+
+AVDD09_
+
+CSI
+
+0.9V
+
+MIPI_CSI digital power
+
+CSI
+
+1.8V
+
+MIPI_CSI analog power
+
+DCXO
+
+0.9V
+
+0.9V power for DCXO
+
+DCXO
+
+1.8V
+
+1.8V power for DCXO
+
+DDR
+
+lp4x: 0.6V
+
+LPDDR4X IO power
+
+G
+AUD_VPO
+S
+AVDD18_
+AUD
+AVDD3V3
+_AUD
+
+CSI
+AVDD18_
+CSI
+AVDD09_
+AFEAP
+AVDD18_
+AFEAP
+AVDD06_
+DDR
+
+lp4: TBD
+lp3: TBD
+
+AVDD11_
+
+DDR
+
+DDR
+
+lp4x:1.1V
+
+LPDDR PHY power supply
+
+lp4:1.1V
+lp3: 1.2V
+
+AVDD18_
+DDR
+
+DDR
+
+1.8V
+
+LPDDR PHY PLL 1.8V power
+
+AVDD18_
+
+DDR
+
+1.8V
+
+Analog 1.8V power
+
+DDR
+
+0.9V
+
+LPDDR PHY PLL logical power
+
+DDR
+
+0.9V
+
+LPDDR PHY core logical power
+
+DDR
+
+0.7~0.9V
+
+External LDO output ball.
+
+PHY
+AVDDU_D
+DR
+AVDDU_P
+HY
+DDR_LDO
+_CAP
+
+Connect to a 100nF capacitor on PCB
+board.
+
+DDR_LP2
+
+DDR
+
+3_VREFC
+A
+DDR_LP2
+
+DDR
+
+3_VREFD
+Q
+VDDQ_V1
+
+DDR
+
+P2
+AVDD09_
+
+lp3:0.6V
+
+CA VREF for lpddr23.
+
+lp4: high-z
+
+LP4/4x, Keep the pin NC.
+
+lp3: 0.6V
+
+DQ VREF for lpddr23.
+
+lp4: high-z
+
+LP4/4x, keep the pin NC.
+
+lp3: 1.2V
+
+LPDDR3 IO power
+
+lp4x: 0.6V
+DSI
+
+0.9V
+
+DSI digital power
+
+DSI
+
+1.2V
+
+DSI driver power
+
+DSI
+
+1.8V
+
+DSI analog power
+
+EFUSE
+
+1.8V
+
+ANAGRP
+
+DSI1
+AVDD12_
+DSI1
+AVDD18_
+DSI1
+AVDD18_
+EFUSE
+
+AVDD09_
+
+EMMC
+
+0.9V
+
+eMMC digital power
+
+EMMC
+
+1.8V
+
+eMMC analog power
+
+VCC18_G
+
+GPIO1/4
+
+1.8V
+
+GPIO1/4/5/PMIC I/O power
+
+PIO
+
+/5/PMIC
+
+VCC1833_
+
+GPIO2
+
+1.8V/3.3V
+
+GPIO2 IO power
+
+GPIO3
+
+1.8V/3.3V
+
+GPIO3 IO power
+
+HDMI
+
+0.9V
+
+HDMI digital power
+
+HDMI
+
+1.8V
+
+HDMI 1.8V power
+
+HDMI
+
+3.3V
+
+HDMI 3.3V power
+
+PCIEA
+
+0.9V
+
+PCIEA digital power
+
+PCIEA
+
+1.8V
+
+PCIEA analog power
+
+PCIEB
+
+0.9V
+
+PCIEB digital power
+
+PCIEB
+
+1.8V
+
+PCIEB analog power
+
+PCIEC
+
+0.9V
+
+PCIEC digital power
+
+EMMC
+AVDD18_
+EMMC
+
+GPIO2
+VCC1833_
+GPIO3
+AVDD09_
+HDMI
+AVDD18_
+HDMI
+AVDD33_
+HDMI
+AVDD09_
+PCIEA
+AVDD18_
+PCIEA
+AVDD09_
+PCIEB
+AVDD18_
+PCIEB
+AVDD09_
+
+PCIEC
+AVDD18_
+
+PCIEC
+
+1.8V
+
+PCIEC analog power
+
+PLL
+
+0.9V
+
+System PLL power supply
+
+PLL
+
+1.8V
+
+System PLL power supply
+
+QSPI
+
+1.8V/3.3V
+
+QSPI IO power
+
+SD card
+
+1.8V/3.3V
+
+SD card IO power
+
+USB2.0
+
+0.9V
+
+USB2.0 digital power
+
+USB2.0
+
+1.8V
+
+USB2.0 1.8V power
+
+USB2.0
+
+3.3V
+
+USB2.0 3.3V power
+
+PCIEC
+AVDD09_
+PLL
+AVDD18_
+PLL
+VCC1833_
+QSPI
+VCC1833_
+MMC1
+AVDD09_
+USB
+AVDD18_
+USB
+AVDD33_
+USB
+
+4.7 Multi-Function Pin Registers (MFPRs)
+In X1 are defined and implemented Multi-Function Pin Registers (MFPRs). In
+particular, there are 129 MFPR in total, starting from the base address 0xD401_E000
+with a stride of 0x4, as tabled below.
+MFPR ID
+
+Address
+
+Offset
+
+GPIO_00
+
+0xD401E004
+
+0x4
+
+GPIO_01
+
+0xD401E008
+
+0x8
+
+GPIO_02
+
+0xD401E00C
+
+0xC
+
+GPIO_03
+
+0xD401E010
+
+0x10
+
+GPIO_04
+
+0xD401E014
+
+0x14
+
+GPIO_05
+
+0xD401E018
+
+0x18
+
+GPIO_06
+
+0xD401E01C
+
+0x1C
+
+GPIO_07
+
+0xD401E020
+
+0x20
+
+GPIO_08
+
+0xD401E024
+
+0x24
+
+GPIO_09
+
+0xD401E028
+
+0x28
+
+GPIO_10
+
+0xD401E02C
+
+0x2C
+
+GPIO_11
+
+0xD401E030
+
+0x30
+
+GPIO_12
+
+0xD401E034
+
+0x34
+
+GPIO_13
+
+0xD401E038
+
+0x38
+
+GPIO_14
+
+0xD401E03C
+
+0x3C
+
+GPIO_15
+
+0xD401E040
+
+0x40
+
+GPIO_16
+
+0xD401E044
+
+0x44
+
+GPIO_17
+
+0xD401E048
+
+0x48
+
+GPIO_18
+
+0xD401E04C
+
+0x4C
+
+GPIO_19
+
+0xD401E050
+
+0x50
+
+GPIO_20
+
+0xD401E054
+
+0x54
+
+GPIO_21
+
+0xD401E058
+
+0x58
+
+GPIO_22
+
+0xD401E05C
+
+0x5C
+
+GPIO_23
+
+0xD401E060
+
+0x60
+
+GPIO_24
+
+0xD401E064
+
+0x64
+
+GPIO_25
+
+0xD401E068
+
+0x68
+
+GPIO_26
+
+0xD401E06C
+
+0x6C
+
+GPIO_27
+
+0xD401E070
+
+0x70
+
+GPIO_28
+
+0xD401E074
+
+0x74
+
+GPIO_29
+
+0xD401E078
+
+0x78
+
+GPIO_30
+
+0xD401E07C
+
+0x7C
+
+GPIO_31
+
+0xD401E080
+
+0x80
+
+GPIO_32
+
+0xD401E084
+
+0x84
+
+GPIO_33
+
+0xD401E088
+
+0x88
+
+GPIO_34
+
+0xD401E08C
+
+0x8C
+
+GPIO_35
+
+0xD401E090
+
+0x90
+
+GPIO_36
+
+0xD401E094
+
+0x94
+
+GPIO_37
+
+0xD401E098
+
+0x98
+
+GPIO_38
+
+0xD401E09C
+
+0x9C
+
+GPIO_39
+
+0xD401E0A0
+
+0xA0
+
+GPIO_40
+
+0xD401E0A4
+
+0xA4
+
+GPIO_41
+
+0xD401E0A8
+
+0xA8
+
+GPIO_42
+
+0xD401E0AC
+
+0xAC
+
+GPIO_43
+
+0xD401E0B0
+
+0xB0
+
+GPIO_44
+
+0xD401E0B4
+
+0xB4
+
+GPIO_45
+
+0xD401E0B8
+
+0xB8
+
+GPIO_46
+
+0xD401E0BC
+
+0xBC
+
+GPIO_47
+
+0xD401E0C0
+
+0xC0
+
+GPIO_48
+
+0xD401E0C4
+
+0xC4
+
+GPIO_49
+
+0xD401E0C8
+
+0xC8
+
+GPIO_50
+
+0xD401E0CC
+
+0xCC
+
+GPIO_51
+
+0xD401E0D0
+
+0xD0
+
+GPIO_52
+
+0xD401E0D4
+
+0xD4
+
+GPIO_53
+
+0xD401E0D8
+
+0xD8
+
+GPIO_54
+
+0xD401E0DC
+
+0xDC
+
+GPIO_55
+
+0xD401E0E0
+
+0xE0
+
+GPIO_56
+
+0xD401E0E4
+
+0xE4
+
+GPIO_57
+
+0xD401E0E8
+
+0xE8
+
+GPIO_58
+
+0xD401E0EC
+
+0xEC
+
+GPIO_59
+
+0xD401E0F0
+
+0xF0
+
+GPIO_60
+
+0xD401E0F4
+
+0xF4
+
+GPIO_61
+
+0xD401E0F8
+
+0xF8
+
+GPIO_62
+
+0xD401E0FC
+
+0xFC
+
+GPIO_63
+
+0xD401E100
+
+0x100
+
+GPIO_64
+
+0xD401E104
+
+0x104
+
+GPIO_65
+
+0xD401E108
+
+0x108
+
+GPIO_66
+
+0xD401E10C
+
+0x10C
+
+GPIO_67
+
+0xD401E110
+
+0x110
+
+GPIO_68
+
+0xD401E114
+
+0x114
+
+GPIO_69
+
+0xD401E118
+
+0x118
+
+PRI_TDI
+
+0xD401E11C
+
+0x11C
+
+PRI_TMS
+
+0xD401E120
+
+0x120
+
+PRI_TCK
+
+0xD401E124
+
+0x124
+
+PRI_TDO
+
+0xD401E128
+
+0x128
+
+GPIO_74
+
+0xD401E12C
+
+0x12C
+
+GPIO_75
+
+0xD401E130
+
+0x130
+
+GPIO_76
+
+0xD401E134
+
+0x134
+
+GPIO_77
+
+0xD401E138
+
+0x138
+
+GPIO_78
+
+0xD401E13C
+
+0x13C
+
+GPIO_79
+
+0xD401E140
+
+0x140
+
+GPIO_80
+
+0xD401E144
+
+0x144
+
+GPIO_81
+
+0xD401E148
+
+0x148
+
+GPIO_82
+
+0xD401E14C
+
+0x14C
+
+GPIO_83
+
+0xD401E150
+
+0x150
+
+GPIO_84
+
+0xD401E154
+
+0x154
+
+GPIO_85
+
+0xD401E158
+
+0x158
+
+QSPI_DAT0
+
+0xD401E168
+
+0x168
+
+QSPI_DAT1
+
+0xD401E16C
+
+0x16C
+
+QSPI_DAT2
+
+0xD401E170
+
+0x170
+
+QSPI_DAT3
+
+0xD401E174
+
+0x174
+
+QSPI_CS1
+
+0xD401E178
+
+0x178
+
+QSPI_CLK
+
+0xD401E17C
+
+0x17C
+
+MMC1_DAT
+
+0xD401E1B8
+
+0x1B8
+
+0xD401E1BC
+
+0x1BC
+
+0xD401E1C0
+
+0x1C0
+
+0xD401E1C4
+
+0x1C4
+
+3
+MMC1_DAT
+2
+MMC1_DAT
+1
+MMC1_DAT
+
+0
+MMC1_CM
+
+0xD401E1C8
+
+0x1C8
+
+MMC1_CLK
+
+0xD401E1CC
+
+0x1CC
+
+GPIO_110
+
+0xD401E1D0
+
+0x1D0
+
+PWR_SCL
+
+0xD401E1D4
+
+0x1D4
+
+PWR_SDA
+
+0xD401E1D8
+
+0x1D8
+
+VCXO_EN
+
+0xD401E1DC
+
+0x1DC
+
+DVL0
+
+0xD401E1E0
+
+0x1E0
+
+DVL1
+
+0xD401E1E4
+
+0x1E4
+
+PMIC_INT_
+
+0xD401E1E8
+
+0x1E8
+
+GPIO_86
+
+0xD401E1EC
+
+0x1EC
+
+GPIO_87
+
+0xD401E1F0
+
+0x1F0
+
+GPIO_88
+
+0xD401E1F4
+
+0x1F4
+
+GPIO_89
+
+0xD401E1F8
+
+0x1F8
+
+GPIO_90
+
+0xD401E1FC
+
+0x1FC
+
+GPIO_91
+
+0xD401E200
+
+0x200
+
+GPIO_92
+
+0xD401E204
+
+0x204
+
+GPIO_111
+
+0xD401E20C
+
+0x20C
+
+D
+
+N
+
+GPIO_112
+
+0xD401E210
+
+0x210
+
+GPIO_113
+
+0xD401E214
+
+0x214
+
+GPIO_114
+
+0xD401E218
+
+0x218
+
+GPIO_115
+
+0xD401E21C
+
+0x21C
+
+GPIO_116
+
+0xD401E220
+
+0x220
+
+GPIO_117
+
+0xD401E224
+
+0x224
+
+GPIO_118
+
+0xD401E228
+
+0x228
+
+GPIO_119
+
+0xD401E22C
+
+0x22C
+
+GPIO_120
+
+0xD401E230
+
+0x230
+
+GPIO_121
+
+0xD401E234
+
+0x234
+
+GPIO_122
+
+0xD401E238
+
+0x238
+
+GPIO_123
+
+0xD401E23C
+
+0x23C
+
+GPIO_124
+
+0xD401E240
+
+0x240
+
+GPIO_125
+
+0xD401E244
+
+0x244
+
+GPIO_126
+
+0xD401E248
+
+0x248
+
+GPIO_127
+
+0xD401E24C
+
+0x24C
+
+4.7.1 MFPR Functional Description
+4.7.1.1 I/O PAD Parameter Definition
+
+The input thresholds of Buffer Mode of I/O PADs are tabled below.
+ST1:ST0==2'b00
+Input
+
+Min
+
+Typ
+
+Max
+
+Unit
+
+VT
+
+0.75
+
+0.91
+
+1.09
+
+V
+
+VT PU
+
+0.74
+
+0.90
+
+1.08
+
+V
+
+VT PD
+
+0.76
+
+0.92
+
+1.10
+
+V
+
+Threshold
+
+Instead, the input thresholds of Schmitt Trigger Mode of I/O PADs are tabled below.
+ST1:ST0==2'b01
+Input
+
+Min
+
+Typ
+
+Max
+
+Unit
+
+VT+
+
+0.82
+
+0.97
+
+1.13
+
+V
+
+VT-
+
+0.72
+
+0.85
+
+1.02
+
+V
+
+VT+PU
+
+0.81
+
+0.96
+
+1.12
+
+V
+
+VT-PU
+
+0.71
+
+0.84
+
+1.01
+
+V
+
+VT+PD
+
+0.82
+
+0.98
+
+1.14
+
+V
+
+VT-PD
+
+0.73
+
+0.86
+
+1.03
+
+V
+
+Typ
+
+Max
+
+Unit
+
+Threshold
+
+ST1:ST0==2'b10/2'b11
+Input
+Threshold
+
+Min
+
+VT+
+
+0.87
+
+1.04
+
+1.19
+
+V
+
+VT-
+
+0.69
+
+0.80
+
+0.95
+
+V
+
+VT+PU
+
+0.86
+
+1.03
+
+1.18
+
+V
+
+VT-PU
+
+0.68
+
+0.79
+
+0.94
+
+V
+
+VT+PD
+
+0.88
+
+1.05
+
+1.20
+
+V
+
+VT-PD
+
+0.69
+
+0.81
+
+0.96
+
+V
+
+4.7.1.2 MFPR Field Description
+
+Bit(s)
+
+Field
+
+Typ
+
+Reset
+
+Description
+
+e
+31:16
+
+RSVD
+
+RO
+
+0
+
+This field is reserved for future use
+
+15
+
+PULL SEL
+
+RW
+
+0x1
+
+This field selects between two sets of
+controls for the pull-up and pull-down
+functionality as follows:
+▪
+
+0: The pull-up and pull-down
+
+resistors are controlled by the selected
+alternate function for the pin
+￮
+
+1: The pull-up and pull-down
+
+resistors are controlled by the <PULLUP
+EN> and <PULLDN EN> fields in this
+register, overriding the function indicated
+by the selected alternate function.
+During low-power states, this field is
+overridden to 1 and controlled by the
+<PULLUP EN> and <PULLDN EN>
+fields.
+
+In these low-power states, this field is
+effectively 1, although the register value
+is not changed (refer to low-power
+(sleep) mode operation for more
+information).
+14
+
+PULLUP EN
+
+RW
+
+0x0
+
+This field controls the output function
+while the <PULL SEL> field is set to 1 (or
+is effectively 1) as follows:
+▪
+
+0: The internal pull-up resistor of the
+
+pin is disabled
+▪
+
+1: The internal pull-up resistor of the
+
+pin is enabled
+The address and reset value is on a
+pin-by-pin basis. Do not rely on the reset
+value of this field. It must be configured
+by software to the desired settings.
+13
+
+PULLDN EN
+
+RW
+
+0x0
+
+This field controls the output function
+while <PULL SEL> is set to 1 (or is
+effectively 1) as follows:
+▪
+
+0: The internal pull-down resistor of
+
+the pin is disabled
+￮
+
+1: The internal pull-down resistor of
+
+the pin is enabled
+The address and reset value is on a
+pin-by-pin basis . Do not rely on the reset
+value of this field. It must be configured
+by software to the desired settings.
+12:11
+
+DRIVE[1:0]
+
+RW
+
+0x2
+
+This field defines the drive strength and
+slew rate for this pin (in functional mode
+when the pin is driving HIGH or LOW
+value) as follows:
+
+▪
+
+2'b00: SLOW
+
+▪
+
+2'b01: SLOW
+
+￮
+
+2'b10: MEDIUM
+
+▪
+
+2'b11: FAST
+
+They are the DS1 and DS0 bit of the
+drive strength in the current table.
+10
+
+DRIVE[2]
+
+RW
+
+0x0
+
+This is the DS2 bit to program for higher
+level of driving strength in the current
+table.
+The address and reset value is on a
+pin-by-pin basis. Do not rely on the reset
+value of this field. It must be configured
+by software to the desired settings.
+For Medium (all GPIOs except for SD
+card), it is 010.
+For Fast (SD card I/O), it is 110.
+
+9:8
+
+ST[1:0]
+
+RW
+
+0x0
+
+This field controls the Schmitt trigger
+input threshold as follows:
+￮
+
+2'b00: buffer input, threshold is 0.9v
+
+▪
+
+2'b01/10/11: enabled the Schmitt
+
+trigger with larger hysteresis for VT- and
+VT+ threshold (refer to Section 4.7.1.1)
+7
+
+SLE
+
+RW
+
+0x0
+
+This field enables/disables the slew rate
+output control as follows:
+￮
+
+1'b1: Enabled
+
+▪
+
+1'b0: Disabled
+
+Enabling the slew rate output control will
+slow down the output ramp for EMI
+considerations.
+
+6
+
+EDGE_CLEA
+
+RW
+
+0x1
+
+R
+
+This field enable/disable the
+edge-detection logic as follows:
+￮
+
+1'b0: Enabled and ready to detect an
+
+edge
+▪
+
+1'b1: Disabled and no edge is
+
+detected
+This is an enable for the
+<EDGE_FALL_EN> and
+<EDGE_RISE_EN> control fields.
+This field is only present when a pin has
+been defined as potentially waking up on
+an edge.
+If the device is not configured in this
+manner, this field is not present (i.e.
+reserved) and writing to it has no effect
+(refer to Section 4.5 for more
+information about which MFPRs include
+or not include these bits).
+5
+
+EDGE_FALL_
+EN
+
+RW
+
+0x0
+
+This field enables/disable to detect a
+falling edge as follows:
+▪
+
+1'b0: Disabled
+
+▪
+
+1'b1: Enable
+
+To detect a falling edge on this pin,
+￮
+
+The pin needs not be an output
+
+▪
+
+This field must be set to 1
+
+￮
+
+The <EDGE_CLEAR> field must be
+
+set to 0
+This field is only present when a pin has
+been defined as potentially waking up on
+an edge.
+If the device is not configured in this
+
+manner, this field is not present (i.e.
+reserved) and writing to it has no effect
+(refer to Section 4.5 for more
+information about which MFPRs include
+or not include these bits).
+4
+
+EDGE_RISE_
+
+RW
+
+0x0
+
+EN
+
+This field enables/disable to detect a
+rising edge as follows:
+￮
+
+1'b0: Disables
+
+￮
+
+1'b1: Enabled
+
+To detect a rising edge on this pin,,
+•
+
+The pin need not be an output
+
+￮
+
+This field must be set to 1
+
+￮
+
+The <EDGE_CLEAR> field must be
+
+set to 0
+This field is only present when a pin has
+been defined as potentially waking up on
+an edge.
+If the device is not configured in this
+manner, this field is not present (i.e.
+reserved). and writing to it has no effect
+(refer to Section 4.5 for more
+information about which MFPRs include
+or not include these bits).
+3
+
+SPU
+
+RW
+
+0x0
+
+This field enables/disables a strong pull
+resistor as follows:
+￮
+
+1'b0: Disabled
+
+￮
+
+1'b1: Enabled
+
+This field is used for I2C or SD card
+PADs which require a strong pull
+resistor.
+
+2:0
+
+AF SEL
+
+RW
+
+0x0
+
+This field is used for the selection of an
+alternate function for a pin between eight
+possible options as follows:
+•
+
+0x0: Alternate function 0 (always as
+
+the primary at reset)
+￮
+
+0x1: Alternate function 1
+
+￮
+
+0x2: Alternate function 2
+
+￮
+
+0x3: Alternate function 3
+
+•
+
+0x4: Alternate function 4
+
+￮
+
+0x5: Alternate function 5
+
+￮
+
+0x6: Alternate function 6
+
+•
+
+0x7: Alternate function 7
+
+5. Electrical Characteristics
+5.1 Pin AC/DC Operating Conditions
+Item
+
+Symbol/P
+
+Min
+
+Typ
+
+Max
+
+Unit
+
+in
+Digital Power
+
+VCC_M1
+
+0.85
+
+0.9
+
+1.0
+
+V
+
+PLL
+
+AVDD09_
+
+0.855
+
+0.9
+
+0.945
+
+V
+
+1.71
+
+1.8
+
+1.89
+
+V
+
+0.855
+
+0.9
+
+0.945
+
+V
+
+PLL
+AVDD18_
+PLL
+OSC
+
+AVDD09_
+AFEAP
+
+Note
+
+AVDD18_
+
+1.71
+
+1.8
+
+1.89
+
+V
+
+1.71
+
+1.8
+
+1.89
+
+V
+
+0.855
+
+0.9
+
+0.945
+
+V
+
+1.71
+
+1.8
+
+1.89
+
+V
+
+0.855
+
+0.9
+
+0.945
+
+V
+
+1.71
+
+1.8
+
+1.89
+
+V
+
+0.855
+
+0.9
+
+0.945
+
+V
+
+3.135
+
+3.3
+
+3.465
+
+V
+
+1.71
+
+1.8
+
+1.89
+
+V
+
+0.855
+
+0.9
+
+0.945
+
+V
+
+0.855
+
+0.9
+
+0.945
+
+V
+
+1.71
+
+1.8
+
+1.89
+
+V
+
+1.14
+
+1.2
+
+1.26
+
+V
+
+AFEAP
+PCIeC
+
+AVDD18_
+PCIEC
+AVDD09_
+PCIEC
+
+PCIeB
+
+AVDD18_
+PCIEB
+AVDD09_
+PCIEB
+
+PCIeA
+
+AVDD18_
+PCIEA
+AVDD09_
+PCIEA
+
+USB IO
+
+AVDD33_
+USB
+
+USB PHY
+
+AVDD18_
+USB
+AVDD09_
+USB
+
+MIPI DSI PHY
+
+AVDD09_
+DSI1
+AVDD18_
+DSI1
+
+MIPI DSI IO
+
+AVDD12_
+
+DSI1
+MIPI CSI PHY
+
+AVDD09_
+
+0.855
+
+0.9
+
+0.945
+
+V
+
+1.71
+
+1.8
+
+1.89
+
+V
+
+0.855
+
+0.9
+
+0.945
+
+V
+
+1.71
+
+1.8
+
+1.89
+
+V
+
+3.135
+
+3.3
+
+3.465
+
+V
+
+0.855
+
+0.9
+
+0.945
+
+V
+
+1.71
+
+1.8
+
+1.89
+
+V
+
+1.71
+
+1.8
+
+1.89
+
+V
+
+CSI
+AVDD18_
+CSI
+HDMI
+
+AVDD09_
+HDMI
+AVDD18_
+HDMI
+AVDD33_
+HDMI
+
+eMMC
+
+VDD09_E
+MMC
+V18_EMM
+C
+
+QSPI
+
+VCC1833
+_QSPI
+
+SD
+
+VCC1833
+
+power
+3.135
+
+3.3
+
+3.465
+
+V
+
+domain
+
+1.71
+
+1.8
+
+1.89
+
+V
+
+Dual
+
+_MMC1
+
+DDR PHY
+
+AVDD18_
+
+power
+3.135
+
+3.3
+
+3.465
+
+V
+
+1.71
+
+1.8
+
+1.89
+
+V
+
+1.71
+
+1.8
+
+1.89
+
+V
+
+PHY
+AVDD18_
+DDR
+
+Dual
+
+domain
+
+AVDD11_
+
+1.045
+
+1.1
+
+1.155
+
+V
+
+LP4/4X
+
+1.14
+
+1.2
+
+1.26
+
+V
+
+LP3
+
+0.855
+
+0.9
+
+0.945
+
+V
+
+0.855
+
+0.9
+
+0.945
+
+V
+
+0.57
+
+0.6
+
+0.63
+
+V
+
+1.14
+
+1.2
+
+1.26
+
+V
+
+1.71
+
+1.8
+
+1.89
+
+V
+
+0.855
+
+0.9
+
+0.945
+
+V
+
+-1.71
+
+-1.8
+
+-1.89
+
+V
+
+1.71
+
+1.8
+
+1.89
+
+V
+
+1.71
+
+1.8
+
+1.89
+
+V
+
+3.135
+
+3.3
+
+3.465
+
+V
+
+1.71
+
+1.8
+
+1.89
+
+V
+
+DDR
+
+AVDDU_
+PHY
+AVDDU_
+DDR
+DDR IO
+
+AVDD06_
+DDR
+VDDQ_V1
+P2
+
+eFuse
+
+AVDD18_
+EFUSE
+
+Audio Logic
+
+AUD_VD
+DU09
+
+Audio Power NEG
+
+AUD_VN
+EG
+
+Audio Power POS
+
+AUD_VP
+OS
+
+Audio Analog
+
+AVDD18_
+AUD
+AVDD3V3
+_AUD
+
+GPIO
+
+VCC18_G
+PIO
+
+GIOP3
+
+VCC1833
+
+1.71
+
+1.8
+
+1.89
+
+V
+
+Dual
+
+_GPIO3
+
+GIOP2
+
+VCC1833
+
+power
+3.135
+
+3.3
+
+3.465
+
+V
+
+domain
+
+1.71
+
+1.8
+
+1.89
+
+V
+
+Dual
+
+_GPIO2
+
+power
+3.135
+
+3.3
+
+3.465
+
+V
+
+domain
+
+5.2 Absolute Max Ratings
+5.2.1 For Pins
+
+Item
+
+Symbol/Pin
+
+Min
+
+Max
+
+Unit
+
+Digital Power
+
+VCC_M1
+
+-0.1
+
+1.035
+
+V
+
+PLL
+
+AVDD09_PLL
+
+-0.1
+
+1.035
+
+V
+
+AVDD18_PLL
+
+-0.1
+
+2.07
+
+V
+
+AVDD09_AFEA
+
+-0.1
+
+1.035
+
+V
+
+-0.1
+
+2.07
+
+V
+
+-0.1
+
+2.07
+
+V
+
+-0.1
+
+1.035
+
+V
+
+-0.1
+
+2.07
+
+V
+
+OSC
+
+P
+AVDD18_AFEA
+P
+PCIeC
+
+AVDD18_PCIE
+C
+AVDD09_PCIE
+C
+
+PCIeB
+
+AVDD18_PCIE
+B
+
+AVDD09_PCIE
+
+-0.1
+
+1.035
+
+V
+
+-0.1
+
+2.07
+
+V
+
+-0.1
+
+1.035
+
+V
+
+B
+PCIeA
+
+AVDD18_PCIE
+A
+AVDD09_PCIE
+A
+
+USB IO
+
+AVDD33_USB
+
+-0.1
+
+3.795
+
+V
+
+USB PHY
+
+AVDD18_USB
+
+-0.1
+
+2.07
+
+V
+
+AVDD09_USB
+
+-0.1
+
+1.035
+
+V
+
+MIPI DSI IO
+
+AVDD12_DSI1
+
+-0.1
+
+1.38
+
+V
+
+MIPI DSI PHY
+
+AVDD09_DSI1
+
+-0.1
+
+1.035
+
+V
+
+AVDD18_DSI1
+
+-0.1
+
+2.07
+
+V
+
+AVDD09_CSI
+
+-0.1
+
+1.035
+
+V
+
+AVDD18_CSI
+
+-0.1
+
+2.07
+
+V
+
+AVDD09_HDMI
+
+-0.1
+
+1.035
+
+V
+
+AVDD18_HDMI
+
+-0.1
+
+2.07
+
+V
+
+AVDD33_HDMI
+
+-0.1
+
+3.795
+
+V
+
+VDD09_EMMC
+
+-0.1
+
+1.035
+
+V
+
+V18_EMMC
+
+-0.1
+
+2.07
+
+V
+
+VCC1833_QSPI
+
+-0.1
+
+2.07
+
+V
+
+-0.1
+
+3.795
+
+V
+
+MIPI CSI PHY
+
+HDMI
+
+eMMC
+
+QSPI
+
+SD
+
+VCC1833_MMC
+
+-0.1
+
+2.07
+
+V
+
+-0.1
+
+3.795
+
+V
+
+AVDD18_PHY
+
+-0.1
+
+2.07
+
+V
+
+AVDD18_DDR
+
+-0.1
+
+2.07
+
+V
+
+AVDD11_DDR
+
+-0.1
+
+1.265
+
+V
+
+AVDD11_DDR
+
+-0.1
+
+1.38
+
+V
+
+AVDDU_PHY
+
+-0.1
+
+1.035
+
+V
+
+AVDDU_DDR
+
+-0.1
+
+1.035
+
+V
+
+AVDD06_DDR
+
+-0.1
+
+0.69
+
+V
+
+VDDQ_V1P2
+
+-0.1
+
+1.38
+
+V
+
+AVDD18_EFUS
+
+-0.1
+
+2.07
+
+V
+
+1
+
+DDR PHY
+
+DDR IO
+
+eFuse
+
+E
+Audio Logic
+
+AUD_VDDU09
+
+-0.1
+
+1.035
+
+V
+
+Audio Power NEG
+
+AUD_VNEG
+
+N/A
+
+-2.07
+
+V
+
+Audio Power POS
+
+AUD_VPOS
+
+-0.1
+
+2.07
+
+V
+
+Audio Analog
+
+AVDD18_AUD
+
+-0.1
+
+2.07
+
+V
+
+AVDD3V3_AUD
+
+-0.1
+
+3.795
+
+V
+
+GPIO
+
+VCC18_GPIO
+
+-0.1
+
+2.07
+
+V
+
+GPIO3
+
+VCC1833_GPI
+
+-0.1
+
+2.07
+
+V
+
+-0.1
+
+3.795
+
+V
+
+O3
+
+GPIO2
+
+VCC1833_GPI
+
+-0.1
+
+2.07
+
+V
+
+-0.1
+
+3.795
+
+V
+
+O2
+
+5.2.2 For Packages
+
+Item
+
+Symbol
+
+Min
+
+Max
+
+Unit
+
+Operating
+
+Ta
+
+-40
+
++85
+
+°C
+
+Junction Temperature
+
+Tj
+
+N/A
+
+125
+
+℃
+
+Storage Temperature
+
+Tstg
+
+-40
+
+125
+
+℃
+
+Temperature
+(Industrial Standard)
+
+5.3 Pin Max Currents
+Item
+
+Symbol/Pin
+
+Max
+
+Unit
+
+Digital Power
+
+VCC_M1
+
+10000
+
+mA
+
+PLL
+
+AVDD09_PLL
+
+5
+
+mA
+
+AVDD18_PLL
+
+5
+
+mA
+
+AVDD09_AFEAP
+
+5
+
+mA
+
+AVDD18_AFEAP
+
+5
+
+mA
+
+AVDD18_PCIEC
+
+50
+
+mA
+
+AVDD09_PCIEC
+
+100
+
+mA
+
+OSC
+
+PCIeC
+
+PCIeB
+
+AVDD18_PCIEB
+
+50
+
+mA
+
+AVDD09_PCIEB
+
+100
+
+mA
+
+AVDD18_PCIEA
+
+50
+
+mA
+
+AVDD09_PCIEA
+
+100
+
+mA
+
+USB IO
+
+AVDD33_USB
+
+90
+
+mA
+
+USB PHY
+
+AVDD18_USB
+
+90
+
+mA
+
+AVDD09_USB
+
+15
+
+mA
+
+AVDD09_DSI1
+
+20
+
+mA
+
+AVDD18_DSI1
+
+50
+
+mA
+
+MIPI DSI IO
+
+AVDD12_DSI1
+
+50
+
+mA
+
+MIPI CSI PHY
+
+AVDD09_CSI
+
+70
+
+mA
+
+AVDD18_CSI
+
+100
+
+mA
+
+AVDD09_HDMI
+
+10
+
+mA
+
+AVDD18_HDMI
+
+10
+
+mA
+
+AVDD33_HDMI
+
+10
+
+mA
+
+VDD09_EMMC
+
+50
+
+mA
+
+V18_EMMC
+
+50
+
+mA
+
+QSPI
+
+VCC1833_QSPI
+
+150
+
+mA
+
+SD
+
+VCC1833_MMC1
+
+150
+
+mA
+
+PCIeA
+
+MIPI DSI PHY
+
+HDMI
+
+eMMC
+
+DDR PHY
+
+AVDD18_PHY
+
+200
+
+mA
+
+AVDD18_DDR
+
+20
+
+mA
+
+AVDD11_DDR
+
+100
+
+mA
+
+AVDDU_PHY
+
+100
+
+mA
+
+AVDDU_DDR
+
+100
+
+mA
+
+AVDD06_DDR
+
+100
+
+mA
+
+VDDQ_V1P2
+
+600
+
+mA
+
+eFuse
+
+AVDD18_EFUSE
+
+150
+
+mA
+
+Audio Logic
+
+AUD_VDDU09
+
+1
+
+mA
+
+Audio Power NEG
+
+AUD_VNEG
+
+102
+
+mA
+
+Audio Power POS
+
+AUD_VPOS
+
+102
+
+mA
+
+Audio Analog
+
+AVDD18_AUD
+
+10
+
+mA
+
+AVDD3V3_AUD
+
+100
+
+mA
+
+DDR IO
+
+5.4 Power On/Off Sequence
+5.4.1 Power On Sequence
+
+•
+
+A short pressure (i.e. 1 second) of the power button will turn on the X1 processor
+
+automatically if it was off before (cold start)
+•
+
+The Power Management IC (PMIC) will turn on firstly the core logic then the
+
+external I/O to ensure proper initialization
+•
+
+PMIC will asserts a Power-On-Reset (POR) to initialize the system and ensure a
+
+defined starting state
+The order of the involved pins with state change during the power on sequence is
+depicted below.
+
+5.4.2 Power Off Sequence
+
+•
+
+A long pressure (i.e. 6 seconds) of the power button will turn off the X1 processor.
+
+The order of the involved pins with state change during the power off sequence is
+depicted below.
+
+5.5 Power Consumption
+5.5.1 In Typical Application Scenarios
+
+To be defined soon.
+
+5.5.2 In Particular Application Scenarios
+To be defined soon.
+
+

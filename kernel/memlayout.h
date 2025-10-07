@@ -25,6 +25,10 @@
 #define UART0 0xd4017000L
 #define UART0_IRQ 74
 
+// OrangePi RV2 SDHCI (SD card controller)
+#define SDHCI0 0xd4280000L
+#define SDHCI0_IRQ 99
+
 // No VirtIO disk on real hardware (will add SD/MMC later)
 // #define VIRTIO0 0x10001000
 // #define VIRTIO0_IRQ 1

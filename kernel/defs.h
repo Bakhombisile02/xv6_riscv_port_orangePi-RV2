@@ -95,6 +95,7 @@ void            scheduler(void) __attribute__((noreturn));
 void            sched(void);
 void            sleep(void*, struct spinlock*);
 void            userinit(void);
+void            timerinit(void);
 int             kwait(uint64);
 void            wakeup(void*);
 void            yield(void);
@@ -137,6 +138,7 @@ int             fetchaddr(uint64, uint64*);
 void            syscall();
 
 // trap.c
+extern void     kernelvec(void);
 extern uint     ticks;
 void            trapinit(void);
 void            trapinithart(void);

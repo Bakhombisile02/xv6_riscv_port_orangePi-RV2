@@ -2,6 +2,7 @@ K=kernel
 U=user
 
 OBJS = \
+  $K/sbi.o \
   $K/entry.o \
   $K/start.o \
   $K/console.o \
@@ -28,7 +29,7 @@ OBJS = \
   $K/sysfile.o \
   $K/kernelvec.o \
   $K/plic.o \
-  $K/virtio_disk.o
+    $K/disk_stub.o \
 
 # riscv64-unknown-elf- or riscv64-linux-gnu-
 # perhaps in /opt/riscv/bin

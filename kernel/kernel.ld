@@ -4,10 +4,10 @@ ENTRY( _entry )
 SECTIONS
 {
   /*
-   * ensure that entry.S / _entry is at 0x80000000,
-   * where qemu's -kernel jumps.
+   * OrangePi RV2: Kernel loads at 0x40000000 (1GB)
+   * Bootloader (U-Boot) loads kernel here, then OpenSBI jumps to _entry
    */
-  . = 0x80000000;
+  . = 0x40000000;
 
   .text : {
     kernel/entry.o(_entry)

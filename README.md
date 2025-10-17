@@ -1,4 +1,13 @@
-# xv6 RISC-V Port for OrangePi RV2
+# xv6 RISC-V Port for OrangePi RV2 (Barebones Mode)
+
+## ⚠️ CURRENT STATUS: BAREBONES MODE - NO PERSISTENT STORAGE
+
+**This version is configured to boot without any persistent storage or file system.**  
+See `BAREBONES_MODE.md` for details on this configuration.
+
+To restore persistent storage functionality, see the restoration instructions in `BAREBONES_MODE.md`.
+
+---
 
 ## Academic Research Project
 

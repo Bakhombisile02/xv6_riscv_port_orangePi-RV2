@@ -224,7 +224,9 @@ userinit(void)
   p = allocproc();
   initproc = p;
   
-  p->cwd = namei("/");
+  // In barebones mode, no file system available, so no cwd
+  // p->cwd = namei("/");
+  p->cwd = 0;
 
   p->state = RUNNABLE;
 
@@ -513,21 +515,23 @@ forkret(void)
   release(&p->lock);
 
   if (first) {
+    // In barebones mode, skip file system initialization
     // File system initialization must be run in the context of a
     // regular process (e.g., because it calls sleep), and thus cannot
     // be run from main().
-    fsinit(ROOTDEV);
+    // fsinit(ROOTDEV);
 
     first = 0;
     // ensure other cores see first=0.
     __sync_synchronize();
 
-    // We can invoke kexec() now that file system is initialized.
-    // Put the return value (argc) of kexec into a0.
-    p->trapframe->a0 = kexec("/init", (char *[]){ "/init", 0 });
-    if (p->trapframe->a0 == -1) {
-      panic("exec");
-    }
+    // In barebones mode, we can't use kexec() since there's no file system
+    // Instead, just run a simple loop or halt
+    // We'll let the process just continue to user space
+    // p->trapframe->a0 = kexec("/init", (char *[]){ "/init", 0 });
+    // if (p->trapframe->a0 == -1) {
+    //   panic("exec");
+    // }
   }
 
   // return to user space, mimicing usertrap()'s return.

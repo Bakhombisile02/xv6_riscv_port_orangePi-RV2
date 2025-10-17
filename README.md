@@ -392,7 +392,7 @@ Student ID: 4617320
 
 ## Project Status
 
-**Status**: ✅ Complete and Functional  
+**Status**: Compiles and kernal boots but XV6 Boot loops
 **Build**: Passing  
 **Hardware**: Tested on OrangePi RV2  
 **Date**: October 2025  

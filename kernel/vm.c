@@ -29,8 +29,8 @@ kvmmake(void)
   // uart registers
   kvmmap(kpgtbl, UART0, UART0, PGSIZE, PTE_R | PTE_W);
   
-  // SDHCI SD card controller
-  kvmmap(kpgtbl, SDHCI0, SDHCI0, PGSIZE, PTE_R | PTE_W);
+  // SDHCI SD card controller (disabled in barebones mode)
+  // kvmmap(kpgtbl, SDHCI0, SDHCI0, PGSIZE, PTE_R | PTE_W);
 
   // virtio mmio disk interface
   //   kvmmap(kpgtbl, VIRTIO0, VIRTIO0, PGSIZE, PTE_R | PTE_W);

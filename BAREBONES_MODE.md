@@ -13,6 +13,7 @@ This version of xv6 has been stripped down to a **barebones configuration** that
 - `kernel/disk_stub.c` - Updated to provide no-op disk operations instead of panicking
 - `kernel/main.c` - Commented out buffer cache, inode table, file table, and disk initialization
 - `kernel/proc.c` - Disabled file system initialization (fsinit) and user program loading (kexec)
+- `kernel/vm.c` - Commented out SDHCI memory mapping (not needed without SD card access)
 
 **Files No Longer Used:**
 - `kernel/sdhci.c` - SD card driver (not compiled)
@@ -171,13 +172,16 @@ To restore the SDHCI driver and persistent storage:
    - Uncomment `kexec("/init", ...)` in `forkret()`
    - Change `p->cwd = 0` back to `p->cwd = namei("/")`
 
-4. Edit `Makefile`:
+4. Edit `kernel/vm.c`:
+   - Uncomment the SDHCI memory mapping: `kvmmap(kpgtbl, SDHCI0, SDHCI0, PGSIZE, PTE_R | PTE_W);`
+
+5. Edit `Makefile`:
    - Uncomment user programs section
    - Uncomment `mkfs` build
    - Uncomment `fs.img` creation
    - Add back disk to QEMU options
 
-5. Rebuild:
+6. Rebuild:
    ```bash
    make clean
    make
